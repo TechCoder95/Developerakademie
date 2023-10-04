@@ -7,4 +7,3 @@ function saveArrayToLocalStorage(key, array){
 function loadArrayToLocalStorage(key){
     return JSON.parse(localStorage.getItem(key));
 }
-awdawdawdaw
