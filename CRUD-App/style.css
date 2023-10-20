@@ -1,0 +1,10 @@
+body{
+    background-color: gray;
+}
+
+.card {
+
+    box-shadow: 0px 2px 2px 0 rgb(0 0 0 /14%);
+    padding: 8px;
+    margin-bottom: 32px;
+}
