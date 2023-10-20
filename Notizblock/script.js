@@ -1,6 +1,6 @@
 //#region [Variablen]
 //Arrays
-let notes = [{"title":"awda", "text":"wadad"}, {"title":"awda", "text":"wadad"}];
+let notes = [{"title":"Meine erste Notiz", "text":"Dies ist die erste Notiz"}, {"title":"Meine zweite Notiz", "text":"Dies ist die zweite Notiz"}];
 
 //#endregion
 
@@ -11,14 +11,6 @@ function render() {
     let content = document.getElementById('content')
     content.innerHTML = ''; //Löscht alles aus der "Content" - Div 
     content.innerHTML += /*html*/`
-
-    <div class="navigation">
-        <ul>
-            <a href="index.html" >Notizen</a>
-            <a href="trash.html" >Trash</a>
-        </ul>
-
-    </div>
 
 
     <div class="eingabe">
@@ -32,8 +24,8 @@ function render() {
     //Willst du mehrere Sachen aus einem Array anzeigen lassen willst, nimmt man eine For-Schleife
     for (let i = notes.length-1; i >= 0; i--) {
         console.log(i);
-        const title = notes[i].title; //Wert aus Array in die neue Constante "name"
-        const text = notes[i].text; //Wert aus Array in die neue Constante "phonenumber"
+        const title = notes[i].title; //Wert aus Array in die neue Constante "Titel der Notiz"
+        const text = notes[i].text; //Wert aus Array in die neue Constante "Text der in der Notiz steht"
 
         content.innerHTML += /*html*/`
         <div class="card">
@@ -74,24 +66,6 @@ function deleteContact(i) {
     render();
 }
 
-
-
-function content2(){
-    let content2 = document.getElementById('content2')
-    content2.innerHTML = ''; //Löscht alles aus der "Content" - Div 
-    content2.innerHTML += /*html*/`
-    <div class="navigation2">
-        <ul>
-            <a href="" onclick="render()">Notizen</a>
-            <a href="" onclick="render2()">Trash</a>
-        </ul>
-
-    </div>`;
-
-
-
-
-}
 
 
 //Array in local Storage speichern
