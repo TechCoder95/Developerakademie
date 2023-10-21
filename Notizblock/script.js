@@ -17,7 +17,7 @@ function render() {
         <h2>Willkommen bei meinen Notizen</h2>
         <input placeholder="Title" id="ititle">
         <textarea placeholder="Schreibe etwas..." id="itext" ></textarea>
-        <button onclick="addContact()">Hinzufügen</button>
+        <button onclick="addNote()">Hinzufügen</button>
         
     </div> `; //+= fügt hinzu was da drin steht
 
@@ -31,12 +31,12 @@ function render() {
         <div class="card">
             <b> ${title} </b><br> 
             ${text} <br><br>
-            <button onClick="deleteContact(${i})">Löschen</button>
+            <button onClick="deleteNote(${i})">Löschen</button>
         </div> `;
     }
 }
 
-function addContact() {
+function addNote() {
     let titles = document.getElementById('ititle');
     let texts = document.getElementById('itext');
 
@@ -59,7 +59,7 @@ function addContact() {
 
 }
 
-function deleteContact(i) {
+function deleteNote(i) {
     notes.splice(i, 1);
 
     save();
