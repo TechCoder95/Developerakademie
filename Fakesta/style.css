@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+
+body {
+    margin: 0px;
+    background-color: darkgray;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 10pt;
+    overflow-x: hidden;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navigation {
+    position: sticky;
+    height: 60px;
+    width: 100vw;
+    top: 0;
+
+    box-shadow: 0px 0px 1px 1px black;
+    background-color: white;
+z-index: 999;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* background-color: aqua; */
+}
+
+.rightnav img {
+    margin-right: 11px;
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 16px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+}
+
+.topper {
+    /* background-color: orange; */
+    padding: 5px;
+    border: 1px lightgrey solid;
+    margin-bottom: -3px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.topper img {
+    margin-left: 10px;
+
+}
+
+.bottem {
+    height: 90px;
+    margin-top: -5px;
+    padding-top: 40px;
+    padding-left: 8px;
+    /* background-color: yellow; */
+}
+
+.topper2 {
+    margin-left: 16px;
+
+}
+
+.profilpicture {
+    height: 40px;
+    width: 40px;
+}
+
+
+.author {
+    /* background-color: blue; */
+    height: 20px;
+}
+
+.location {
+    /* background-color: chartreuse; */
+    height: 20px;
+    color: darkgray;
+
+}
+
+.postimg {
+    width: 800px;
+    height: 500px;
+    object-fit: cover;
+    border: 1px solid lightgray;
+}
+
+.descripton {
+    /* background-color: brown;    */
+    margin-bottom: 16px;
+}
+
+.commentar {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.profilpicture {
+    border-radius: 30px;
+    object-fit: cover;
+    height: 40px;
+    width: 40px;
+}
+
+.icon {
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}
+
+.radius {
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    margin-bottom: -7px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logo img {
+    height: 30px;
+}
+
+.logo h1 {
+    margin-left: 10px;
+}
+
+.search input {
+    border-radius: 3px;
+    width: 400px;
+    border: 1px;
+    height: 30px;
+    box-shadow: inset 0px 0px 3px 1px lightgray;
+}
+
