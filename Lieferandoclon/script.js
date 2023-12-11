@@ -58,6 +58,37 @@ function render() {
 
 }
 
+function Basket() {
+  //Die Variable "content" deklariert mit dem Inhalt aus der ID content
+  let content = document.getElementById('basket')
+  content.innerHTML = ''; //Löschtalles aus der "Content" - Div 
+  content.innerHTML += /*html*/` `; //+= fügt hinzu was da drin steht
+
+  //Willst du mehrere Sachen aus einem Array anzeigen lassen willst, nimmt man eine For-Schleife
+
+  for (let i = 0; i < basketnames.length; i++) {
+    const name = basketnames[i];
+    const descriptions = basketdescription[i];
+    const amounts = basketamount[i];
+
+    let sum = basketprices[i] * basketamount[i];
+    document.getElementById('basket').innerHTML += /*html*/ `
+            <div class="basket-meal">
+                    <div class="basket-name"><div>${amounts}x</div><b>${name}</b><div class="basket-price"><b>${sum.toFixed(2)} €</b></div></div>
+                    <div class="basket-description">${descriptions}</div>
+                    <div class="picture">
+                        <img id="add" onclick="increaseAmount(${i}), render()" src="img/plus.jpg" alt="">
+                        <img id ="slice" onclick="decreaseAmount(${i}),render()" src="img/minus.png" alt="">
+                        <img onclick="delItem(${i}), render()" src="img/trash.png" alt="">
+                    </div>
+            </div>
+    `;
+  }
+
+  totalSum();
+}
+
+
 function addMeal(name, price, descript, i) {
 
   let amount = basketnames.indexOf(essen[i].name);
@@ -97,6 +128,15 @@ function decreaseAmount(i) {
 
 }
 
+
+function delItem(i){
+  basketnames.splice(i, 1);
+  basketprices.splice(i, 1);
+  basketamount.splice(i, 1);
+  basketdescription.splice(i, 1);
+}
+
+
 function totalSum() {
   let sum = 0;
   for (let i = 0; i < basketprices.length; i++) {
@@ -106,31 +146,3 @@ function totalSum() {
 }
 
 
-function Basket() {
-  //Die Variable "content" deklariert mit dem Inhalt aus der ID content
-  let content = document.getElementById('basket')
-  content.innerHTML = ''; //Löschtalles aus der "Content" - Div 
-  content.innerHTML += /*html*/` `; //+= fügt hinzu was da drin steht
-
-  //Willst du mehrere Sachen aus einem Array anzeigen lassen willst, nimmt man eine For-Schleife
-
-  for (let i = 0; i < basketnames.length; i++) {
-    const name = basketnames[i];
-    const descriptions = basketdescription[i];
-    const amounts = basketamount[i];
-
-    let sum = basketprices[i] * basketamount[i];
-    document.getElementById('basket').innerHTML += /*html*/ `
-            <div class="basket-meal">
-                    <div class="basket-name"><div>${amounts}x</div><b>${name}</b><div class="basket-price"><b>${sum.toFixed(2)} €</b></div></div>
-                    <div class="basket-description">${descriptions}</div>
-                    <div class="picture">
-                        <img id="add" onclick="increaseAmount(${i}), render()" src="img/plus.jpg" alt="">
-                        <img id ="slice" onclick="decreaseAmount(${i}),render()" src="img/minus.png" alt="">
-                    </div>
-            </div>
-    `;
-  }
-
-  totalSum();
-}
