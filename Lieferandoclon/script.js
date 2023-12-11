@@ -21,7 +21,6 @@ let basketprices = [];
 let basketdescription = [];
 let basketamount = [];
 
-
 //#endregion
 
 function render() {
@@ -88,7 +87,6 @@ function Basket() {
   totalSum();
 }
 
-
 function addMeal(name, price, descript, i) {
 
   let amount = basketnames.indexOf(essen[i].name);
@@ -105,7 +103,6 @@ function addMeal(name, price, descript, i) {
   }
   totalSum();
 }
-
 
 function increaseAmount(i) {
   if (basketamount[i] >= 1) {
@@ -128,14 +125,12 @@ function decreaseAmount(i) {
 
 }
 
-
 function delItem(i){
   basketnames.splice(i, 1);
   basketprices.splice(i, 1);
   basketamount.splice(i, 1);
   basketdescription.splice(i, 1);
 }
-
 
 function totalSum() {
   let sum = 0;
