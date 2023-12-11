@@ -2,78 +2,30 @@
 //Arrays
 let essen = [
   {
-    'name': 'Cheeseburger',
-    'price': 5,
-    'description': 'Ein Cheeseburger halt'
+    'name': '30cm irgendeinen Sub',
+    'price': 5.55,
+    'description': '30cm Sub'
+  }, {
+    'name': 'Chicken Terriyaki Sub 15cm',
+    'price': 11.62,
+    'description': 'Chicken Terriyaki Sub 15cm lang'
   }, {
     'name': 'Chicken Terriyaki Sub',
-    'price': 5555,
-    'description': 'Ein Cheeseburger halt'
-  }, {
-    'name': '30cm fick dich! -> Mit Sahne',
-    'price': 5,
-    'description': 'Ein Cheeseburger halt'
-  }, {
-    'name': 'Cheeseburger',
-    'price': 5,
-    'description': 'Ein Cheeseburger halt'
-  },{
-    'name': 'Cheeseburger',
-    'price': 5,
-    'description': 'Ein Cheeseburger halt'
-  },{
-    'name': 'Cheeseburger',
-    'price': 5,
-    'description': 'Ein Cheeseburger halt'
-  },{
-    'name': 'Cheeseburger',
-    'price': 5,
-    'description': 'Ein Cheeseburger halt'
-  },{
-    'name': 'Cheeseburger',
-    'price': 5,
-    'description': 'Ein Cheeseburger halt'
-  },{
-    'name': 'Cheeseburger',
-    'price': 5,
-    'description': 'Ein Cheeseburger halt'
+    'price': 25.00,
+    'description': 'Chicken Terriyaki Sub 30cm lang'
   }
-
 ];
 
-//Oke bevor ich das jetzt vergesse, ich muss dringend ein Amount einbauen, das heißt ich muss das JSON Array vom Basket auflösen und in verschiedene Arrays ballern.
-//Wenn das erledigt ist muss ich schauen das der Splice funktioniert!
+let basketnames = [];
+let basketprices = [];
+let basketdescription = [];
+let basketamount = [];
 
-
-let basket = [
-  {
-    'name': 'Cheeseburger',
-    'price': 5,
-    'description': 'Ein Cheeseburger halt'
-  },{
-    'name': 'Cheeseburger',
-    'price': 5,
-    'description': 'Ein Cheeseburger halt'
-  },{
-    'name': 'Cheeseburger',
-    'price': 5,
-    'description': 'Ein Cheeseburger halt'
-  },{
-    'name': 'Cheeseburger',
-    'price': 5,
-    'description': 'Ein Cheeseburger halt'
-  },
-];
-
-let names = [];
-let prices = [];
-let description = [];
 
 //#endregion
 
 function render() {
 
-  arrayconvert();
   Basket();
   //Die Variable "content" deklariert mit dem Inhalt aus der ID content
   let content = document.getElementById('content')
@@ -86,40 +38,71 @@ function render() {
 
     document.getElementById('content').innerHTML += /*html*/ `
             <div class="meal">
-                    <div class="name"><b>${meal['name']}</b><img class="plus" onclick="addMeal({name: '${meal['name']}', price: ${meal['price']},description:'${meal['description']}'}), render()" src="img/plus.jpg" alt=""></div>
-                    
+                    <div class="name"><b>${meal['name']}</b><img class="plus" onclick="addMeal('${meal['name']}',${meal['price']},'${meal['description']}', ${i}) , render()" src="img/plus.jpg" alt=""></div>
                     <div class="description">${meal['description']}</div>
-                    <div class="price"><b>${meal['price']}</b></div>
-            </div>
-    `;
-  }
+                    <div class="price"><b>${meal['price'].toFixed(2)} €</b></div>
+            </div>    
+    `; }
+
+    if(basketnames[0] == null)
+
+    document.getElementById('basket').innerHTML += /*html*/ `
+      <div>
+        Dein Warenkorb ist leer!
+      </div>
+      `;
+
+    else{
+      document.getElementById('basket').innerHTML += ``;
+    }
+
 }
 
-//erstmal noch irrelevant
-function addtoBasket(name, price) {
-  essen.push(meal['${}']);
-  essen.push(meal['price'])
+function addMeal(name, price, descript, i) {
+
+  let amount = basketnames.indexOf(essen[i].name);
+
+  if (amount == -1) {
+    basketnames.push(name);
+    basketprices.push(price);
+    basketdescription.push(descript);
+    basketamount.push(1);
+  }
+  else {
+    basketamount[amount]++;
+    basketprices[amount] = essen[i].price;
+  }
+  totalSum();
 }
 
-function arrayconvert() {
-  for (let i = 0; i < essen.length; i++) {
-    names.push(essen[i].name);
+
+function increaseAmount(i) {
+  if (basketamount[i] >= 1) {
+    basketamount[i]++;
+    basketprices[i] = essen[i].price
   }
-  for (let i = 0; i < essen.length; i++) {
-    prices.push(essen[i].price);
+
+}
+
+function decreaseAmount(i) {
+  if (basketamount[i] > 1) {
+    basketamount[i]--;
+    basketprices[i] = essen[i].price
+  } else /* wenn Artikel die Menge 0 aufweist*/ {
+    basketnames.splice(i, 1);
+    basketprices.splice(i, 1);
+    basketamount.splice(i, 1);
+    basketdescription.splice(i, 1);
   }
-  for (let i = 0; i < essen.length; i++) {
-    description.push(essen[i].description);
-  }
+
 }
 
 function totalSum() {
   let sum = 0;
-  for (let i = 0; i < basket.length; i++) {
-    sum += basket[i].price;
+  for (let i = 0; i < basketprices.length; i++) {
+    sum += basketprices[i] * basketamount[i];
   }
-  
-  document.getElementById('totalsum').innerHTML =  sum+' €';
+  document.getElementById('totalsum').innerHTML = sum.toFixed(2) + ' €';
 }
 
 
@@ -130,39 +113,24 @@ function Basket() {
   content.innerHTML += /*html*/` `; //+= fügt hinzu was da drin steht
 
   //Willst du mehrere Sachen aus einem Array anzeigen lassen willst, nimmt man eine For-Schleife
-  for (let i = 0; i < basket.length; i++) {
-    const basketmeal = basket[i];
 
+  for (let i = 0; i < basketnames.length; i++) {
+    const name = basketnames[i];
+    const descriptions = basketdescription[i];
+    const amounts = basketamount[i];
+
+    let sum = basketprices[i] * basketamount[i];
     document.getElementById('basket').innerHTML += /*html*/ `
             <div class="basket-meal">
-                    <div class="basket-name"><div>1x</div><b>${basketmeal['name']}</b><div class="basket-price"><b>${basketmeal['price']} €</b></div></div>
-                    <div class="basket-description">${basketmeal['description']}</div>
+                    <div class="basket-name"><div>${amounts}x</div><b>${name}</b><div class="basket-price"><b>${sum.toFixed(2)} €</b></div></div>
+                    <div class="basket-description">${descriptions}</div>
                     <div class="picture">
-                        <img id="add" onclick="addMeal(/*!!!Hier kommt die neue funktion rein!!!*/), render()" src="img/plus.jpg" alt="">
-                        <img id ="slice" onclick="delMeal(basket[${i}]),render()" src="img/minus.png" alt="">
+                        <img id="add" onclick="increaseAmount(${i}), render()" src="img/plus.jpg" alt="">
+                        <img id ="slice" onclick="decreaseAmount(${i}),render()" src="img/minus.png" alt="">
                     </div>
             </div>
     `;
   }
 
-totalSum();
-}
-
-function addAmount(){
-
-
-
-}
-
-
-
-function addMeal(string){
-
-    basket.push(string)
-
-}
-
-function delMeal(i){
-
-    basket.splice(i,1)
+  totalSum();
 }
