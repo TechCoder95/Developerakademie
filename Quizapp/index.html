@@ -32,7 +32,13 @@
 
       <div class="card quiz-card">
         <img src="img/brainbg.jpg" class="card-img-top">
-        <div class="card-body">
+        
+        <div class="card-body" id="endScreen" style="display: none;">
+          Quiz beendet!
+
+        </div>
+        
+        <div class="card-body" id="questionBody">
           <h5 class="card-title" id="question">Frage</h5>
 
           <div class="card mb-2 quiz-answer-card">
@@ -58,10 +64,10 @@
 
 
           <div class="question-footer">
-            <span><b>1</b> von <b id="fragenanzahl">5</b> Fragen</span>
+            <span><b id="aktuellefrage">1</b> von <b id="fragenanzahl">5</b> Fragen</span>
             
 
-            <button class="btn btn-primary" id="next-button" disabled>Nächste Frage</button>
+            <button onclick="next_question()" class="btn btn-primary" id="next-button" disabled>Nächste Frage</button>
           </div>
 
 

@@ -9,11 +9,11 @@ let questions = [
 
     },
     {
-        'question': "",
-        'answer_1': "",
-        'answer_2': "",
-        'answer_3': "",
-        'answer_4': "",
+        'question': "Was bedeutet der HTML tag <a>?",
+        'answer_1': "Text Fett",
+        'answer_2': "Container",
+        'answer_3': "Ein Link",
+        'answer_4': "Kursiv",
         'right_answer': 3
 
     }, {
@@ -30,7 +30,7 @@ let questions = [
         'answer_2': "",
         'answer_3': "",
         'answer_4': "",
-        'right_answer': ""
+        'right_answer': 3
 
     }, {
         'question': "",
@@ -61,6 +61,16 @@ function init() {
 
 
 function showquestion() {
+
+    if (currentQuestion >= questions.length) {
+        
+        document.getElementById('endScreen').style = '';
+        document.getElementById('questionBody').style = 'display:none;'
+
+    } else {
+        document.getElementById('aktuellefrage').innerHTML = currentQuestion+1;
+    };
+
 
     let question = questions[currentQuestion];
 
@@ -96,4 +106,29 @@ function answer(selection) {
     document.getElementById('next-button').disabled = false;
 
 
+}
+
+
+function next_question() {
+
+    currentQuestion++;
+    document.getElementById('next-button').disabled = true;
+    resetAnswerButtons();
+    showquestion();
+
+}
+
+function resetAnswerButtons() {
+    document.getElementById('answer_1').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_1').parentNode.classList.remove('bg-success');
+
+    document.getElementById('answer_2').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_2').parentNode.classList.remove('bg-success');
+
+    document.getElementById('answer_3').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_3').parentNode.classList.remove('bg-success');
+
+    document.getElementById('answer_4').parentNode.classList.remove('bg-danger');
+    document.getElementById('answer_4').parentNode.classList.remove('bg-success');
+    
 }
