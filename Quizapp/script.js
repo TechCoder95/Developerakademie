@@ -59,6 +59,21 @@ function init() {
     showquestion();
 }
 
+function resetQuiz (){
+
+    currentQuestion = 0;
+    document.getElementById('endScreen').style = 'display:none';
+    document.getElementById('startScreen').style = '';
+
+
+}
+
+
+function showstartScreen (){
+    document.getElementById('questionBody').style = '';
+    document.getElementById('startScreen').style = 'display:none;';
+}
+
 
 function showquestion() {
 

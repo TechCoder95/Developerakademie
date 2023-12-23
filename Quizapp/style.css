@@ -11,7 +11,7 @@ body{
 }
 
 .quiz-card{
-    width: 30rem;
+    width: 80rem;
 }
 
 .question-footer{
@@ -28,4 +28,88 @@ body{
 
 .bg-success, .bg-danger{
     color: white !important;
+}
+
+.col-md-4 {
+    width: 150px !important;
+    background-color: #27355C;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.radius{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.global-radius{
+    border-radius: 10px !important;
+}
+
+
+.left-side{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logo{
+    width: 80px;
+    height: 70px;
+    margin-top: 25px;
+}
+
+.left-nav{
+    margin-top: 30px;
+    height: 200px;
+    width: 100%;
+    text-align: center;
+    color: black !important;
+    text-decoration: none !important;
+}
+
+.left-nav a {
+    width: 100%;
+    color: #AAB5D2;
+    font-size: 20px;
+}
+
+.left-nav a:hover {
+    color: white;
+}
+
+.active{
+    color: white !important;
+    border-left: 4px solid white !important;
+}
+
+.col-md-8{
+    width: 647px !important;
+}
+
+
+
+.startscreen{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background-image: url('img/brainbg.jpg');
+    background-size: cover;
+    background-position: -10px;
+}
+
+.start-footer{
+    display: flex;
+    justify-content: end;
+    padding-top: 12px;
+
+}
+
+.startscreen button{
+    width: 200px;
+}
+
+.title{
+    height: 300px;
 }
