@@ -21,27 +21,27 @@ function navigation() {
         <a href="index.html"><img src="assets/img/logo.png" alt="Kochwelt"></a>
         <nav class="navigation">
             <ul class="flex-around">
-                <a onclick="side_load(homepage),witch_side('start')" href="#" id="start" style="">Start</a>
-                <a onclick="side_load(knezovic),witch_side('recipeofday')" href="#" id="recipeofday" style="">Rezept des Tages</a>
-                <a onclick="side_load(contact),witch_side('contact')" href="#" id="contact" style="">Kontakt</a>
-                <a onclick="side_load(impressum),witch_side('impressum')" href="#" id="impressum" style="">Impressum</a>
+                <a onclick="side_load(homepage,'start')" href="#" id="start" style="">Start</a>
+                <a onclick="side_load(knezovic,'recipeofday')" href="#" id="recipeofday" style="">Rezept des Tages</a>
+                <a onclick="side_load(contact, 'contact')" href="#" id="contact" style="">Kontakt</a>
+                <a onclick="side_load(impressum, 'impressum')" href="#" id="impressum" style="">Impressum</a>
             </ul>
         </nav>
     </div>
     `;
 }
 
+
+//Das ist die Hauptfunktion!
+function side_load(path,id) {
+    navigation();
+    switchsides(path);
+    witch_side(id)
+};
+
 function witch_side(id){
   document.getElementById(id).style = 'color: green; border-bottom: 5px solid green';
 }
-
-
-
-function side_load(path) {
-    navigation();
-    switchsides(path);
-};
-
 
 function switchsides(path){
     filePath = path;
