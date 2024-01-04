@@ -6,6 +6,9 @@
     margin-top: 50px;
     min-height: 600px;
 }
+.navigation ul{
+    margin-top: 14px;
+}
 .form{
     display: flex;
     flex-direction: column;

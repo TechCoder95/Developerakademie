@@ -9,7 +9,9 @@ h1 {
     min-height: 1000px;
 
 }
-
+.navigation ul{
+    margin-top: 18px;
+}
 
 
 .titlepic {

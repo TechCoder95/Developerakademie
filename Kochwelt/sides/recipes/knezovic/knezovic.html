@@ -1,93 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
+<link rel="stylesheet" href="sides/recipes/knezovic/knezovic.css">
+<script src="sides\recipes\knezovic\knezovic.js"></script>
+<!-- Stylesheet für jede Seite muss angegeben werden! -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="sides/recipes/knezovic/knezovic.css">
-    <script src="sides\recipes\knezovic\knezovic.js"></script>
-</head>
+<div class="knezovic">
+    <section class="section1">
 
-<body>
-
-
-
-
-    <!-- Stylesheet für jede Seite muss angegeben werden! -->
-
-
-
-
-    <div class="knezovic">
-        <section class="section1">
-
-            <div class="part1">
-                <!-- Name des Gerichts -->
-                <h1>Serbischer Bohneneintopf</h1>
-                <!-- Bild des Gerichts -->
-                <img src="sides/recipes/knezovic/serbischer-bohneneintopf.jpg" alt="" class="titlepic">
-                <div class="timedate">
-                    <div class="time timedatedif flex">
-                        <img src="assets/img/icons/clock-regular.svg" alt="" class="icon">
-                        <p>75min</p>
-                    </div>
-                    <div class="difficulty timedatedif flex">
-                        <img src="assets/img/icons/brain-solid.svg" alt="" class="icon">
-                        <p>simple</p>
-                    </div>
-                    <div class="date timedatedif flex">
-                        <img src="assets/img/icons/calendar-alt-regular.svg" alt="" class="icon">
-                        <p>04.01.2024</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <div class="trennlinie"></div>
-
-        <section class="section2">
-            <div class="calc">
-                Zutaten für:<input class="calc_input" type="number" placeholder="" value="2" id="calc_input"
-                    style="height: 25px; width: 150px;"><a onclick="createTable()" id="calc_send"
-                    class="calc_send">Portionen</a>
-            </div>
-            <!-- Dieses innere kommt aus dem Javascript -->
-            <div id="content_recipe" class="content_recipe"></div>
-        </section>
-        <section class="section3">
-            <h2>Zubereitung</h2>
-            <div class="timedate s3">
+        <div class="part1">
+            <!-- Name des Gerichts -->
+            <h1>Serbischer Bohneneintopf</h1>
+            <!-- Bild des Gerichts -->
+            <img src="sides/recipes/knezovic/serbischer-bohneneintopf.jpg" alt="" class="titlepic">
+            <div class="timedate">
                 <div class="time timedatedif flex">
                     <img src="assets/img/icons/clock-regular.svg" alt="" class="icon">
-                    <p>45min</p>
+                    <p>75min</p>
                 </div>
                 <div class="difficulty timedatedif flex">
-                    <img src="assets/img/icons/clock-regular.svg" alt="" class="icon">
-                    <p>Gesamtzeit ca. 45 Minuten</p>
+                    <img src="assets/img/icons/brain-solid.svg" alt="" class="icon">
+                    <p>simple</p>
+                </div>
+                <div class="date timedatedif flex">
+                    <img src="assets/img/icons/calendar-alt-regular.svg" alt="" class="icon">
+                    <p>04.01.2024</p>
                 </div>
             </div>
-                <p class="s3_text">Die Bohnen in abgekochtem, kaltem Wasser (ca. 1,5 l) ca. 12 Stunden einweichen. Die Bohnen in dem Einweichwasser ca. 1,5 Stunden bei schwacher Hitze kochen lassen.
-
-                    Das Suppengrün putzen und waschen und klein schneiden. Die Zwiebel und den Knoblauch schälen und klein schneiden, die Kartoffeln schälen, waschen und würfeln. Die Tomaten häuten und in Stücke schneiden.
-                    
-                    Den Speck klein würfeln, in dem Öl knusprig ausbraten, die Zwiebel darin glasig braten, den Knoblauch, die Kartoffelwürfel, das Suppengrün, die Tomaten, die Gewürze und 2 Tassen Wasser hinzufügen und alles ca. 30 Minuten garen. Die Paprikaschote putzen, waschen, würfeln und 10 Minuten im Gemüse kochen lassen.
-                    
-                    Die Bohnen mit dem Tomatenmark unter das Gemüse mischen. Die Wurst in Scheiben schneiden und in der Suppe erhitzen. Die Suppe mit Petersilie bestreut anrichten.
-                    
-                    Nach Geschmack noch 1 - 2 EL Weinessig dazugeben.
-                </p>
-                <h3>Rezept erstellt von</h3>
-                    <div class="profile">
-                        <img class="profile_pic" src="assets/img/profile.png" alt="">
-                        <p>Dominik</p>
-                    </div>
+        </div>
+    </section>
 
 
-        </section>
-    </div>
+    <div class="trennlinie"></div>
 
-</body>
+    <section class="section2">
+        <div class="calc">
+            Zutaten für:<input class="calc_input" type="number" placeholder="" value="2" id="calc_input"
+                style="height: 25px; width: 150px;"><a onclick="createTable()" id="calc_send"
+                class="calc_send">Portionen</a>
+        </div>
+        <!-- Dieses innere kommt aus dem Javascript -->
+        <div id="content_recipe" class="content_recipe"></div>
+    </section>
+    <section class="section3">
+        <h2>Zubereitung</h2>
+        <div class="timedate s3">
+            <div class="time timedatedif flex">
+                <img src="assets/img/icons/clock-regular.svg" alt="" class="icon">
+                <p>45min</p>
+            </div>
+            <div class="difficulty timedatedif flex">
+                <img src="assets/img/icons/clock-regular.svg" alt="" class="icon">
+                <p>Gesamtzeit ca. 45 Minuten</p>
+            </div>
+        </div>
+        <p class="s3_text">Die Bohnen in abgekochtem, kaltem Wasser (ca. 1,5 l) ca. 12 Stunden einweichen. Die Bohnen in
+            dem Einweichwasser ca. 1,5 Stunden bei schwacher Hitze kochen lassen.
 
-</html>
+            Das Suppengrün putzen und waschen und klein schneiden. Die Zwiebel und den Knoblauch schälen und klein
+            schneiden, die Kartoffeln schälen, waschen und würfeln. Die Tomaten häuten und in Stücke schneiden.
+
+            Den Speck klein würfeln, in dem Öl knusprig ausbraten, die Zwiebel darin glasig braten, den Knoblauch, die
+            Kartoffelwürfel, das Suppengrün, die Tomaten, die Gewürze und 2 Tassen Wasser hinzufügen und alles ca. 30
+            Minuten garen. Die Paprikaschote putzen, waschen, würfeln und 10 Minuten im Gemüse kochen lassen.
+
+            Die Bohnen mit dem Tomatenmark unter das Gemüse mischen. Die Wurst in Scheiben schneiden und in der Suppe
+            erhitzen. Die Suppe mit Petersilie bestreut anrichten.
+
+            Nach Geschmack noch 1 - 2 EL Weinessig dazugeben.
+        </p>
+        <h3>Rezept erstellt von</h3>
+        <div class="profile">
+            <img class="profile_pic" src="assets/img/profile.png" alt="">
+            <p>Dominik</p>
+        </div>
+
+
+    </section>
+</div>

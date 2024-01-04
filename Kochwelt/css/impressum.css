@@ -2,6 +2,9 @@
     display: flex;
     justify-content: center;
 }
+.navigation ul{
+    margin-top: 18px;
+}
 
 .impressum{
     width: 70vw;
