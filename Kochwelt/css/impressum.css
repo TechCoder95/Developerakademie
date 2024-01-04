@@ -1,0 +1,13 @@
+.section1 {
+    display: flex;
+    justify-content: center;
+}
+
+.impressum{
+    width: 70vw;
+    box-shadow: 5px 5px 15px 0px black;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 50px;
+    
+}

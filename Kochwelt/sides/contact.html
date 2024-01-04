@@ -1,4 +1,37 @@
+<link rel="stylesheet" href="node_modules\bootstrap\dist\css\bootstrap.min.css">
 <link rel="stylesheet" href="css/contact.css">
 <!-- Stylesheet für jede Seite muss angegeben werden! -->
+<div class="contact">
+    <h1>Kontakformular</h1>
+    <form class="form">
+        <div class="form-group">
+            <label>Vorname *</label> <input type="text" class="form-control" name="vorname" placeholder="Vorname"
+                required="required">
+        </div>
 
-<h1>Kontakt Funktioniert!</h1>
+        <div class="form-group">
+            <label>Nachname *</label> <input type="text" class="form-control" name="nachname" placeholder="Nachname"
+                required="required">
+        </div>
+
+        <div class="form-group">
+            <label>E-Mail *</label> <input type="email" class="form-control" name="email_name"
+                placeholder="ihre@email.de">
+        </div>
+
+        <div class="form-group">
+            <label>Betreff *</label> <input type="text" class="form-control" name="betreff" placeholder="Betreff"
+                required="required">
+        </div>
+
+        <div class="form-group">
+            <label>Mitteilung *</label>
+            <textarea class="form-control" name="mitteilung" placeholder="Mitteilung" required="required"></textarea>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" name="abschicken" value="Abschicken">
+        </div><small>Felder markiert mit * sind Pflichtfelder.</small>
+    </form>
+
+</div>

@@ -5,9 +5,9 @@ var homepage = 'sides/homepage.html';
 var contact = 'sides/contact.html';
 var impressum = 'sides/impressum.html';
 
-var knezovic = 'sides/recipes/knezovic.html';
-var pathperson2 = 'sides/recipes/...';
-var pathperson3 = 'sides/recipes/...';
+var knezovic = 'sides/recipes/knezovic/knezovic.html';
+var pathperson2 = 'sides/recipes/.../...';
+var pathperson3 = 'sides/recipes/.../...';
 
 
 function navigation() {
@@ -22,7 +22,7 @@ function navigation() {
         <nav class="navigation">
             <ul class="flex-around">
                 <a onclick="side_load(homepage,'start')" href="#" id="start" style="">Start</a>
-                <a onclick="side_load(knezovic,'recipeofday')" href="#" id="recipeofday" style="">Rezept des Tages</a>
+                <a onclick="side_load(knezovic,'recipeofday'), table_load()" href="#" id="recipeofday" style="">Rezept des Tages</a>
                 <a onclick="side_load(contact, 'contact')" href="#" id="contact" style="">Kontakt</a>
                 <a onclick="side_load(impressum, 'impressum')" href="#" id="impressum" style="">Impressum</a>
             </ul>
@@ -32,18 +32,20 @@ function navigation() {
 }
 
 
+
+
 //Das ist die Hauptfunktion!
 function side_load(path,id) {
     navigation();
-    switchsides(path);
-    witch_side(id)
+    switch_sides(path);
+    witch_side(id);
 };
 
 function witch_side(id){
   document.getElementById(id).style = 'color: green; border-bottom: 5px solid green';
 }
 
-function switchsides(path){
+function switch_sides(path){
     filePath = path;
     // Fetch-API verwenden, um den Inhalt der Datei abzurufen
     fetch(filePath)
@@ -58,8 +60,22 @@ function switchsides(path){
       .then(data => {
         // Den Text in das HTML-Element einfügen
         document.getElementById("content").innerHTML += data;
+        footer();
       })
       .catch(error => {
         console.error('There was a problem with the fetch operation:', error);
       });
+}
+
+function footer(){
+  document.getElementById('content').innerHTML += /*html*/`
+    
+  <head>
+<link rel="stylesheet" href="css/footer.css">
+</head>
+  <div class="footer">
+      
+  </div>
+  `;
+
 }

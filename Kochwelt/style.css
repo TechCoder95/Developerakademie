@@ -1,5 +1,7 @@
 body{
     margin: 0;
+    font-family: 'Raleway', sans-serif;
+    color: rgb(99, 99, 99);
 }
 
 /* Header+Navigation */
