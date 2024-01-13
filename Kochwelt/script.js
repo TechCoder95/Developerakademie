@@ -14,9 +14,11 @@ function navigation() {
     document.getElementById('content').innerHTML = '';
     document.getElementById('content').innerHTML += /*html*/`
     
+    <!-- Stylesheet für die Navigation -->
     <head>
-<link rel="stylesheet" href="css/navigation.css">
-</head>
+      <link rel="stylesheet" href="css/navigation.css">
+    </head>
+    <!-- Einbau der Navigation -->
     <div class="header">
         <a href="index.html"><img src="assets/img/logo.png" alt="Kochwelt"></a>
         <nav class="navigation">
@@ -30,8 +32,6 @@ function navigation() {
     </div>
     `;
 }
-
-
 
 
 //Das ist die Hauptfunktion!
@@ -67,15 +67,17 @@ function switch_sides(path){
       });
 }
 
+// 
+
 function footer(){
   document.getElementById('content').innerHTML += /*html*/`
     
-  <head>
-<link rel="stylesheet" href="css/footer.css">
-</head>
-  <div class="footer">
+    <head>
+      <link rel="stylesheet" href="css/footer.css">
+    </head>
+    <div class="footer">
       
-  </div>
+    </div>
   `;
 
 }
