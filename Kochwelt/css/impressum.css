@@ -2,9 +2,7 @@
     display: flex;
     justify-content: center;
 }
-.navigation ul{
-    margin-top: 18px;
-}
+
 
 .impressum{
     width: 70vw;
@@ -13,4 +11,12 @@
     border-radius: 20px;
     margin-top: 50px;
     
+}
+
+.impressum h2{
+    font-size: 12pt;
+}
+
+.impressum a{
+    max-width: 50vw;
 }

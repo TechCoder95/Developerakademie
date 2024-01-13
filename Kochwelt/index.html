@@ -4,23 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Titel der Seite -->
     <title>Kochwelt</title>
-
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/logo_small.png" type="image/x-icon">
     <!-- Einbinden des Stylesheets -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/root.css">
     <!-- Einbinden des Scripts -->
     <script src="script.js"></script>
+    <!-- Einbinden von Google Fonts -->
     <link href="assets/css/fonts.css">
+    <!-- Einbinden von Cookiebot -->
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="98729060-47c3-4c72-ba71-8882355f7903"
+        data-blockingmode="auto" type="text/javascript"></script>
 
     
     <script src="sides/recipes/knezovic/knezovic.js"></script>
+    <!-- Einbinden eines Rezept Scripts -->
+    <script src="sides/recipes/winterscheid/winterscheid.js"></script>
+    <!-- Einbinden eines Rezept Scripts -->
+    <script src="sides/recipes/tobias/tobias.js"></script>
+
+    <!-- Einbinden des Bootstrap CSS -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
 
 </head>
 
-<!-- Startseite nachher wieder tauschen! -->
+<!-- Führt das Script zum Laden des Frameworks aus -->
 
-<body onload="side_load('sides/recipes/knezovic/knezovic.html', 'recipeofday'), table_load()">
+<body onload="side_load(homepage,'start')">
+    <!-- Fetcht die HTML in Body ein -->
     <div class="content" id="content"></div>
 </body>
+
 
 </html>

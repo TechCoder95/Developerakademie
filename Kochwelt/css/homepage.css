@@ -27,31 +27,38 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    color: grey;
 }
 
 .s1-textbox h3{
-    margin-block-start: 0em;
-    margin-block-end: 0em;
+    color: black;
+    font-weight: 700;
 }
 
 
-.recipe-open{
-    width: 200px;
-    height: 40px;
-    background-color: green;
-    color: white;
-    border: none;
-    margin-top: 25px;
-    cursor: pointer;
+.btn{
+    width: 250px;
 }
 /* Section 2 */
 
 .section2{
-    background-color: grey;
+    background-color: rgb(233, 233, 233);
     display: flex;
+    color: black;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
+}
+
+
+
+.section2 h2{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    color: black;
+    margin-top: 15px;
+    font-weight: 600;
 }
 
 .small-boxes{
@@ -68,6 +75,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
 }
 
 .s2-recips h4{
@@ -92,11 +100,19 @@
     margin-bottom: 50px;
 }
 
+.section3 h2{
+    
+    color: black;
+    margin-top: 20px;
+    font-weight: 700;
+}
+
 .s3-discuss{
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     width: 70vw;
     gap: 20px;
+    align-items: center;
 }
 
 
@@ -107,3 +123,76 @@
     display: flex;
     justify-content: space-around;
 }
+
+
+@media screen and (max-width: 1200px) {
+
+    .s1-content{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .s1-textbox{
+        align-items: center;
+    }
+    .recipe-open{
+        width: 200px;
+        height: 40px !important;
+        border-radius: 10px;
+    }
+    
+    .section2 {
+        margin-top: 10px;
+        flex-direction: column;
+        
+    }
+
+    .small-boxes {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .s2-recips {
+        align-items: center;
+        gap: 5px;
+    }
+
+    .section3{
+        flex-direction: column;
+    }
+    
+    .section3 h2{
+        width: 60vw;
+        text-align: center;
+    }
+
+    .s3-discuss {
+        flex-direction: column;
+        align-items: center;
+        width: 60vw;
+
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .bigpicture {
+        height: 150px;
+    }
+    .s1-textbox {
+        height: 200px;
+    }
+}
+
+
+@media screen and (max-width: 660px) {
+  
+
+    .s1-textbox {
+        height: auto;
+    }
+
+    .picture-small {
+        height: 150px;
+        width: 200px;
+    }
+}
+

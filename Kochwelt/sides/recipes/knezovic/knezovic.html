@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="sides/recipes/knezovic/knezovic.css">
-<script src="sides\recipes\knezovic\knezovic.js"></script>
 <!-- Stylesheet für jede Seite muss angegeben werden! -->
 
 <div class="knezovic">
@@ -32,9 +31,10 @@
 
     <section class="section2">
         <div class="calc">
-            Zutaten für:<input class="calc_input" type="number" placeholder="" value="2" id="calc_input"
-                style="height: 25px; width: 150px;"><a onclick="createTable()" id="calc_send"
-                class="calc_send">Portionen</a>
+            Zutaten für:
+            <input class="form-control calc_input" type="number" value="2" style="width: 150px;" id="calc_input">
+            <button type="button" class="btn btn-success" onclick="createTable()" id="calc_send">Portionen</button>
+           
         </div>
         <!-- Dieses innere kommt aus dem Javascript -->
         <div id="content_recipe" class="content_recipe"></div>
@@ -68,7 +68,7 @@
         </p>
         <h3>Rezept erstellt von</h3>
         <div class="profile">
-            <img class="profile_pic" src="assets/img/profile.png" alt="">
+            <img class="profile_pic" src="sides/recipes/knezovic/knezovic.jpg" alt="">
             <p>Dominik</p>
         </div>
 

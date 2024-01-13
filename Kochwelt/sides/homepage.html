@@ -1,21 +1,20 @@
 <link rel="stylesheet" href="css/homepage.css">
+
 <!-- Stylesheet für jede Seite muss angegeben werden! -->
 
 <div class="section1">
     <div class="s1-content">
-        <img src="assets/img/croissant.jpg" alt="" class="bigpicture">
+        <img src="sides/recipes/knezovic/serbischer-bohneneintopf.jpg" alt="" class="bigpicture">
         <div class="s1-textbox">
             <div>
-                <h3>Französische Croissants</h3>
+                <h3>Serbischer Bohneneintopf</h3>
             </div>
             <div>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim minima, eum eius odio fugiat tenetur
-                voluptas officia excepturi illo nostrum vel repellat! Distinctio asperiores cupiditate totam laborum
-                dignissimos voluptatem alias?
+                Die Bohnen in abgekochtem, kaltem Wasser (ca. 1,5 l) ca. 12 Stunden einweichen. Die Bohnen in dem
+                Einweichwasser ca. 1,5 Stunden bei schwacher Hitze kochen lassen. Das Suppengrün putzen und waschen und
+                klein schneiden. Die Zwiebel und den Knoblauch schälen und klein schneiden, die Kartoffeln...
             </div>
-            <button class="recipe-open" onclick="side_load('sides/recipes/knezovic.html', 'recipeofday')">
-                Rezept öffnen
-            </button>
+            <button type="button" class="btn btn-success" onclick="side_load('sides/recipes/knezovic/knezovic.html', 'recipeofday')">Rezept öffnen</button>
         </div>
 
     </div>
@@ -26,8 +25,8 @@
     <h2>Lust auf was Neues?</h2>
     <div class="small-boxes">
         <div class="s2-recips">
-            <img src="assets/img/croissant.jpg" alt="" class="picture-small">
-            <h4 class="small-text"> Frische Croissants</h4>
+            <a onclick="side_load(knezovic,'recipeofday')" style="cursor: pointer;"><img src="sides/recipes/knezovic/serbischer-bohneneintopf.jpg" alt="" class="picture-small"></a>
+            <h4 class="small-text"> Serbischer Bohneneintopf</h4>
         </div>
         <div class="s2-recips">
             <img src="assets/img/croissant.jpg" alt="" class="picture-small">
@@ -46,14 +45,15 @@
 <div class="section3">
     <h2>Pfanne vs. Wok - Was ist besser?</h2>
     <div class="s3-discuss">
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum,
-            illo mollitia deleniti perferendis animi debitis harum, provident odit ut omnis obcaecati ad expedita
-            nam fuga in labore totam sed nobis!</p>
 
         <img src="assets/img/wok.jpg" alt="" class="picture-small">
+        <p>
+            Ein Wok und eine Pfanne haben unterschiedliche Formen und Eigenschaften, die sich auf die Zubereitung und
+            den Geschmack von Gerichten auswirken. Während die optimale Temperatur im traditionellen Wok bei 200 °C bis
+            250 °C liegt, liegt die ideale Temperatur für eine Bratpfanne deutlich darunter. In einer gewöhnlichen
+            Pfanne sind Temperaturen von 140 °C bis 170 °C völlig ausreichend.
+        </p>
+
     </div>
 
 </div>
-
-
-<footer></footer>
