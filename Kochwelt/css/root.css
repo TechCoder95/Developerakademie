@@ -1,6 +1,16 @@
+html{
+    font-family: "Raleway", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
 body{
+    font-family: "Raleway", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
     margin: 0 !important;
-    font-family: 'Raleway', sans-serif !important;
     color: rgb(99, 99, 99);
     margin-top: 90px;
 }

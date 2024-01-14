@@ -7,12 +7,13 @@ var impressum = 'sides/impressum.html';
 
 //Die Variablen für die Rezepte
 var knezovic = 'sides/recipes/knezovic/knezovic.html';
+var knezovic2 = 'sides/recipes/knezovic2/knezovic2.html';
 var winterscheid = 'sides/recipes/winterscheid/winterscheid.html';
 var tobias = 'sides/recipes/tobias/tobias.html';
 
 
 //Die Funktion navigation() lädt die Navigation in das HTML-Element mit der ID "content"
-function navigation() {
+async function navigation() {
   document.getElementById('content').innerHTML = '';
   document.getElementById('content').innerHTML += /*html*/`
   
@@ -40,9 +41,9 @@ function navigation() {
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Rezepte </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#" onclick="side_load(knezovic, 'recipeofday')" id="recipeofday">Rezept 1</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="side_load(winterscheid, 'recipe2')" id="recipe2">Rezept 2</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="side_load(tobias, 'recipe3')" id="recipe3">Rezept 3</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="side_load(knezovic, 'recipeofday')" id="recipeofday">Serbischer Bohneneintopf</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="side_load(winterscheid, 'recipe2')" id="recipe2">Bohnensalat mit Ei und Tomate</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="side_load(knezovic2, 'recipe3')" id="recipe3">Plov - Russiches Reisgericht</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -62,25 +63,37 @@ function navigation() {
 
 //Das ist die Hauptfunktion!
 //Die Funktion side_load() lädt den Inhalt der Datei, die als Parameter übergeben wird, in das HTML-Element mit der ID "content"
-function side_load(path, id) {
-  navigation();
-  switch_sides(path);
-  witch_side(id);
+async function side_load(path, id) {
 
-  if(id == "recipeofday")
-    table_load();
+  await side_async(path, id);
+
+  if (id == "recipe2")
+    mwRecipeLoad();
+
+  if (id == "recipeofday")
+    createTable();
+
+  if (id == "recipe3")
+    createTable2();
 };
 
+async function side_async(path, id) {
+  await navigation();
+  await switch_sides(path);
+  await witch_side(id);
+}
+
+
 //Die Funktion witch_side() ändert die Farbe des Links, der gerade ausgewählt ist
-function witch_side(id) {
+async function witch_side(id) {
   document.getElementById(id).classList.add("active");
 }
 
 // Die Funktion switch_sides() lädt den Inhalt der Datei, die als Parameter übergeben wird, in das HTML-Element mit der ID "content"
-function switch_sides(path) {
+async function switch_sides(path) {
   filePath = path;
   // Fetch-API verwenden, um den Inhalt der Datei abzurufen
-  fetch(filePath)
+  await fetch(filePath)
     .then(response => {
       // Überprüfen, ob die Anfrage erfolgreich war (Statuscode 200)
       if (!response.ok) {
@@ -108,7 +121,7 @@ function footer() {
       <link rel="stylesheet" href="css/footer.css">
     </head>
     <div class="footer">
-      
+      © 2024 Dominik Knezovic & Marius Winterscheid
     </div>
   `;
 }

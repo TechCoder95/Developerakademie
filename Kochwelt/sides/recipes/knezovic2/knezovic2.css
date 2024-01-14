@@ -1,0 +1,206 @@
+h1 {
+    margin-top: 70px;
+}
+
+.knezovic {
+    display: flex;
+    flex-direction: column;
+    min-height: 1000px;
+}
+
+p{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+.part1 h1{
+    color: black;
+}
+
+.titlepic {
+    height: 250px;
+    width: 70vw;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.timedate {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.timedatedif {
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 35px;
+    border-radius: 15px;
+    background-color: lightgray;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.icon {
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
+}
+
+.section1 {
+    align-self: center;
+}
+
+.trennlinie {
+    align-self: center;
+    margin-top: 70px;
+    height: 2px;
+    width: 68vw;
+    border-radius: 5px;
+    background-color: rgb(233, 233, 233);
+}
+
+.section2 {
+    margin-top: 30px;
+    align-self: center;
+    width: 70vw;
+}
+
+.calc {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.calc_send {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 29px;
+    background-color: green;
+    color: white;
+    width: 100px;
+    margin-left: -9px;
+    border: 1px solid white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.calc_input {
+    border-radius: 5px;
+}
+
+.calc_send:hover {
+    background-color: rgb(0, 155, 0);
+}
+
+.content_recipe {
+    width: 70vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 5px;
+}
+
+.table {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    padding-left: 40px;
+    height: 40px;
+    background-color: rgb(233, 233, 233);
+    border-radius: 8px !important;
+    margin-bottom: 0rem;
+}
+
+.background-table {
+    background-color: rgb(255, 255, 255);
+}
+
+.section3 {
+    margin-top: 30px;
+    align-self: center;
+    width: 70vw;
+}
+
+.s3 {
+    margin-top: -5px;
+}
+
+
+
+.section3 h3 {
+    margin-top: 30px;
+    color: black;
+}
+
+.section3 h2 {
+    color: black;
+}
+
+.s3_text {
+    margin-top: 30px;
+    font-size: 14pt;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    font-size: 18pt;
+}
+
+.profile_pic {
+    height: 80px;
+    width: 80px;
+    border-radius: 40px;
+}
+
+@media (max-width: 500px) {
+    .titlepic {
+        width: 90vw;
+    }
+
+    .section2,
+    .section3 {
+        width: 90vw;
+    }
+}
+
+@media (max-width: 320px) {
+    .part1,
+    .timedate,
+    .calc_send,
+    .calc_input,
+    .calc,
+    .content_recipe,
+    .table,
+    .background-table,
+    .section3,
+    .s3,
+    .section2,
+    .section3 h3,
+    .section3 h2,
+    .s3_text,
+    .profile,
+    .profile_pic {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .content_recipe{
+        font-size: 11pt;
+        
+    }
+
+    .table {
+        padding-left: 0px;
+        width: 90vw;
+    }
+}

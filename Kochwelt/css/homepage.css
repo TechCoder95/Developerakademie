@@ -20,7 +20,17 @@
 .bigpicture{
     height: 230px;
     border-radius: 10px;
+    object-fit: cover;
 }
+
+.s2-recips:hover{
+    
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    color: green;
+    text-decoration: underline;
+}
+
 
 .s1-textbox{
     height: 200px;
@@ -87,8 +97,15 @@
     height: 200px;
     width: 250px;
     border-radius: 10px;
+    object-fit: cover;
 }
 
+.picture-wok{
+    height: 200px;
+    width: 250px;
+    border-radius: 10px;
+    object-fit: cover;
+}
 
 /* Section 3 */
 
@@ -134,6 +151,9 @@
     .s1-textbox{
         align-items: center;
     }
+    .bigpicture{
+        width: 70vw;
+    }
     .recipe-open{
         width: 200px;
         height: 40px !important;
@@ -144,6 +164,12 @@
         margin-top: 10px;
         flex-direction: column;
         
+    }
+    .picture-small{
+        width: 70vw;
+    }
+    .picture-wok{
+        width: 70vw;
     }
 
     .small-boxes {
@@ -176,6 +202,7 @@
 @media screen and (max-width: 400px) {
     .bigpicture {
         height: 150px;
+        width: 70vw;
     }
     .s1-textbox {
         height: 200px;
@@ -192,7 +219,11 @@
 
     .picture-small {
         height: 150px;
-        width: 200px;
+        width: 70vw;
+    }
+    .picture-wok {
+        height: 150px;
+        width: 70vw;
     }
 }
 

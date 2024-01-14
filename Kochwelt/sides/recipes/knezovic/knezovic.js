@@ -36,10 +36,3 @@ function createTable() {
     }
   }
 }
-
-function table_load() {
-  setTimeout(() => {
-    console.log("Delayed for 100 ms.");
-    createTable();
-  }, 100);
-}

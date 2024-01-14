@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="sides/recipes/winterscheid/winterscheid.css">
+
+<div class="mw-recipe-main">
+    <div id="mwRecipeHeader" class="mw-recipe-header">
+        <h1 onclick="">Rezept Name</h1>
+        <img class="mw-recipe-main-img" src="/sides/recipes/winterscheid/recipes/placeholder-recipe.png"
+            alt="pictur of the recipe">
+        <div class="mw-short-info-main">
+            <div class="mw-short-info-card"><img class="mw-icon-size" src="/assets/img/icons/clock-regular.svg"
+                    alt="clock">Dauer</div>
+            <div class="mw-short-info-card"><img class="mw-icon-size" src="/assets/img/icons/brain-solid.svg"
+                    alt="brain">Schwierigkeit</div>
+            <div class="mw-short-info-card"><img class="mw-icon-size"
+                    src="/assets/img/icons/calendar-alt-regular.svg" alt="calender">Datum</div>
+        </div>
+    </div>
+
+    <div class="mw-recipe-calculator">
+        <div class="mw-ingredients-header">
+            Zutaten für <input id="mwInputMultiplier" class="mw-input" type="number" min="1" value="1" onchange="mwCalcIngredients(0)"><button class="mw-btn" onclick="mwCalcIngredients(0)">Portionen</button>
+        </div>
+        <div id="mwIngredientsList" class="mw-ingredients-list">
+            <div class="mw-ingredients-list-item">Zutat</div>
+            <div class="mw-ingredients-list-item">Zutat</div>
+            <div class="mw-ingredients-list-item">Zutat</div>
+            <div class="mw-ingredients-list-item">Zutat</div>
+            <div class="mw-ingredients-list-item">Zutat</div>
+            <div class="mw-ingredients-list-item">Zutat</div>
+        </div>
+    </div>
+
+    <div id="mwRecipePrepMain" class="mw-recipe-prep-main">
+        <h1>Zubereitung</h1>
+        <div class="mw-short-info-main">
+            <div class="mw-short-info-card">
+                <img class="mw-icon-size" src="/assets/img/icons/clock-regular.svg" alt="clock"><span>Dauer</span>
+            </div>
+            <div class="mw-short-info-card">
+                <img class="mw-icon-size" src="/assets/img/icons/clock-regular.svg" alt="brain"><span>Gesamtdauer</span>
+            </div>
+        </div>
+        <span>Zubereitungsanleitung</span>
+    </div>
+
+    <div class="mw-recipe-user-main">
+        <h1>Rezept erstellt von</h1>
+        <div id="mwRecipeUser" class="mw-recipe-user">
+            <img class="mw-profile-pic-style" src="/sides/recipes/winterscheid/profiles/dummi-profile.png" alt="profile picture">
+            <span>Name Ersteller</span>
+        </div>
+    </div>
+</div>
