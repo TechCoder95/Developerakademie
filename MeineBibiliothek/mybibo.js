@@ -88,3 +88,28 @@ function load() {
 
     }
 }
+
+
+
+//API Coding! - Modul 9
+
+// 4. Möglichkeit
+async function init() {
+    let [resp, err] = await resolve(fetch('bundesland.json'));
+    if (resp) {
+        console.log('Fertig');
+    } 
+    
+    if(err){
+        console.error('Fehler');
+    }
+}
+
+async function resolve(p) {
+    try {
+        let response = await p;
+        return [response, null];
+    } catch (e) {
+        return [null, e];
+    }
+}
