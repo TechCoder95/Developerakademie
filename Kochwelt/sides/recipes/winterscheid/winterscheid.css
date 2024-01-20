@@ -1,6 +1,6 @@
 :root{
     --ColorSecondary: rgb(239,239,239);
-    --GreenMain: rgb(0,128,0);
+    --GreenMain: rgb(25,135,84);
 
     --RadiusBorder: 8px;
 
@@ -165,10 +165,6 @@ h1{
     }
     h1{
         font-size: 24px;
-    }
-    .mw-profile-pic-style{
-        width: 32px;
-        height: 32px;
     }
 }
 @media (max-width: 500px) {

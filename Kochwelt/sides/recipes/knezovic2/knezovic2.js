@@ -9,9 +9,15 @@ function createTable2() {
     var input = document.getElementById('calc_input').value;
   
     content.innerHTML = '';
-    if (input <= 0) {
+    if (input == "") {
+      alert('Bitte gib eine Zahl ein!');
+      document.getElementById('calc_input').value = 2;
+      side_load(knezovic2, 'recipe3', createTable())
+      
+    } else if (input <= 0) {
       alert(input + ' ist nicht machbar! Gib bitte eine Zahl über 0 ein.')
-      side_load(knezovic, 'recipeofday', table_load())
+      document.getElementById('calc_input').value = 2;
+      side_load(knezovic2, 'recipe3', createTable())
     }
     else {
       for (let i = 0; i < menge2.length; i++) {

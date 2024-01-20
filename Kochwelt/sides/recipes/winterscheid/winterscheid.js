@@ -1,3 +1,7 @@
+/* Its build to easy scale the data, so i use a JSON Array and set the item
+to 0 for now. That will allways render the first recipe in array, enouth fpr the usecase here. 
+If it will be scaled in future, its easier to do. */
+
 /* Data */
 let mwRecipes = [
     {
@@ -56,7 +60,7 @@ let mwRecipes = [
     }
 ];
 
-
+/* loads the recipe for a start meal portion of 1 */
 function mwRecipeLoad(){
     let mwItem = 0;
 
@@ -67,6 +71,7 @@ function mwRecipeLoad(){
     mwRenderIngerdients(mwItem, 1);
 }
 
+/* render the amount of each ingredient by using a given multiplier */
 function mwRenderIngerdients(i, mwMultiplier){
     let mwIngredients = mwRecipes[i].ingredients;
     document.getElementById('mwIngredientsList').innerHTML = '';
@@ -80,14 +85,17 @@ function mwRenderIngerdients(i, mwMultiplier){
     }
 }
 
+/* pick the multiplier out of input and call the render function */
 function mwCalcIngredients(i){
     var mwInputMultiplier = document.getElementById('mwInputMultiplier');
     var mwMultiplier = parseInt(mwInputMultiplier.value);
 
-    mwRenderIngerdients(i, mwMultiplier);
+    if(mwMultiplier){
+        mwRenderIngerdients(i, mwMultiplier);
+    }  
 }
 
-/* RETURNS */
+/* HTML RETURNS */
 function mwReturnRecipeHeadHtml(i){
     let mwRecipe = mwRecipes[i];
     return `

@@ -1,5 +1,6 @@
 .footer{
-    height:     150px;
+
+    height:150px;
     background-color: rgb(71, 71, 71);
     margin-top: 100px;
     display: flex;
@@ -8,4 +9,21 @@
     align-items: center;
     color: white;
     font-size: 24pt;
+    text-align: center;
+}
+
+@media screen and (max-width: 420px) {
+    .footer{
+        font-size: 15pt;
+    }
+
+}
+
+
+@media screen and (max-width: 992px) {
+    .footer{
+
+        font-size: 20pt;
+    }
+    
 }

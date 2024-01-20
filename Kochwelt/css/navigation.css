@@ -27,7 +27,7 @@
 }
 
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 420px) {
     .logo {
         height: 60px;
         margin-left: 10px;
@@ -35,7 +35,7 @@
 
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 420px) {
 
     .burger {
         margin-right: 30px;
