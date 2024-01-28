@@ -1,12 +1,12 @@
 let canvas;
-let ctx;
-let character = new Image()
+let world;
+let keyboard = new Keyboard();
 
 function init(){
     canvas = document.getElementById('canvas');
-    ctx = canvas.getContext('2d');
+    world = new World(canvas);
+    keyboard.listenForEvents();
+    keyboard.subscribe(world.character);
     
-    character.src = './img/1.Sharkie/1.IDLE/1.png'
-
-    ctx.drawImage(character, 0, 0, 100, 100)
 }
+
