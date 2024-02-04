@@ -2,34 +2,11 @@ class World {
 
     fps = 60;
     character = new Character();
-    enemies = [
-        new Puffer(),
-        new Puffer(),
-        new Puffer(),
-        new Jelly(),
-        new Jelly(),
-        new Jelly(),
-    ];
-    coins = [
-        new Coin(),
-        new Coin(),
-        new Coin(),
-    ];
-    poison =[
-        new Poison(),
-        new Poison(),
-        new Poison(),
-    ];
-    backgroundObjects = [
-        new BackgroundObject('./img/3.Background/Layers/5.Water/D1.png', 0, 720, 500),
-        new BackgroundObject('./img/3.Background/Layers/3.Fondo1/D1.png', 0, 720, 500),	
-        new BackgroundObject('./img/3.Background/Layers/4.Fondo2/D1.png', 0, 720, 500),
-        new BackgroundObject('./img/3.Background/Layers/2.Floor/D1.png', 0, 720, 500),
-        new BackgroundObject('./img/3.Background/Layers/1.Light/1.png', 0, 720, 500),
-    ];
+    level = level1;
     canvas;
     ctx;
     keyboard;
+    camera_x = 0;
 
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
@@ -50,11 +27,13 @@ class World {
             }, 1000 / this.fps);	
         });
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        this.addObjectstoMap(this.backgroundObjects);
+        this.ctx.translate(this.camera_x, 0);
+        this.addObjectstoMap(this.level.backgroundObjects);
         this.addtoMap(this.character);
-        this.addObjectstoMap(this.enemies);
-        this.addObjectstoMap(this.coins);
-        this.addObjectstoMap(this.poison);
+        this.addObjectstoMap(this.level.enemies);
+        this.addObjectstoMap(this.level.coins);
+        this.addObjectstoMap(this.level.poison);
+        this.ctx.translate(-this.camera_x, 0);
     }
 
 
@@ -66,6 +45,16 @@ class World {
     }
 
     addtoMap(mo) {
-        this.ctx.drawImage(mo.img, mo.x, mo.y, mo.width, mo.height);
+        if (mo.otherDirection) {
+            this.ctx.save();
+            this.ctx.translate(mo.x + mo.width, 0);
+            this.ctx.scale(-1, 1);
+            this.ctx.drawImage(mo.img, 0, mo.y, mo.width, mo.height);
+            this.ctx.restore();
+        }
+        else {
+            this.ctx.drawImage(mo.img, mo.x, mo.y, mo.width, mo.height);
+        }
+
     }
 }

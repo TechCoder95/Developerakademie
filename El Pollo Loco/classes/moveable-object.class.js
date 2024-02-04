@@ -1,6 +1,6 @@
-class MovableObject{
-    x =120;
-    y =400;
+class MovableObject {
+    x = 120;
+    y = 400;
 
     img;
     height = 200;
@@ -9,12 +9,14 @@ class MovableObject{
     currentImage = 0;
     speed;
 
-    loadImage(path){
+    otherDirection = false;
+
+    loadImage(path) {
         this.img = new Image();
         this.img.src = path;
     }
 
-    loadImages(arr){
+    loadImages(arr) {
         arr.forEach((src) => {
             let img = new Image(); // Declare the img variable properly
             img.src = src;
@@ -22,36 +24,37 @@ class MovableObject{
         });
     };
 
-    moveRight(){
+    moveRight() {
         setInterval(() => {
             this.x += this.speed;
-        }, 1000 /144);
+        }, 1000 / 144);
     };
 
 
-    moveLeft(){
+    moveLeft() {
         setInterval(() => {
             this.x -= this.speed;
-        }, 1000 /144); 
+        }, 1000 / 144);
     }
 
-    moveUp(){
+    moveUp() {
         setInterval(() => {
             this.y -= this.speed;
-        }, 1000 /144);
+        }, 1000 / 144);
     }
 
-    moveDown(){
+    moveDown() {
         setInterval(() => {
             this.y += this.speed;
-        }, 1000 /144);
+        }, 1000 / 144);
     }
 
-    jump(){
+    playAnimation(fps) {
         setInterval(() => {
-            this.y -= 100;
-        }, 1000 /144);
+                let i = this.currentImage % this.IMAGES_WALKING.length;
+                let path = this.IMAGES_WALKING[i];
+                this.img = this.imageCache[path];
+                this.currentImage++;
+        }, fps);
     }
-
-    
 }
