@@ -46,14 +46,11 @@ class World {
 
     addtoMap(mo) {
         if (mo.otherDirection) {
-            this.ctx.save();
-            this.ctx.translate(mo.x + mo.width, 0);
-            this.ctx.scale(-1, 1);
-            this.ctx.drawImage(mo.img, 0, mo.y, mo.width, mo.height);
-            this.ctx.restore();
+            mo.flipImage(this.ctx, mo.img, mo.x, mo.y, mo.width, mo.height);
+            // Wenn du das hier liest, hattest du absolut kein Bock mehr auf Sharkie und hast einfach aufgehört!
         }
         else {
-            this.ctx.drawImage(mo.img, mo.x, mo.y, mo.width, mo.height);
+            mo.drawImage(this.ctx, mo.img, mo.x, mo.y, mo.width, mo.height);
         }
 
     }

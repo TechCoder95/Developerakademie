@@ -8,13 +8,52 @@ class MovableObject {
     imageCache = [];
     currentImage = 0;
     speed;
+    speedY = 0;
+    acceleration = 1;
 
     otherDirection = false;
+
+    applyGravity() {
+        setInterval(() => {
+            if (this.y < 300) {
+            this.y -= this.speedY;
+            this.speedY -= this.acceleration;
+            }
+            
+        }, 1000 / 25);
+    };
+
+    drawImage(ctx ,img, x, y, width, height) {
+        ctx.drawImage(img, x, y, width, height);
+        if (this instanceof Character || this instanceof Coin || this instanceof Poison || this instanceof Puffer || this instanceof Jelly || this instanceof Endboss) {
+        ctx.beginPath();
+        ctx.lineWidth = "2";
+        ctx.strokeStyle = "red";
+        ctx.rect(x, y, width, height);
+        ctx.stroke();
+        }
+    };
+
+    flipImage( ctx, img, x, y, width, height) {
+            ctx.save();
+            ctx.translate(x + width, 0);
+            ctx.scale(-1, 1);
+            ctx.drawImage(img, 0, y, width, height);
+            ctx.restore();
+
+            ctx.beginPath();
+            ctx.lineWidth = "2";
+            ctx.strokeStyle = "red";
+            ctx.rect(x, y, width, height);
+            ctx.stroke();
+    }
+
+
 
     loadImage(path) {
         this.img = new Image();
         this.img.src = path;
-    }
+    };
 
     loadImages(arr) {
         arr.forEach((src) => {
