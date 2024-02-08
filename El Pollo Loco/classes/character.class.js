@@ -37,6 +37,17 @@ class Character extends MovableObject {
         './img/1.Sharkie/5.Hurt/2.Electric shock/3.png',
     ];
 
+    IMAGES_ATTACK = [
+        './img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/1.png',
+        './img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/2.png',
+        './img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/3.png',
+        './img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/4.png',
+        './img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/5.png',
+        './img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/6.png',
+        './img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/7.png',
+        './img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/8.png',
+    ];
+
     world;
 
     constructor() {
@@ -45,6 +56,7 @@ class Character extends MovableObject {
         this.loadImages(this.IMAGES_DEAD);
         this.loadImages(this.IMAGES_HURT);
         this.loadImages(this.IMAGES_ELECTROCUTED);
+        this.loadImages(this.IMAGES_ATTACK);
         this.x = 100;
         this.y = 50;
         this.animate();
@@ -58,6 +70,7 @@ class Character extends MovableObject {
         setInterval(() => {
             if (this.setDead()) {
                 this.playAnimation2(this.IMAGES_DEAD);
+                this.stayInLastFrame();
                 this.world.gameOver();
             }
             else if (this.isHurt() && this.energy > 0) {
@@ -65,6 +78,9 @@ class Character extends MovableObject {
             }
             else if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
                 this.playAnimation2(this.IMAGES_WALKING);
+            }
+            else if (this.world.keyboard.D){
+                this.playAnimation2(this.IMAGES_ATTACK);
             }
         }, 1000/10);
 
@@ -91,5 +107,12 @@ class Character extends MovableObject {
             this.y += 5;
         }
     };
-};
 
+
+
+    stayInLastFrame() {
+        setTimeout(() => {
+            this.currentImage = this.IMAGES_DEAD.length -1;
+        }, 1000);
+};
+};

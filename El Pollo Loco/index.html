@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+
     <link rel="stylesheet" href="style.css">
 
     <script src="classes/drawable-object.class.js"></script>
@@ -21,21 +22,34 @@
     <script src="classes/endboss.class.js"></script>
     <script src="classes/keyboard.class.js"></script>
     <script src="classes/level.class.js"></script>
+
+    <script src="classes/throwable-object.class.js"></script>
     <script src="levels/level1.js"></script>
 
-    
+
     <script src="classes/world.class.js"></script>
 
     <script src="js/game.js"></script>
 </head>
+
 <body onload="init()">
-
+    <div id="container"></div>
     <h1>Sharkie</h1>
+    <canvas id="canvas" width="720" height="480" class="blurfilter"></canvas>
+    <div class="fixedButtons" id="fixedButtons">
+        <img id="stopAudio" src="img/7. Mobile/SoundOn.png" onclick="stopAudio()">
+    </div>
+    <div id="overlay">
+        <img class="gameover" src="img/6.Botones/Tittles/Game Over/Recurso 10.png">
+        <img class="tryagainbutton" src="img/6.Botones/Try again/Recurso 16.png" onclick="init()">
+    </div>
 
-    <canvas id="canvas" width="720px" height="480px">
+    <div id="hud" class="mobile">
+        <img class="turnphone" id="turnphone" src="./img/7. Mobile/turnphone.png">
+        <img class="gamebutton" id="" src="img/6.Botones/Key/arrow keys.png">
+        <img class="gamebutton" id="btnAttack" src="img/6.Botones/Key/D key.png">
+    </div>
 
-
-    </canvas>
-    
 </body>
+
 </html>

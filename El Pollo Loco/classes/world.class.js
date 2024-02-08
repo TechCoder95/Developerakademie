@@ -10,57 +10,141 @@ class World {
     statusbar_live = new StatusBar_live();
     statusbar_coins = new StatusBar_coins();
     statusbar_poison = new StatusBar_poison();
+    throwableObjects = [];
+    hasExecuted = false;
+    enemy = new Jelly();
+    endboss = new Endboss();
+    
 
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
         this.canvas = canvas;
         this.keyboard = keyboard;
-        this.draw();
-        this.setWorld();
-        this.checkCollisons();
+        this.run();
     }
 
     setWorld() {
         this.character.world = this;
     }
 
+    run() {
+        this.draw();
+        this.setWorld();
+        this.checkCollisons();
+    }
+    checkThrowableObjects() {
+        if (this.hasExecuted == false && this.keyboard.D) {
+            this.hasExecuted = true;
+            setTimeout(() => {
+                let bubble = new ThrowableObject(this.character.x + this.character.width - 30, this.character.y + this.character.height / 2);
+                this.throwableObjects.push(bubble);
+            }, 600);
+            setTimeout(() => {
+                this.hasExecuted = false;
+            }, 800);
+        }
+    }
+
     checkCollisons() {
         setInterval(() => {
-            this.level.enemies.forEach((enemy) => {
-                if (this.character.isColliding(enemy)) {
-                    this.character.hitEnemy();
-                    this.statusbar_live.setPercentage(this.character.energy);
-                    console.log(this.character.energy);
-                    if (this.character.energy <= 0) {
-                        this.character.setDead();
-                    }
-                }
-            });
-            this.level.coins.forEach((coin) => {
-                if (this.character.isColliding(coin)) {
-                    this.level.coins = this.level.coins.filter((c) => c != coin);
-                    this.character.addCoin();
-                    this.statusbar_coins.setPercentage(this.character.coins);
-                    console.log(this.character.coins);
-                }
-            });
-            this.level.poison.forEach((poison) => {
-                if (this.character.isColliding(poison)) {
-                    this.level.poison = this.level.poison.filter((c) => c != poison);
-                    this.character.hitPoison();
-                    this.character.addPoison();
-                    this.statusbar_poison.setPercentage(this.character.poison);
-                    this.statusbar_live.setPercentage(this.character.energy);
-                    
-                    console.log(this.character.poison);
-                    console.log(this.character.energy);
-                    if (this.character.energy <= 0) {
-                        this.character.setDead();
-                    }
-                }
-            });
+            this.checkenemyCollisions();
+            this.checkendbossCollisions();
         }, 1000);
+        setInterval(() => {
+            this.checkcoinCollisions();
+            this.checkpoisonCollisions();
+            this.checkThrowableObjects();
+            this.checkbubbleCollisions();
+        }, 1000/60);
+
+
+
     }
+
+
+   
+
+    checkenemyCollisions() {
+        this.level.enemies.forEach((enemy) => {
+            if (this.character.isCollidingcharacter(enemy)) {
+                this.character.hitEnemy();
+                this.statusbar_live.setPercentage(this.character.energy);
+                console.log(this.character.energy);
+                if (this.character.energy <= 0) {
+                    this.character.setDead();
+                }
+            }
+        });
+    }
+
+    checkcoinCollisions() {
+        this.level.coins.forEach((coin) => {
+            if (this.character.isCollidingcharacter(coin)) {
+                this.level.coins = this.level.coins.filter((c) => c != coin);
+                this.character.addCoin();
+                this.statusbar_coins.setPercentage(this.character.coins);
+                console.log(this.character.coins);
+            }
+        });
+    }
+
+    checkpoisonCollisions() {
+        this.level.poison.forEach((poison) => {
+            if (this.character.isCollidingcharacter(poison)) {
+                this.level.poison = this.level.poison.filter((c) => c != poison);
+                this.character.hitPoison();
+                this.character.addPoison();
+                this.statusbar_poison.setPercentage(this.character.poison);
+                this.statusbar_live.setPercentage(this.character.energy);
+
+                console.log(this.character.poison);
+                console.log(this.character.energy);
+                if (this.character.energy <= 0) {
+                    this.character.setDead();
+                }
+            }
+        });
+    }
+
+    checkbubbleCollisions() {
+        this.level.enemies.forEach((enemy) => {
+            this.throwableObjects.forEach((bubble) => {
+
+                if (enemy.isColliding(bubble)) {
+                    this.throwableObjects = this.throwableObjects.filter((b) => b != bubble);
+                    enemy.jellyFishIsHit();
+                }
+            });
+        });
+        
+    }
+
+    checkendbossCollisions() {
+
+        this.throwableObjects.forEach((bubble) => {
+            if (this.endboss.isColliding(bubble)) {
+                this.throwableObjects = this.throwableObjects.filter((b) => b != bubble);
+                this.endboss.endbossIsHit();
+                console.log(this.endboss.energy);
+            }
+        });
+
+            if (this.character.isCollidingcharacter(this.endboss)) {
+                this.character.hitEnemy();
+                this.statusbar_live.setPercentage(this.character.energy);
+                console.log(this.character.energy);
+                if (this.character.energy <= 0) {
+                    this.character.setDead();
+                }
+            }
+        ;
+    }
+
+
+
+
+
+
 
     draw() {
         setTimeout(() => {
@@ -72,16 +156,21 @@ class World {
         this.ctx.translate(this.camera_x, 0);
         this.addObjectstoMap(this.level.backgroundObjects);
         this.addtoMap(this.character);
+        this.addObjectstoMap(this.throwableObjects);
         this.ctx.translate(-this.camera_x, 0);
         this.addtoMap(this.statusbar_live);
         this.addtoMap(this.statusbar_coins);
         this.addtoMap(this.statusbar_poison);
         this.ctx.translate(this.camera_x, 0);
         this.addObjectstoMap(this.level.enemies);
+        this.addtoMap(this.endboss);
         this.addObjectstoMap(this.level.coins);
         this.addObjectstoMap(this.level.poison);
-        
+
+
         this.ctx.translate(-this.camera_x, 0);
+
+
     }
 
 
@@ -93,17 +182,27 @@ class World {
     }
 
     addtoMap(mo) {
-        if (mo.otherDirection) {
-            mo.flipImage(this.ctx, mo.img, mo.x, mo.y, mo.width, mo.height);
-            // Wenn du das hier liest, hattest du absolut kein Bock mehr auf Sharkie und hast einfach aufgehört!
+        if (!mo.otherDirection) {
+            mo.drawImage(this.ctx, mo.img, mo.x, mo.y, mo.width, mo.height);
         }
         else {
-            mo.drawImage(this.ctx, mo.img, mo.x, mo.y, mo.width, mo.height);
+            mo.flipImage(this.ctx, mo.img, mo.x, mo.y, mo.width, mo.height);
+            
         }
     }
 
+    
+
 
     gameOver() {
-        console.log("Game Over");
+        document.getElementById('overlay').innerHTML =
+        `<img class="gameover" src="img/6.Botones/Tittles/Game Over/Recurso 10.png">
+    <img class="tryagainbutton" src="img/6.Botones/Try again/Recurso 16.png" onclick="realod()">`;
+    let addBlurToElement = document.getElementById('canvas');
+    addBlurToElement.classList.add('blurfilter');
+    
+
+    
+
     }
 }

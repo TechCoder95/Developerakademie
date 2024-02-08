@@ -10,6 +10,8 @@ class MovableObject extends DrawableObject {
     coins = 0;
     poison = 0;
 
+    xOffset = 10;
+    yOffset = 80;
 
 
     otherDirection = false;
@@ -32,19 +34,30 @@ class MovableObject extends DrawableObject {
         ctx.drawImage(img, 0, y, width, height);
         ctx.restore();
 
-        ctx.beginPath();
-        ctx.lineWidth = "2";
-        ctx.strokeStyle = "red";
-        ctx.rect(x, y, width, height);
-        ctx.stroke();
+        // ctx.beginPath();
+        // ctx.lineWidth = "2";
+        // ctx.strokeStyle = "red";
+        // ctx.rect(x, y, width, height);
+        // ctx.stroke();
     }
 
     isColliding(mo) {
-        return (this.x + this.width) >= mo.x && this.x <= (mo.x + mo.width) &&
-            (this.y + this.offsetY + this.height) >= mo.y &&
-            (this.y + this.offsetY) <= (mo.y + mo.height)
+        return this.x + this.width > mo.x &&
+            this.y + this.height > mo.y &&
+            this.x < mo.x + mo.width &&
+            this.y < mo.y + mo.height ;
+    };
 
-    }
+    
+    isCollidingcharacter(mo) {
+        
+
+        return this.x + this.width - this.xOffset > mo.x &&
+            this.y + this.height - this.yOffset > mo.y &&
+            this.x + this.xOffset < mo.x + mo.width &&
+            this.y + this.yOffset < mo.y + mo.height ;
+    };
+
 
     hitEnemy() {
         this.energy -= 10;
@@ -129,4 +142,5 @@ class MovableObject extends DrawableObject {
             this.currentImage++;
         }, fps);
     }
+
 }

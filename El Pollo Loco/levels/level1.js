@@ -1,15 +1,16 @@
 const level1 = new Level(
     [
-        new Puffer(),
-        new Puffer(),
-        new Puffer(),
-        new Puffer(),
-        new Puffer(),
         new Jelly(),
         new Jelly(),
         new Jelly(),
         new Jelly(),
-        new Endboss(),
+        new Jelly(),
+        new Jelly(),
+        new Jelly(),
+        new Jelly(),
+    ],
+    [
+        new Endboss()
     ],
     [
         new Coin(),
