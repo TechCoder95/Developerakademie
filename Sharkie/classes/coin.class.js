@@ -3,7 +3,6 @@ class Coin extends MovableObject {
     height = 50;
     width = 50;
 
-
     IMAGES_WALKING = [
     './img/4.Marcadores/1.Coins/1.png',
     './img/4.Marcadores/1.Coins/2.png',
@@ -19,7 +18,6 @@ class Coin extends MovableObject {
         this.animate();
     }
    
-
     animate(){
         this.playAnimation(100);
     }

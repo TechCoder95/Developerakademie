@@ -3,8 +3,17 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: rgb(92, 90, 90);
+    background-image: url("img/pexels-kammeran-gonzalezkeola-9559872.jpg");
+    background-size: cover;
     color: white;
+    font-family: 'Luckiest Guy', cursive;
+}
+
+@font-face {
+    font-family: 'LuckiestGuy-Regular';
+    src: url("img/5.Font/LuckiestGuy-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
 }
 
 canvas {
@@ -15,19 +24,6 @@ h1 {
     font-size: 60pt;
 }
 
-
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-image: url('img/3. Background/Light/2.png');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    font-family: 'ghost', Arial, Helvetica, sans-serif;
-}
-
 .mobile {
     display: flex;
     justify-content: center;
@@ -35,8 +31,32 @@ body {
     margin-top: 30px;
     gap: 20px;
     height: 10px;
-    background-image: url('img/3. Background/Light/2.png');
     backdrop-filter: blur(2px);
+}
+
+
+#startscreen {
+    width: 800px;
+    height: 550px;
+    margin-top: 150px;
+    background-image: url("img/3.Background/Legacy/Dark/1.png");
+    background-size: cover;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#controlls{
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+#startgame{
+    display: flex;
+    align-self: center;
 }
 
 #hud {
@@ -53,8 +73,20 @@ body {
 }
 
 .startgamebutton {
-    margin-top: 190px;
     width: 300px;
+}
+
+.fullscreenbutton{
+    margin-top: 10px;
+    margin-right: 10px;
+    width: 300px;
+    cursor: pointer;
+}
+
+.instructions{
+    width: 500px;
+    margin-left: -20px;
+    margin-top: -20px;
 }
 
 .startgamebutton:hover {
@@ -64,23 +96,12 @@ body {
 .tryagainbutton {
     margin-top: 50px;
     width: 300px;
-}
-
-.fullscreen {
-    width: 200px;
-}
-
-.fullscreen:hover {
     cursor: pointer;
 }
 
+
 .blurfilter {
     filter: blur(3.5px);
-}
-
-.gameinstructions {
-    margin-top: 60px;
-    width: 300px;
 }
 
 .youwin {
@@ -94,10 +115,9 @@ body {
     display: flex;
     top: 190px;
     right: 620px;
-}
-
-#fixedButtons:hover {
     cursor: pointer;
+    width: 50px;
+    height: 50px;
 }
 
 
@@ -126,11 +146,6 @@ h1 {
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-canvas {
-    background-image: url('img/3. Background/Light/2.png');
-    background-size: cover;
-    display: block;
-}
 
 .turnphone {
     display: none;
@@ -140,10 +155,6 @@ canvas {
     display: none;
 }
 
-@font-face {
-    font-family: 'ghost';
-    src: url('fonts/GhostNightDEMO!-DEMO.ttf') format('truetype');
-}
 
 @media(max-width: 1650px) {
     #fixedButtons {

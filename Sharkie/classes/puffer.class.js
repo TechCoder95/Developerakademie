@@ -15,7 +15,6 @@ class Puffer extends MovableObject{
         this.x = 300 + Math.random() * (740*4);
         this.y = 50 + Math.random() * 360;
         this.loadImages(this.IMAGES_WALKING);
-        
         this.speed = 0.1 + Math.random() * 0.2;
         this.animate();
     }
@@ -24,5 +23,4 @@ class Puffer extends MovableObject{
         this.moveLeft();
         this.playAnimation(100);
     }
-
 }

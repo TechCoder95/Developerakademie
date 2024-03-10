@@ -1,31 +1,29 @@
-class StatusBar_live extends DrawableObject{
+class StatusBar_coins extends DrawableObject{
 
     IMAGES_LIVE = [
-        './img/4.Marcadores/Purple/0_ .png',
-        './img/4.Marcadores/Purple/20__1.png',
-        './img/4.Marcadores/Purple/40_ .png',
-        './img/4.Marcadores/Purple/60_ .png',
-        './img/4.Marcadores/Purple/80_ .png',
-        './img/4.Marcadores/Purple/100_ .png',
+        './img/4.Marcadores/Purple/0_ _1.png',
+        './img/4.Marcadores/Purple/20_ .png',
+        './img/4.Marcadores/Purple/40_ _1.png',
+        './img/4.Marcadores/Purple/60_ _1.png',
+        './img/4.Marcadores/Purple/80_ _1.png',
+        './img/4.Marcadores/Purple/100__1.png',
     ];
 
-    percentage = 100;
+    percentage = 0;
 
     constructor(){
-        super().loadImage('./img/4.Marcadores/Purple/100_ .png');
+        super().loadImage('./img/4.Marcadores/Purple/100__1.png');
         this.loadImages(this.IMAGES_LIVE)
         this.x = 20;
-        this.y = 0;
+        this.y = 50;
         this.width = 200;
         this.height = 60;
-        this.setPercentage(100);
-
+        this.setPercentage(0);
     }
 
     setPercentage(percentage){
         this.percentage = percentage;
         this.img = this.resolveImage();
-        
     }
 
     resolveImage(){
@@ -48,5 +46,4 @@ class StatusBar_live extends DrawableObject{
             return this.imageCache[this.IMAGES_LIVE[0]];
         }
     }
-
 }

@@ -24,14 +24,5 @@ class DrawableObject {
 
     drawImage(ctx, img, x, y, width, height) {
         ctx.drawImage(img, x, y, width, height);
-        // if (this instanceof Character || this instanceof Coin || this instanceof Poison || this instanceof Puffer || this instanceof Jelly || this instanceof Endboss || this instanceof ThrowableObject) {
-        //     ctx.beginPath();
-        //     ctx.lineWidth = "2";
-        //     ctx.strokeStyle = "red";
-        //     ctx.rect(x, y, width, height);
-        //     ctx.stroke();
-        // }
     };
-
-    
 }

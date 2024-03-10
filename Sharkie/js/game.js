@@ -2,6 +2,22 @@ let canvas;
 let world;
 let keyboard = new Keyboard();
 
+
+function startgame() {
+    document.getElementById('overlay').innerHTML = /*html*/`
+            <div id="startscreen">
+                <div id="controlls">
+                    <img class="instructions" src="img/6.Botones/Instructions 1.png">
+                    <img class="fullscreenbutton" src="img/6.Botones/Full Screen/Mesa de trabajo 9.png" onclick="enablefullscreen()">
+                </div>
+                <div id="startgame">
+                    <img class="startgamebutton" src="img/6.Botones/Start/1.png" onclick="init()">
+                </div>
+            </div>   
+    `;
+}
+
+
 function init() {
     let removeblurfilter = document.getElementById('canvas');
     removeblurfilter.classList.remove('blurfilter')
@@ -10,8 +26,6 @@ function init() {
     world = new World(canvas, keyboard)
 
 }
-
-
 
 window.addEventListener('keydown', (event) => {
 
@@ -72,16 +86,13 @@ function stopAudio() {
     }
 
 };
-/**
- * function to set canvas to fullscreen and normal screen 
- */
+
 function enablefullscreen() {
     if (document.fullscreenElement == "" || document.fullscreenElement == null) {
-        document.getElementById('canvas').style.width = "936px"
-        document.getElementById('canvas').style.height = "624px"
+        document.getElementById('canvas').style.width = "1200px"
+        document.getElementById('canvas').style.height = "800px"
         document.getElementById('fixedButtons').style.right = "420px"
         document.documentElement.requestFullscreen().catch((e) => {
-
         });
     } else {
         document.exitFullscreen();
@@ -90,24 +101,20 @@ function enablefullscreen() {
         document.getElementById('fixedButtons').style.right = "310px"
     };
 };
-/** 
- * function is needed that the fullscreen is not only can used by button, also by esc button on keyboard
- */
+
 document.addEventListener('fullscreenchange', () => {
     if (document.fullscreenElement === null) {
         document.getElementById('canvas').style.width = "720px";
         document.getElementById('canvas').style.height = "480px";
         document.getElementById('fixedButtons').style.right = "420px"
     } else {
-        document.getElementById('canvas').style.width = "936px";
-        document.getElementById('canvas').style.height = "624px";
+        document.getElementById('canvas').style.width = "1200px";
+        document.getElementById('canvas').style.height = "800px";
         document.getElementById('fixedButtons').style.right = "310px"
     };
 
 });
 
-function realod(){
+function realod() {
     location.reload();
 };
-
-

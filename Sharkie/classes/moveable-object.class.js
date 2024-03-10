@@ -47,7 +47,6 @@ class MovableObject extends DrawableObject {
             this.x < mo.x + mo.width &&
             this.y < mo.y + mo.height ;
     };
-
     
     isCollidingcharacter(mo) {
         
@@ -58,7 +57,6 @@ class MovableObject extends DrawableObject {
             this.y + this.yOffset < mo.y + mo.height ;
     };
 
-
     hitEnemy() {
         this.energy -= 10;
         if (this.energy <= 0) {
@@ -67,6 +65,7 @@ class MovableObject extends DrawableObject {
             this.lastHit = new Date().getTime();
         }
     }
+
     addPoison() {
         this.poison += 20;
     }
@@ -84,7 +83,6 @@ class MovableObject extends DrawableObject {
         }
     }
 
-
     setDead() {
         return this.energy == 0;
     };
@@ -100,7 +98,6 @@ class MovableObject extends DrawableObject {
         return timePassed < 1000;
     }
 
-
     playAnimation2(images) {
         let i = this.currentImage % images.length;
         let path = images[i];
@@ -108,13 +105,11 @@ class MovableObject extends DrawableObject {
         this.currentImage++;
     }
 
-
     moveRight() {
         setInterval(() => {
             this.x += this.speed;
         }, 1000 / 144);
     };
-
 
     moveLeft() {
         setInterval(() => {
@@ -142,5 +137,4 @@ class MovableObject extends DrawableObject {
             this.currentImage++;
         }, fps);
     }
-
 }

@@ -14,7 +14,7 @@ class World {
     hasExecuted = false;
     enemy = new Jelly();
     endboss = new Endboss();
-    
+
 
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
@@ -55,21 +55,14 @@ class World {
             this.checkpoisonCollisions();
             this.checkThrowableObjects();
             this.checkbubbleCollisions();
-        }, 1000/60);
-
-
-
+        }, 1000 / 60);
     }
-
-
-   
 
     checkenemyCollisions() {
         this.level.enemies.forEach((enemy) => {
             if (this.character.isCollidingcharacter(enemy)) {
                 this.character.hitEnemy();
                 this.statusbar_live.setPercentage(this.character.energy);
-                console.log(this.character.energy);
                 if (this.character.energy <= 0) {
                     this.character.setDead();
                 }
@@ -83,7 +76,6 @@ class World {
                 this.level.coins = this.level.coins.filter((c) => c != coin);
                 this.character.addCoin();
                 this.statusbar_coins.setPercentage(this.character.coins);
-                console.log(this.character.coins);
             }
         });
     }
@@ -96,9 +88,6 @@ class World {
                 this.character.addPoison();
                 this.statusbar_poison.setPercentage(this.character.poison);
                 this.statusbar_live.setPercentage(this.character.energy);
-
-                console.log(this.character.poison);
-                console.log(this.character.energy);
                 if (this.character.energy <= 0) {
                     this.character.setDead();
                 }
@@ -116,35 +105,25 @@ class World {
                 }
             });
         });
-        
+
     }
 
     checkendbossCollisions() {
-
         this.throwableObjects.forEach((bubble) => {
             if (this.endboss.isColliding(bubble)) {
                 this.throwableObjects = this.throwableObjects.filter((b) => b != bubble);
                 this.endboss.endbossIsHit();
-                console.log(this.endboss.energy);
             }
         });
 
-            if (this.character.isCollidingcharacter(this.endboss)) {
-                this.character.hitEnemy();
-                this.statusbar_live.setPercentage(this.character.energy);
-                console.log(this.character.energy);
-                if (this.character.energy <= 0) {
-                    this.character.setDead();
-                }
+        if (this.character.isCollidingcharacter(this.endboss)) {
+            this.character.hitEnemy();
+            this.statusbar_live.setPercentage(this.character.energy);
+            if (this.character.energy <= 0) {
+                this.character.setDead();
             }
-        ;
+        };
     }
-
-
-
-
-
-
 
     draw() {
         setTimeout(() => {
@@ -166,19 +145,13 @@ class World {
         this.addtoMap(this.endboss);
         this.addObjectstoMap(this.level.coins);
         this.addObjectstoMap(this.level.poison);
-
-
         this.ctx.translate(-this.camera_x, 0);
-
-
     }
-
 
     addObjectstoMap(objects) {
         objects.forEach((object) => {
             this.addtoMap(object);
         });
-
     }
 
     addtoMap(mo) {
@@ -187,22 +160,22 @@ class World {
         }
         else {
             mo.flipImage(this.ctx, mo.img, mo.x, mo.y, mo.width, mo.height);
-            
         }
     }
 
-    
-
-
     gameOver() {
         document.getElementById('overlay').innerHTML =
-        `<img class="gameover" src="img/6.Botones/Tittles/Game Over/Recurso 10.png">
-    <img class="tryagainbutton" src="img/6.Botones/Try again/Recurso 16.png" onclick="realod()">`;
-    let addBlurToElement = document.getElementById('canvas');
-    addBlurToElement.classList.add('blurfilter');
-    
+            `<img class="gameover" src="img/6.Botones/Tittles/Game Over/Recurso 10.png">
+            <img class="tryagainbutton" src="img/6.Botones/Try again/Recurso 16.png" onclick="realod()">`;
+        let addBlurToElement = document.getElementById('canvas');
+        addBlurToElement.classList.add('blurfilter');
+    }
 
-    
-
+    startgame(){
+        document.getElementById('overlay').innerHTML =
+            `<img class="gameover" src="img/6.Botones/Tittles/Game Over/Recurso 10.png">
+            <img class="tryagainbutton" src="img/6.Botones/Try again/Recurso 16.png" onclick="realod()">`;
+        let addBlurToElement = document.getElementById('canvas');
+        addBlurToElement.classList.add('blurfilter');
     }
 }

@@ -81,24 +81,17 @@ class Endboss extends MovableObject {
         super().loadImage('./img/2.Enemy/3 Final Enemy/2.floating/1.png');
         this.x = 740 * 3 + 150;
         this.y = -100;
-
-
         this.speed = 0.1 + Math.random() * 0.2;
-        
-
-
         this.loadImages(this.IMAGES_WALKING);
         this.loadImages(this.IMAGES_HURT);
         this.loadImages(this.IMAGES_DEAD);
         this.loadImages(this.IMAGES_ATTACK);
         this.loadImages(this.IMAGES_INTRO)
         this.x = 10000;
-
         this.animate();
         this.attack();
 
     }
-
 
     endbossIsHit() {
         this.energy -= 50;
@@ -108,16 +101,11 @@ class Endboss extends MovableObject {
             this.isDead = true;
         }
     };
-    /**
-     * 
-     * @returns boolean true if endboss is that
-     */
+    
     endbossIsDead() {
         return this.isDead = true;
     };
-    /**
-     * lets endboss go of the map if he's dead and starts function to render the winnigg screen 
-     */
+
     letEndBossDie() {
         this.speedY = 0.03;
         setInterval(() => {
@@ -135,9 +123,7 @@ class Endboss extends MovableObject {
             }
         }, 500)
     };
-    /**
-     * Renders the winning screen elements, sets boolean so it doesnt get rerenderd in a loop
-     */
+
     renderWinningScreen() {
         this.winningScreenIsRendered = true;
         let overlay = document.getElementById('overlay');
@@ -145,9 +131,7 @@ class Endboss extends MovableObject {
         let addblurfilter = document.getElementById('canvas');
         addblurfilter.classList.add('blurfilter')
     }
-    /** 
-     * attack function of the endboss that sets coordinates of an attack
-    */
+
     attack() {
         setInterval(() => {
             this.isAttacking = true;
@@ -157,13 +141,9 @@ class Endboss extends MovableObject {
             this.x += this.speed;
         }, 2250)
     };
-    /** 
-     * boolean to check if character and endboss already saw each other 
-     */
+
     hadFirstConcact = false;
-    /**
-     * all animations and booleans needed for the endboss
-     */
+
     animate() {
         let i = 0
         setInterval(() => {
@@ -174,7 +154,6 @@ class Endboss extends MovableObject {
                         this.x = 740*3 + 150;
                     }, 401);
                 }
-
             }
             else if (this.isHit) {
                 this.playAnimation2(this.IMAGES_HURT);
@@ -190,13 +169,13 @@ class Endboss extends MovableObject {
             } else {
                 this.playAnimation2(this.IMAGES_WALKING);
             }
+            
             i++;
+
             if (world && world.character.x > 730*2 && !this.hadFirstConcact) {
                 i = 0;
                 this.hadFirstConcact = true;
-
             }
         }, 200);
-
     }
 }

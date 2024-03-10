@@ -79,15 +79,11 @@ class Character extends MovableObject {
             else if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
                 this.playAnimation2(this.IMAGES_WALKING);
             }
-            else if (this.world.keyboard.D){
+            else if (this.world.keyboard.D) {
                 this.playAnimation2(this.IMAGES_ATTACK);
             }
-        }, 1000/10);
-
-
-
+        }, 1000 / 10);
     };
-
 
     move() {
         if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x - 100) {
@@ -108,11 +104,9 @@ class Character extends MovableObject {
         }
     };
 
-
-
     stayInLastFrame() {
         setTimeout(() => {
-            this.currentImage = this.IMAGES_DEAD.length -1;
+            this.currentImage = this.IMAGES_DEAD.length - 1;
         }, 1000);
-};
+    };
 };

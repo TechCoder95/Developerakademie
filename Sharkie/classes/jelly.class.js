@@ -29,15 +29,16 @@ class Jelly extends MovableObject {
     }
 
     animate() {
-
         this.playAnimation(120);
     }
+
     jellyFishIsHit() {
         this.energy -= 50;
         if (this.energy < 0) {
             this.energy = 0;
         };
     };
+
     raiseDead() {
         this.speedY = 0.03;
         setInterval(() => {
@@ -46,9 +47,11 @@ class Jelly extends MovableObject {
             this.speedY += 0.1;
         }, 25)
     };
+
     jellyFishIsDead() {
         return this.energy == 0;
     };
+
     animate() {
         this.moveUp();
         setInterval(() => {
@@ -60,10 +63,4 @@ class Jelly extends MovableObject {
             }
         }, 200);
     }
-
-
-
-
-
-
 }

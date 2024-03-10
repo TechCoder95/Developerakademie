@@ -22,7 +22,6 @@ class Poison extends MovableObject {
         this.animate();
     }
    
-
     animate(){
         this.playAnimation(100);
     }
