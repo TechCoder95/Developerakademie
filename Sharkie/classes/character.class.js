@@ -134,7 +134,7 @@ class Character extends MovableObject {
             else if (this.world.idletime == 20) {
                 this.playAnimation2(this.IMAGES_LONG_IDLE);
             }
-            else if (this.world.idletime > 20) {
+            else if (this.world.idletime > 21) {
                 this.playAnimation2(this.IMAGES_SLEEP);
             }
 
