@@ -7,6 +7,8 @@ class World {
     ctx;
     keyboard;
     camera_x = 0;
+
+    idletime = 0;
     statusbar_live = new StatusBar_live();
     statusbar_coins = new StatusBar_coins();
     statusbar_poison = new StatusBar_poison();
@@ -31,7 +33,27 @@ class World {
         this.draw();
         this.setWorld();
         this.checkCollisons();
+        this.checkIdleTime();
+
     }
+
+
+    checkIdleTime() {
+        setInterval(() => {
+            if (this.keyboard.RIGHT || this.keyboard.LEFT || this.keyboard.UP || this.keyboard.DOWN || this.keyboard.SPACE || this.keyboard.D) {
+                this.idletime = 0;
+            }
+            else {
+                this.idletime++;
+            }
+        }
+            , 500);
+
+
+    }
+
+
+
     checkThrowableObjects() {
         if (this.hasExecuted == false && this.keyboard.D) {
             this.hasExecuted = true;
@@ -171,7 +193,7 @@ class World {
         addBlurToElement.classList.add('blurfilter');
     }
 
-    startgame(){
+    startgame() {
         document.getElementById('overlay').innerHTML =
             `<img class="gameover" src="img/6.Botones/Tittles/Game Over/Recurso 10.png">
             <img class="tryagainbutton" src="img/6.Botones/Try again/Recurso 16.png" onclick="realod()">`;

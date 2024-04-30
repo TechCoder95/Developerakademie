@@ -48,6 +48,50 @@ class Character extends MovableObject {
         './img/1.Sharkie/4.Attack/Bubble trap/op1 (with bubble formation)/8.png',
     ];
 
+    IMAGES_IDLE = [
+        './img/1.Sharkie/1.IDLE/1.png',
+        './img/1.Sharkie/1.IDLE/2.png',
+        './img/1.Sharkie/1.IDLE/3.png',
+        './img/1.Sharkie/1.IDLE/4.png',
+        './img/1.Sharkie/1.IDLE/5.png',
+        './img/1.Sharkie/1.IDLE/6.png',
+        './img/1.Sharkie/1.IDLE/7.png',
+        './img/1.Sharkie/1.IDLE/8.png',
+        './img/1.Sharkie/1.IDLE/9.png',
+        './img/1.Sharkie/1.IDLE/10.png',
+        './img/1.Sharkie/1.IDLE/11.png',
+        './img/1.Sharkie/1.IDLE/12.png',
+        './img/1.Sharkie/1.IDLE/13.png',
+        './img/1.Sharkie/1.IDLE/14.png',
+        './img/1.Sharkie/1.IDLE/15.png',
+        './img/1.Sharkie/1.IDLE/16.png',
+        './img/1.Sharkie/1.IDLE/17.png',
+        './img/1.Sharkie/1.IDLE/18.png',
+    ];
+
+    IMAGES_LONG_IDLE = [
+        './img/1.Sharkie/2.Long_IDLE/i1.png',
+        './img/1.Sharkie/2.Long_IDLE/i2.png',
+        './img/1.Sharkie/2.Long_IDLE/i3.png',
+        './img/1.Sharkie/2.Long_IDLE/i4.png',
+        './img/1.Sharkie/2.Long_IDLE/i5.png',
+        './img/1.Sharkie/2.Long_IDLE/i6.png',
+        './img/1.Sharkie/2.Long_IDLE/i7.png',
+        './img/1.Sharkie/2.Long_IDLE/i8.png',
+        './img/1.Sharkie/2.Long_IDLE/i9.png',
+        './img/1.Sharkie/2.Long_IDLE/i10.png',
+        './img/1.Sharkie/2.Long_IDLE/i11.png',
+        './img/1.Sharkie/2.Long_IDLE/i12.png',
+        './img/1.Sharkie/2.Long_IDLE/i13.png',
+    ];
+
+    IMAGES_SLEEP = [
+        './img/1.Sharkie/2.Long_IDLE/i11.png',
+        './img/1.Sharkie/2.Long_IDLE/i12.png',
+        './img/1.Sharkie/2.Long_IDLE/i13.png',
+    ];
+
+
     world;
 
     constructor() {
@@ -57,6 +101,8 @@ class Character extends MovableObject {
         this.loadImages(this.IMAGES_HURT);
         this.loadImages(this.IMAGES_ELECTROCUTED);
         this.loadImages(this.IMAGES_ATTACK);
+        this.loadImages(this.IMAGES_IDLE);
+        this.loadImages(this.IMAGES_LONG_IDLE);
         this.x = 100;
         this.y = 50;
         this.animate();
@@ -82,6 +128,16 @@ class Character extends MovableObject {
             else if (this.world.keyboard.D) {
                 this.playAnimation2(this.IMAGES_ATTACK);
             }
+            else if (this.world.idletime > 0 && this.energy > 0 && this.world.idletime < 20) {
+                this.playAnimation2(this.IMAGES_IDLE);
+            }
+            else if (this.world.idletime == 20) {
+                this.playAnimation2(this.IMAGES_LONG_IDLE);
+            }
+            else if (this.world.idletime > 20) {
+                this.playAnimation2(this.IMAGES_SLEEP);
+            }
+
         }, 1000 / 10);
     };
 
@@ -109,4 +165,6 @@ class Character extends MovableObject {
             this.currentImage = this.IMAGES_DEAD.length - 1;
         }, 1000);
     };
+
+    
 };

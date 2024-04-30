@@ -31,42 +31,54 @@ window.addEventListener('keydown', (event) => {
 
     if (event.key === 'ArrowLeft') {
         keyboard.LEFT = true;
+        world.idletime = 0;
     }
     if (event.key === 'ArrowRight') {
         keyboard.RIGHT = true;
+        world.idletime = 0;
     }
     if (event.key === 'ArrowUp') {
         keyboard.UP = true;
+        world.idletime = 0;
     }
     if (event.key === 'ArrowDown') {
         keyboard.DOWN = true;
+        world.idletime = 0;
     }
     if (event.key === ' ') {
         keyboard.SPACE = true;
+        world.idletime = 0;
     }
     if (event.key === 'd') {
         keyboard.D = true;
+        world.idletime = 0;
     }
 });
 
 window.addEventListener('keyup', (event) => {
     if (event.key === 'ArrowLeft') {
         keyboard.LEFT = false;
+        world.idletime = 0;
     }
     if (event.key === 'ArrowRight') {
         keyboard.RIGHT = false;
+        world.idletime = 0;
     }
     if (event.key === 'ArrowUp') {
         keyboard.UP = false;
+        world.idletime = 0;
     }
     if (event.key === 'ArrowDown') {
         keyboard.DOWN = false;
+        world.idletime = 0;
     }
     if (event.key === ' ') {
         keyboard.SPACE = false;
+        world.idletime = 0;
     }
     if (event.key === 'd') {
         keyboard.D = false;
+        world.idletime = 0;
     }
 });
 
