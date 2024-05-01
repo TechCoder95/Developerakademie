@@ -1,0 +1,416 @@
+
+
+
+.board_addtaskcard{
+    width: 55%;
+}
+
+.statusSwitcheroption{
+    gap: 5px;
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 17px;
+    border: #081371 1px solid;
+}
+
+.statusSwitcheroption:hover{
+    background-color: #081371;
+    color: white;
+}
+
+.goBackStatuschange:hover{
+    transition: zoom 0.3s;
+    transform: scale(1.1);
+}
+
+.statusSwitcher{
+    display: none;
+}
+
+.changeTitle{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.changeStatus{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.changeTop{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 1750px){
+
+    .board_tasks {
+    flex-wrap: wrap;
+}
+
+.addtask-right-content{
+    width: 50%;
+}
+
+.addtask-input-description{
+    padding: 0px !important;
+}
+
+.containerForSubtask{
+    width: 500px;
+}
+
+.board_task{
+    padding: 20px;
+    width: 200px;
+}
+
+.addtask-prio-buttons{
+    justify-content: center;
+    gap: 13%;
+    padding: 12px;
+}
+
+.spalte{
+    width: 20%;
+    max-width: 90%;
+}
+
+.addtaskbutton{
+    margin-right: -5px;
+}
+
+.row{
+    width: 100%;
+}
+
+.board_notask{
+    margin: 10px;
+    padding: 10px;
+    width: 70%;
+    height: 30px;
+    justify-self: center;
+}
+
+.board_nocardcontent{
+    margin: 10px;
+    padding: 10px;
+    width: 100%;
+    height: 30px;
+    font-size: 15px;
+}
+
+.board_cardcontent {
+    height: 100%;
+    gap: 1px;
+}
+
+.addtask-content-main{
+    width: 100%;
+    margin: 0;
+}
+
+.addtask-left-content{
+    margin-right: 48px !important;
+    margin: 0;
+    width: 45%;
+}
+
+.width540{
+    width: 100% !important;
+}
+
+.inputfield {
+    overflow-x: hidden;
+    width: 93% !important;
+}
+
+.boardDescription {
+    padding: 8px !important;
+    width: 420px !important;
+}
+}
+
+@media (max-width: 1300px){
+
+.board_content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0px;
+    top: 80px;
+    width: 100%;
+    padding: 10px;
+    height: calc(100vh - 180px);
+}
+
+.statusSwitcher{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25%;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: rgba(5, 73, 125, 0.501);
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.respnosiveTask{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.board_addTask{
+    display: none;
+}
+
+.board_cardheadline{
+    font-size: 35px;
+}
+
+.addTask{
+    display: none;
+}
+
+.mobile_hidden{
+    display: none !important;
+
+}
+
+.containerForSubtask{
+    width: 500px;
+}
+
+.mobile_headline{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    width: 100%;
+    padding-right: 10px;
+    height: 50px;
+    margin: 0;
+    font-size: 48px;
+}
+
+.board_findTask_input{
+    width: 100%;
+    height: 48px;
+    margin: 10px;
+    margin-left: 0px;
+}
+
+.board_cardcontent {
+    height: 100%;
+    gap: 1px;
+}
+
+.board_task{
+    padding: 20px;
+    width: 200px;
+}
+
+.board_notask{
+    margin: 10px;
+    padding: 10px;
+    width: 80%;
+    height: 30px;
+    justify-self: center;
+}
+
+.board_nocardcontent{
+    margin: 10px;
+    padding: 10px;
+    width: 100%;
+    height: 30px;
+    font-size: 15px;
+}
+
+.board_top {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    margin: 0;
+    width: 95%;
+    padding-right: 7px;
+    margin-top: 40px;
+    height: 150px;
+}
+
+.board_head{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+}
+
+.board_bottom {
+    height: 200px;
+    width: 100%;
+    margin: 0;
+}
+
+.board_tasks {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    height: 150px;
+    margin: 0;
+}
+
+.board_findTask{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 50px;
+    margin: 0;
+    margin-top: 60px;
+}
+
+.board_cardcolumn {
+    flex-direction: row;
+    min-height: 150px;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 100%;
+    margin: 0;
+    gap: 10px;
+    overflow: auto;
+}
+
+.board_headline{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    margin: 0;
+    font-size: 47px;
+}
+
+.spalte{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 90%;
+}
+
+.row{
+    width: 100%;
+    margin-left: 0;
+}
+
+.board_openCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.board_taskcard{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 60%;
+    margin: 0;
+}
+
+.addtask-prio-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin: 0;
+}
+
+.addtask-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    margin: 0;
+}
+
+.max-width-500{
+    max-width: 100% !important;
+}
+
+.max-width-525{
+    max-width: 100% !important;
+}
+
+.addtask-input-subtasks{
+    max-width: 100% !important;
+}
+
+.board_opencardtag{
+    font-size: 13px;
+}
+
+.board_cardtag{
+    font-size: 17px;
+}
+
+.board_cardexit{
+    font-size: 20px;
+    margin-left: 40px;
+}
+
+.board_taskedit{
+    font-size: 15px;
+}
+
+progress{
+    width: 90px !important;
+    height: 20px;
+}
+}
+
+@media (max-width: 350px){
+    .board_content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0px;
+        top: 80px;
+        width: 100%;
+        padding: 10px;
+        height: calc(100vh - 180px);
+    }
+
+    .responsiveEdit{
+        flex-direction: column !important;
+    }
+
+    .board_cardexit{
+        margin-right: 0;
+    }
+}

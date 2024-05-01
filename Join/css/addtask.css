@@ -1,0 +1,538 @@
+/* style contend add task */
+.addtask_html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3b3b3b;
+    font-family: 'inter', sans-serif;
+}
+
+/* Header and sidebar */
+.addtask_sidebar {
+    position: fixed;
+    width: 232px;
+    height: 1024px;
+    background-color: #2A3647;
+    box-shadow: 0px 0px 4px 0px #0000001A;
+}
+
+.addtask_header {
+    position: fixed;
+    width: 1440px !important;
+    height: 96px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* addtask body */
+.addtask_body {
+    position: fixed;
+    box-sizing: border-box;
+    top: 0px;
+    width: 100%;
+    height: 100vh;
+    background-color: #F5F5F5;
+    overflow-x: hidden;
+    margin: 0;
+    margin-top: 0 !important;
+}
+
+/* addtask content */
+.addtask_content {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    top: 96px;
+    bottom: 0;
+    right: 0;
+    margin-left: 20%;
+    max-width: 1208px;
+}
+
+.addtaskbuttonresponsive {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 56px;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Inter";
+    margin-right: 10%;
+}
+
+/* addtask fonts */
+.addtask_h1 {
+    font-size: 61px;
+    font-weight: 700;
+    height: 78px;
+    top: 0px;
+    left: 74px;
+    gap: 1px;
+    padding-top: 10px;
+    padding-left: 0;
+}
+
+.addtask-h2 {
+    font-size: 20px;
+    font-weight: 400;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+.addtask-h2 span {
+    color: #FFA800;
+}
+
+.cursorPointer:hover {
+    cursor: pointer;
+}
+
+.cursorPointerBlue:hover {
+    cursor: pointer;
+    border: 1px solid #29ABE2;
+}
+
+/* widt inputfields */
+.width540 {
+    width: 103%;
+}
+
+.width524 {
+    width: 100%;
+}
+
+.width552 {
+    width: 100%;
+}
+
+/* addtask content main, left, middle, right */
+.addtask-content-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.task-container {
+    gap: 48px;
+    display: flex;
+}
+
+.addtask-left-content {
+    display: flex;
+    gap: 16px;
+    max-width: 440px;
+    width: 100%;
+    flex-direction: column;
+    flex: 1;
+}
+
+.addtask-middle-content {
+    height: 524px;
+    width: 1px;
+    top: 327px;
+    background-color: #D1D1D1;
+}
+
+.addtask-right-content {
+    display: flex;
+    margin-right: 96px;
+    gap: 24px;
+    max-width: 440px;
+    width: 100%;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* diabled button color hover */
+.grey {
+    background-color: rgb(236, 7, 7);
+}
+
+/* style inputfields */
+.addtask-input-title {
+    height: 48px;
+    border-radius: 10px;
+    border: 1px solid #d1d1d1;
+    padding-left: 12px;
+    font-size: 20px;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Inter";
+}
+
+.addtask-gap16 {
+    padding-bottom: 16px;
+}
+
+.addtask-input-title::placeholder {
+    color: #d1d1d1;
+}
+
+.addtask-input-title[value="Black"] {
+    color: black;
+}
+
+.addtask-input-description {
+    min-height: 130px;
+    border-radius: 10px;
+    border: 1px solid #d1d1d1;
+    padding-left: 12px;
+    padding-top: 12px;
+    gap: 10px;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Inter";
+}
+
+.addtask-input-description::placeholder {
+    color: #d1d1d1;
+}
+
+.addtask-input-description[value="Black"] {
+    color: black;
+}
+
+.addtask-input-assigned {
+    height: 48px;
+    padding-left: 12px;
+    gap: 0;
+    border-radius: 10px;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    border: 1px solid #d1d1d1;
+    justify-content: space-between;
+    padding-left: 12px;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Inter";
+    display: flex;
+    background-color: white;
+}
+
+.addtask-input-assigned-input {
+    border: none;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Inter";
+}
+
+.addtask-input-description::placeholder {
+    color: #d1d1d1;
+}
+
+.addtask-input-description[value="Black"] {
+    color: black;
+}
+
+.addtask-input-date {
+    height: 48px;
+    gap: 0;
+    border-radius: 10px;
+    border: 1px solid #d1d1d1;
+    justify-content: space-between;
+    font-size: 20px;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Inter";
+    padding-left: 12px;
+    color: #d1d1d1;
+}
+
+.addtask-input-date::placeholder {
+    color: #d1d1d1;
+}
+
+.addtaskBlack {
+    color: black !important;
+}
+
+.addtask-input-date[value="Black"] {
+    color: black;
+}
+
+.addtask-input-category {
+    height: 48px;
+    padding-left: 12px;
+    gap: 16px;
+    border-radius: 10px;
+    border: 1px solid #d1d1d1;
+    justify-content: space-between;
+    color: black;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Inter";
+}
+
+.addtask-input-category::placeholder {
+    color: #d1d1d1;
+}
+
+.addtask-input-category[value="Black"] {
+    color: black;
+}
+
+.addtask-input-subtasks {
+    height: 48px;
+    padding-left: 12px;
+    gap: 0;
+    border-radius: 10px;
+    border: 1px solid #d1d1d1;
+    justify-content: space-between;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Inter";
+    width: 96%;
+}
+
+.addtask-input-assignedto {
+    height: 48px;
+    padding-left: 12px;
+    gap: 0;
+    border-radius: 10px;
+    border: 1px solid #d1d1d1;
+    justify-content: space-between;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Inter";
+    width: 103%;
+}
+
+.addtask-input-subtasks::placeholder {
+    color: #d1d1d1;
+}
+
+.addtask-input-subtasks[value="Black"] {
+    color: black;
+}
+
+/* style buttons */
+.addtask-prio-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Inter";
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Inter";
+}
+
+.addtask-button {
+    height: 56px;
+    border-radius: 10px;
+    padding: 16px 10px 16px 10px;
+    gap: 8px;
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid #d1d1d1;
+    background-color: white;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Inter";
+    align-items: center;
+}
+
+.addtaskbutton {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 56px;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Inter";
+    margin-right: 7%;
+}
+
+.prioimg {
+    width: 20px;
+    height: 20px;
+}
+
+.plusnew {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+}
+
+.addtask-button-create-task {
+    height: 56px;
+    border-radius: 10px;
+    background-color: #243647;
+    color: #Ffffff;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Inter";
+    margin-right: 20px;
+}
+
+.addtask-button-create-task:disabled {
+    background-color: #5a5a5a;
+}
+
+.urgent.selected {
+    background-color: rgb(255, 61, 0, 0.2);
+}
+
+.medium.selected {
+    background-color: rgb(255, 168, 0, 0.2);
+}
+
+.low.selected {
+    background-color: rgb(122, 226, 41, 0.2);
+}
+
+.addtask-button-cancel {
+    height: 56px;
+    border-radius: 10px;
+    border: 1px solid;
+    padding: 16px;
+    gap: 4px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Inter";
+    margin-right: 20px;
+}
+
+.addtask-button-create-task:hover:enabled {
+    background-color: #29ABE2;
+    border: 1px solid #29ABE2;
+}
+
+.d-none {
+    display: none !important;
+}
+
+/* Style Popup */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 10px;
+    border: 1px solid #243647;
+    background-color: #243647;
+    border-radius: 10px;
+    border: 1px solid;
+    color: white;
+    display: block;
+}
+
+.addsubtaskliste {
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    font-family: "Inter";
+}
+
+.inputfield {
+    max-height: 150px;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: thin;
+    border-radius: 10px;
+    overflow: auto;
+    gap: 10px;
+    background-color: #ffffff;
+    padding: 10px;
+    padding-right: 12px;
+    position: relative;
+    z-index: 1;
+}
+
+.containerSubtask {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    gap: 10px;
+    background-color: #ffffff;
+    padding: 10px;
+    gap: 5px;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Inter";
+}
+
+.subtaskIcons {
+    display: flex;
+    gap: 5px;
+}
+
+.containerForSubtask {
+    scrollbar-width: thin;
+    border-radius: 10px;
+    overflow: auto;
+    gap: 10px;
+    background-color: #ffffff;
+    padding: 10px;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 150px;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Inter";
+}
+
+.inputnew {
+    display: flex;
+    height: 40px;
+    width: 93% !important;
+    flex-direction: row;
+    font-size: 20px;
+    text-align: right;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+}
+
+.inputnew:hover {
+    background-color: #5c5c5c;
+    border-radius: 10px;
+}
+
+.checkBox {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #FF3D00;
+    cursor: pointer;
+}
+
+.inputfieldEditSubtask {
+    height: 40px;
+    font-size: 20px;
+    border-width: 0 0 2px;
+    border-color: #29ABE2;
+}
+
+.inputfieldEditSubtask:focus {
+    border-color: green;
+    outline: 1px dotted #000
+}

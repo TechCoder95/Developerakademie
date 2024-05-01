@@ -1,0 +1,822 @@
+.board_html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3b3b3b;
+    font-family: 'inter', sans-serif;
+ 
+}
+
+body {
+    margin: 0;
+}
+
+/* Header und Sidebar, sollten im Template kommen */
+.board_sidebar {
+    position: fixed;
+    top: 8px;
+    width: 232px;
+    height: 1024px;
+    background-color: #2A3647;
+    box-shadow: 0px 0px 4px 0px #0000001A;
+}
+
+.board_header {
+    position: fixed;
+    top: 8px;
+    width: 1440px !important;
+    height: 96px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.board_body {
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: #F5F5F5;
+}
+
+.board_content {
+    position: fixed;
+    top: 104px;
+    width: calc(100vw - 232px);
+    height: 100%;
+    margin-left: 232px;
+    scrollbar-width: thin;
+    overflow-y: auto;
+}
+
+
+.board_top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 200px;
+    margin: 0;
+    width: 90%;
+}
+
+.board_head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 73px;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.board_headline {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    font-size: 61px;
+    font-weight: 700;
+    text-align: left;  
+    margin-left: 40px;
+}
+
+.board_findTask {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-right: -70px;
+}
+
+input {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 16px;
+    gap: 10px;
+
+    width: 312px;
+    height: 48px;
+
+    background: #FFFFFF;
+    border: 1px solid #A8A8A8;
+    border-radius: 10px;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    font-size: 20px;
+}
+
+.addTask {
+    /* Secondary-plus */
+
+    box-sizing: border-box;
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    gap: 4px;
+
+    width: 160px;
+    height: 48px;
+
+    background: #2A3647;
+    border: 1px solid #2A3647;
+    border-radius: 10px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+    color: #FFFFFF;
+    font-size: 21px;
+    cursor: pointer;
+}
+
+.plus {
+     /* Secondary-plus */
+
+     box-sizing: border-box;
+
+     /* Auto layout */
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     padding: 2px 4px;
+     gap: 4px;
+ 
+     width: 35px;
+     height: 35px;
+     background: #2A3647;
+     border: 1px solid #2A3647;
+     border-radius: 10px;
+ 
+     /* Inside auto layout */
+     flex: none;
+     order: 1;
+     flex-grow: 0;
+ 
+     color: #FFFFFF;
+     font-size: 21px;
+     cursor: pointer;
+}
+
+.board_kanbanheadline {
+    display: flex;
+    justify-content: row;
+    align-items: center;
+    width: 95vw;
+    margin-left: 256px;
+    height: 24px;
+    gap: 25px;
+}
+
+h4 {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: row;
+    width: 310px;
+    margin-left: 12px;
+    margin-right: 50px;
+}
+
+.board_plus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.board_bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+}
+
+.board_tasks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+    height: 928px;
+    width: 80vw;
+    
+
+}
+
+.spalte{
+    display: flex;
+    flex-direction: column;
+    width: 22%;
+    gap: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.board_task {
+    /* Cards */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    width: 320px;
+    padding: 10px;
+    margin-bottom: 15px;
+
+
+    /* white */
+    background: #FFFFFF;
+    /* shadoe backlog box */
+    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
+    border-radius: 24px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    cursor: pointer;
+
+}
+
+.board_task h3 {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: left;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-top: 10px;
+}
+
+.board_notask {
+    /* Cards */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    width: 320px;
+    height: 30px;
+    padding: 10px;
+    margin-bottom: 15px;
+    margin-top: 25px;
+    margin-left: -5px;
+
+
+
+    /* white */
+    background: #e1e1e1;
+    border-radius: 24px;
+    border: #d8d8d8 5px dashed;
+    opacity: 0.5;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+
+.board_nocardcontent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    height: 232px;
+    gap: 10px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 20px;
+    color: #2222224a;
+
+}
+
+
+.board_cardcolumn{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    width: 240px;
+    min-height: 900px;
+    margin-top: 10px;
+
+}
+.board_cardcontent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 0px;
+}
+
+.board_cardtag {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 4px 16px;
+    gap: 10px;
+
+    width: 150px;
+    height: 27px;
+
+    /* background: #0038FF; */
+    border-radius: 8px;
+
+    color: #FFFFFF;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+    justify-content: center;
+
+}
+
+.board_cardcontacts {
+    /* Frame 139 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 83px;
+
+    width: 220px;
+    height: 32px;
+
+
+}
+
+.board_cardbottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.drag-area-highlight {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px dashed black;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: flex-start;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.todo {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.board_taskcard {
+    font-size: 20px;
+
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    padding: 48px 40px;
+    gap: 24px;
+
+    position: relative;
+    width: 525px;
+    height: 700px;
+    max-width: 525px;
+
+    background: #FFFFFF;
+
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
+    border-radius: 30px;
+    margin-left: 35%;
+    z-index: 2;
+
+    transition: transform 0.3s ease-in-out;
+    animation: slide-in 0.3s ease-in-out;
+
+    
+    transform: translateX(0);
+    animation-fill-mode: forwards;
+    
+}
+
+.board_innertaskcard{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+.mobile_headline{
+    display: none;
+
+}
+
+.board_taskcardedit {
+    gap: 10px !important;
+    
+}
+
+.board_editframe {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    gap: 24px;
+    overflow-y: auto;
+}
+.max-width-525{
+    width: 525px !important;
+}
+
+.max-width-500{
+    width: 500px !important;
+    flex-direction: row !important;
+}
+
+.addtask-button-create-task{
+    display: flex;
+    width: 90px;
+    height: 80px;
+    align-self: flex-end;
+    right: -10px !important;
+}
+.addtask-prio-buttons{
+    justify-content: center;
+    gap: 13%;
+}
+.addtask-gap16{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.board_taskedit{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    font-size: 20px;
+
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(200%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+.board_openCard {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    background-color: rgba(0, 0, 0, 0.603);
+
+    
+}
+
+.d-none{
+    display: none;
+}
+
+.board_cardnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.board_opencardtag {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 4px 16px;
+    gap: 10px;
+
+    width: 160px;
+    height: 27px;
+
+    /* background: #0038FF; */
+    border-radius: 8px;
+
+    color: #FFFFFF;
+    align-items: center;
+    font-size: 21px;
+    font-weight: 700;
+    justify-content: center;
+}
+.board_cardclosed {
+    font-size: 21px;
+    cursor: pointer;
+}
+
+
+.board_cardheadline {
+    width: 100%;
+    font-size: 61px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.board_cardtask, .board_cardheadline {
+        overflow-wrap: break-word;
+}
+
+
+.board_text {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+}
+
+.board_deledit {
+    display: flex;
+    justify-content: space-between;
+}
+
+.board_subtasks {
+    list-style: none;
+}
+
+.board_assigned {
+    list-style: none;
+}
+
+.board_assigneditem {
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 15px;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    top: 0px;
+    left: 0px;
+    gap: 0px;
+    margin-right: -5px;
+    border-radius: 3px 0px 0px 0px;
+    border: 2px 0px 0px 0px;
+    opacity: 0px;
+}
+.checkbox:hover {
+    cursor: pointer;
+}
+
+.width540{
+    width: 450px !important;
+}
+
+.board_cardexit{
+    text-align: center;
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.edittask{
+    width: 100px!important;
+    height: 80px !important;
+}
+
+.plusnew{
+    right: 15px !important;
+}
+
+#addtask-button-create-task{
+    display: flex;
+    width: 183px;
+    height: 56px;
+    align-self: flex-end;
+    right: -10px !important;
+}
+
+#test{
+    margin-top: 5px;
+    flex-direction: row;
+}
+
+
+.board_cardexit:hover{
+    background-color: #dddddd;
+    border-radius: 50%;
+}
+
+.board_subitem{
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+p {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+.board_addTask {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.603);
+    position: fixed;
+}
+.addtaskbutton{
+    margin-right: 5px;
+}
+
+.board_addtaskcard{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 48px 40px;
+    max-width: 1100px;
+    min-width: 1100px;
+    height: 680px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
+    border-radius: 30px;
+    z-index: 1000;
+    
+    transition: transform 0.3s ease-in-out;
+    animation: slide-in 0.3s ease-in-out;
+
+    
+    transform: translateX(0);
+    animation-fill-mode: forwards;
+}
+
+
+.addtask_h1{
+    padding-top: 0px;
+    padding-left: 0px;
+}
+
+.addtask-left-content{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.addtask-content-footer{
+    justify-content: space-between;
+    width: 1250px;
+}
+
+
+.board_deledit{
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.board_deledit:hover{
+    color: #44AAE1;
+}
+
+.board_taskactions{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+
+.board_cardcontactsdome{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.board_cardcontactsring{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: -15px;
+}
+
+.gap-20{
+    margin-top: 0px;
+}
+
+.gap-20 p {
+    margin-block-start: 0em;
+    margin-block-end: 0.5em;
+}
+
+.inputfield{
+    border: #000000 1px solid;
+    border-radius: 10px;
+    width: 93% !important;
+    flex-direction: column !important;
+    overflow-x: hidden;
+}
+.responsiveEdit{
+    gap: 84px;
+    width: 100%;
+}
+.editDescript{
+    height: 100px; 
+    border-radius: 10px;
+    padding: 10px;
+    overflow-x: hidden;
+
+}
+.widthContacts{
+    width: 95% !important;
+}
+.witdhContactsTodo{
+    width: 93% !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 5px;
+    border-radius: 10px;
+    gap: 10px;
+    background-color: #ffffff;
+    padding-right: 12px;
+    padding-left: 20px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    z-index: 1;
+}
+
+.board_task:hover{
+    transform: scale(1.03);
+    transition: transform 0.5s;
+}
+.addtask-input-description{
+      width: 91% !important;
+    min-height: 60px;
+}
+.width524{
+    width: 100% !important;
+}
+.editDescript{
+    width: 98% !important;
+    padding: 10px !important;
+    overflow-x: hidden;
+
+}
+.addtask-input-subtasks {
+    width: 100% !important;
+}
+.addtask-input-assignedto {
+    width: 100% !important;
+}
