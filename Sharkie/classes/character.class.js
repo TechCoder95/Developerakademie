@@ -110,6 +110,9 @@ class Character extends MovableObject {
 
     animate() {
 
+
+
+
         setInterval(() => {
             this.move();
         }, 1000 / 60);
@@ -124,6 +127,8 @@ class Character extends MovableObject {
             }
             else if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
                 this.playAnimation2(this.IMAGES_WALKING);
+                
+                this.world.sounds.stopSnoring();
             }
             else if (this.world.keyboard.D) {
                 this.playAnimation2(this.IMAGES_ATTACK);
@@ -133,9 +138,11 @@ class Character extends MovableObject {
             }
             else if (this.world.idletime == 20) {
                 this.playAnimation2(this.IMAGES_LONG_IDLE);
+                
             }
             else if (this.world.idletime > 21) {
                 this.playAnimation2(this.IMAGES_SLEEP);
+                this.world.sounds.playSnoring();
             }
 
         }, 1000 / 10);

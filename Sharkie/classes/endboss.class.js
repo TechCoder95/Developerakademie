@@ -9,6 +9,8 @@ class Endboss extends MovableObject {
     winningScreenIsRenderd = false;
     speed = 55;
 
+
+
     IMAGES_INTRO = [
         'img/2.Enemy/3 Final Enemy/1.Introduce/1.png',
         'img/2.Enemy/3 Final Enemy/1.Introduce/2.png',
@@ -101,7 +103,7 @@ class Endboss extends MovableObject {
             this.isDead = true;
         }
     };
-    
+
     endbossIsDead() {
         return this.isDead = true;
     };
@@ -115,7 +117,7 @@ class Endboss extends MovableObject {
         setTimeout(() => {
             if (this.winningScreenIsRenderd) {
                 setTimeout(() => {
-                location.reload();
+                    location.reload();
                 }, 5000)
             } else {
                 this.renderWinningScreen()
@@ -146,12 +148,15 @@ class Endboss extends MovableObject {
 
     animate() {
         let i = 0
+
+
+
         setInterval(() => {
             if (i < 10) {
                 this.playAnimation2(this.IMAGES_INTRO);
                 if (this.hadFirstConcact == true) {
                     setTimeout(() => {
-                        this.x = 740*3 + 150;
+                        this.x = 740 * 3 + 150;
                     }, 401);
                 }
             }
@@ -169,12 +174,14 @@ class Endboss extends MovableObject {
             } else {
                 this.playAnimation2(this.IMAGES_WALKING);
             }
-            
+
             i++;
 
-            if (world && world.character.x > 730*2 && !this.hadFirstConcact) {
+            if (world && world.character.x > 800 * 2 && !this.hadFirstConcact) {
                 i = 0;
                 this.hadFirstConcact = true;
+                world.sounds.stopBackground();
+                world.sounds.playEndboss()
             }
         }, 200);
     }

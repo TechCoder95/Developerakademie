@@ -14,6 +14,7 @@ class MovableObject extends DrawableObject {
     yOffset = 80;
 
 
+
     otherDirection = false;
 
     applyGravity() {
@@ -72,6 +73,11 @@ class MovableObject extends DrawableObject {
 
     addCoin() {
         this.coins += 20;
+        if (world.sounds.muted == false)
+        world.sounds.playCoin();
+        else{
+            return;
+        }
     };
 
     hitPoison() {

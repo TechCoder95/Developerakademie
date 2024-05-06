@@ -24,8 +24,10 @@ function init() {
     document.getElementById('overlay').innerHTML = ` `
     canvas = document.getElementById('canvas');
     world = new World(canvas, keyboard)
+    playAudio();
 
 }
+
 
 window.addEventListener('keydown', (event) => {
 
@@ -52,8 +54,12 @@ window.addEventListener('keydown', (event) => {
     if (event.key === 'd') {
         keyboard.D = true;
         world.idletime = 0;
+        setTimeout(() => {
+            world.sounds.playBlub();
+        }, 1000);
     }
 });
+
 
 window.addEventListener('keyup', (event) => {
     if (event.key === 'ArrowLeft') {
@@ -84,20 +90,36 @@ window.addEventListener('keyup', (event) => {
 
 
 function stopAudio() {
-    let imgsrc = document.getElementById('stopAudio').src
-    if (imgsrc.includes("On")) {
-        document.getElementById('stopAudio').src = "./img/7. Mobile/SoundOf.png";
-        world.character.isMuted = true;
-        world.isMuted = true;
-        world.endboss.isMuted = true;
-    } else if (imgsrc.includes("Of")) {
-        document.getElementById('stopAudio').src = "./img/7. Mobile/SoundOn.png"
-        world.character.isMuted = false;
-        world.isMuted = false;
-        world.endboss.isMuted = false;
+    // document.getElementById('stopAudio').src = "./img/7. Mobile/SoundOf.png";
+    if (world.sounds.muted) {
+        world.sounds.muted = false;
+        world.sounds.sounds.Snoring.muted = false;
+        world.sounds.sounds.Blub.muted = false;
+           playAudio();
+    } else {
+        world.sounds.muted = true;
+        world.sounds.stopBackground();
+        world.sounds.stopEndboss();
+        world.sounds.sounds.Snoring.muted = true;
+        world.sounds.sounds.Blub.muted = true;
     }
 
-};
+}
+;
+
+
+function playAudio() {
+
+
+        if (world.character.x > 800 * 2) {
+            world.sounds.stopBackground();
+            world.sounds.playEndboss();
+        }
+        else
+            world.sounds.playBackground();
+    
+}
+
 
 function enablefullscreen() {
     if (document.fullscreenElement == "" || document.fullscreenElement == null) {

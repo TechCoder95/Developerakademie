@@ -16,6 +16,9 @@ class World {
     hasExecuted = false;
     enemy = new Jelly();
     endboss = new Endboss();
+    sounds = new Sounds();
+
+
 
 
     constructor(canvas, keyboard) {
@@ -27,6 +30,7 @@ class World {
 
     setWorld() {
         this.character.world = this;
+
     }
 
     run() {
@@ -98,6 +102,7 @@ class World {
                 this.level.coins = this.level.coins.filter((c) => c != coin);
                 this.character.addCoin();
                 this.statusbar_coins.setPercentage(this.character.coins);
+                    ;
             }
         });
     }
