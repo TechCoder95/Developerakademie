@@ -115,6 +115,8 @@ class World {
                 this.character.addPoison();
                 this.statusbar_poison.setPercentage(this.character.poison);
                 this.statusbar_live.setPercentage(this.character.energy);
+                if (this.sounds.muted == false)
+                this.sounds.playGift();
                 if (this.character.energy <= 0) {
                     this.character.setDead();
                 }
@@ -129,6 +131,8 @@ class World {
                 if (enemy.isColliding(bubble)) {
                     this.throwableObjects = this.throwableObjects.filter((b) => b != bubble);
                     enemy.jellyFishIsHit();
+                    if (world.sounds.muted == false)
+                    world.sounds.playBoom();
                 }
             });
         });

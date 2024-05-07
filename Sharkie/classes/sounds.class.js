@@ -10,6 +10,8 @@ class Sounds {
             Snoring: new Audio('./audio/Snoring.mp3'),
             Background: new Audio('./audio/Background.mp3'),
             Endboss: new Audio('./audio/Endboss.wav'),
+            Gift: new Audio('./audio/Gift.wav'),
+            Boom: new Audio('./audio/Boom.flac'),
         };
     }
 
@@ -73,4 +75,28 @@ class Sounds {
         this.sounds.Snoring.muted = true;
         this.sounds.Snoring.pause();
     }
+
+    playGift() {
+        this.sounds.Gift.muted = false;
+        this.sounds.Gift.volume = 0.1;
+        this.sounds.Gift.play();
+    }
+
+    stopGift() {
+        this.sounds.Gift.muted = true;
+        this.sounds.Gift.pause();
+    }
+
+    playBoom() {
+        this.sounds.Boom.muted = false;
+        this.sounds.Boom.volume = 0.1;
+        this.sounds.Boom.play();
+    }
+
+    stopBoom() {
+        this.sounds.Boom.muted = true;
+        this.sounds.Boom.pause();
+    }
+
+
 }

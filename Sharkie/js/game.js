@@ -54,9 +54,7 @@ window.addEventListener('keydown', (event) => {
     if (event.key === 'd') {
         keyboard.D = true;
         world.idletime = 0;
-        setTimeout(() => {
             world.sounds.playBlub();
-        }, 1000);
     }
 });
 
@@ -92,16 +90,26 @@ window.addEventListener('keyup', (event) => {
 function stopAudio() {
     // document.getElementById('stopAudio').src = "./img/7. Mobile/SoundOf.png";
     if (world.sounds.muted) {
-        world.sounds.muted = false;
+        world.sounds.muted = false; 
         world.sounds.sounds.Snoring.muted = false;
         world.sounds.sounds.Blub.muted = false;
+        world.sounds.sounds.Coin.muted = false;
+        world.sounds.sounds.Background.muted = false;
+        world.sounds.sounds.Endboss.muted = false;
+        world.sounds.sounds.Gift.muted = false;
+        world.sounds.sounds.Boom.muted = false;
+
            playAudio();
     } else {
         world.sounds.muted = true;
-        world.sounds.stopBackground();
-        world.sounds.stopEndboss();
         world.sounds.sounds.Snoring.muted = true;
         world.sounds.sounds.Blub.muted = true;
+        world.sounds.sounds.Coin.muted = true;
+        world.sounds.sounds.Background.muted = true;
+        world.sounds.sounds.Endboss.muted = true;
+        world.sounds.sounds.Gift.muted = true;
+        world.sounds.sounds.Boom.muted = true;
+        
     }
 
 }
