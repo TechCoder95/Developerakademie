@@ -59,9 +59,6 @@ h1 {
     align-self: center;
 }
 
-#hud {
-}
-
 .gamebutton {
     height: 30px;
     display: flex;
@@ -153,6 +150,41 @@ h1 {
 
 .rotate {
     display: none;
+}
+
+
+@media(min-width: 320px) {
+    /* Your CSS code for min screen width of 320px */
+}
+
+@media(min-width: 480px) {
+    /* Your CSS code for min screen width of 480px */
+}
+
+@media(min-width: 768px) {
+    /* Your CSS code for min screen width of 768px */
+}
+
+@media(min-width: 1024px) {
+    /* Your CSS code for min screen width of 1024px */
+}
+
+@media(min-width: 1280px) {
+    #hud{
+        display: none !important;
+    }
+}
+
+@media(min-width: 1440px) {
+    /* Your CSS code for min screen width of 1440px */
+}
+
+@media(min-width: 1680px) {
+    /* Your CSS code for min screen width of 1680px */
+}
+
+@media(min-width: 1920px) {
+    /* Your CSS code for min screen width of 1920px */
 }
 
 
@@ -336,6 +368,7 @@ h1 {
     .startgamebutton {
         margin: 0;
         width: 300px;
+        z-index: 9999;
 
     }
 
@@ -404,7 +437,7 @@ h1 {
 
 
 
-@media(orientation: landscape ) {
+@media (orientation: landscape) and (max-width: 720px) {
 
 
     .canvas {
@@ -422,7 +455,6 @@ h1 {
         gap: 20px;
         height: 100px;
         width: 100vw;
-        z-index: 100;
         backdrop-filter: none;
 
     }
@@ -435,5 +467,19 @@ h1 {
     #btnAttack {
         width: 100px;
         height: 100px;
+    }
+    .fullscreenbutton {
+        display: none;
+    }
+    .instructions {
+        display: none;
+    }
+    #startscreen {
+        height: 80vh;
+        margin-top: 7px;
+    }
+    .startgamebutton {
+        width: 200px;
+        margin-top: 50%;
     }
 }

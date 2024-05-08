@@ -17,6 +17,9 @@ class MovableObject extends DrawableObject {
 
     otherDirection = false;
 
+    /**
+     * Applies gravity to the object by updating its position and speed.
+     */
     applyGravity() {
         setInterval(() => {
             if (this.y < 300) {
@@ -28,6 +31,16 @@ class MovableObject extends DrawableObject {
     };
 
 
+    /**
+     * Flips and draws an image on the canvas.
+     *
+     * @param {CanvasRenderingContext2D} ctx - The rendering context of the canvas.
+     * @param {HTMLImageElement} img - The image to be drawn.
+     * @param {number} x - The x-coordinate of the top-left corner of the image.
+     * @param {number} y - The y-coordinate of the top-left corner of the image.
+     * @param {number} width - The width of the image.
+     * @param {number} height - The height of the image.
+     */
     flipImage(ctx, img, x, y, width, height) {
         ctx.save();
         ctx.translate(x + width, 0);
@@ -42,6 +55,12 @@ class MovableObject extends DrawableObject {
         // ctx.stroke();
     }
 
+
+    /**
+     * Checks if the current object is colliding with another moveable object.
+     * @param {MoveableObject} mo - The moveable object to check collision with.
+     * @returns {boolean} - Returns true if collision occurs, otherwise false.
+     */
     isColliding(mo) {
         return this.x + this.width > mo.x &&
             this.y + this.height > mo.y &&
@@ -49,15 +68,25 @@ class MovableObject extends DrawableObject {
             this.y < mo.y + mo.height ;
     };
     
-    isCollidingcharacter(mo) {
-        
 
+    /**
+     * Checks if the current object is colliding with another moveable object.
+     * @param {MoveableObject} mo - The moveable object to check collision with.
+     * @returns {boolean} - True if collision occurs, false otherwise.
+     */
+    isCollidingcharacter(mo) {
         return this.x + this.width - this.xOffset > mo.x &&
             this.y + this.height - this.yOffset > mo.y &&
             this.x + this.xOffset < mo.x + mo.width &&
             this.y + this.yOffset < mo.y + mo.height ;
     };
 
+
+    /**
+     * Decreases the energy of the object by 10 when it hits an enemy.
+     * If the energy reaches 0 or below, it sets the energy to 0.
+     * Otherwise, it updates the lastHit property with the current timestamp.
+     */
     hitEnemy() {
         this.energy -= 10;
         if (this.energy <= 0) {
@@ -67,10 +96,18 @@ class MovableObject extends DrawableObject {
         }
     }
 
+
+    /**
+     * Increases the poison level of the object by 20.
+     */
     addPoison() {
         this.poison += 20;
     }
 
+
+    /**
+     * Adds coins to the object.
+     */
     addCoin() {
         this.coins += 20;
         if (world.sounds.muted == false)
@@ -80,6 +117,12 @@ class MovableObject extends DrawableObject {
         }
     };
 
+
+    /**
+     * Decreases the energy of the object by 20 when hit by poison.
+     * If the energy reaches 0 or below, it sets the energy to 0.
+     * Otherwise, it updates the lastHit property with the current timestamp.
+     */
     hitPoison() {
         this.energy -= 20;
         if (this.energy <= 0) {
@@ -89,21 +132,41 @@ class MovableObject extends DrawableObject {
         }
     }
 
+
+    /**
+     * Sets the object's state to dead if its energy is 0.
+     * @returns {boolean} Returns true if the object's energy is 0, indicating it is dead.
+     */
     setDead() {
         return this.energy == 0;
     };
 
+
+    /**
+     * Checks if the object is currently in a hurt state.
+     * @returns {boolean} True if the object is hurt, false otherwise.
+     */
     isHurt() {
         let timePassed = new Date().getTime() - this.lastHit;
         timePassed = timePassed / 1000;
         return timePassed < 1;
     }
 
+
+    /**
+     * Checks if the object is poisoned.
+     * @returns {boolean} True if the object is poisoned, false otherwise.
+     */
     isPoisend() {
         let timePassed = new Date().getTime() - this.lastHit;
         return timePassed < 1000;
     }
 
+
+    /**
+     * Plays the animation by updating the image of the moveable object.
+     * @param {string[]} images - An array of image paths.
+     */
     playAnimation2(images) {
         let i = this.currentImage % images.length;
         let path = images[i];
@@ -111,30 +174,54 @@ class MovableObject extends DrawableObject {
         this.currentImage++;
     }
 
+
+    /**
+     * Moves the object to the right.
+     * @returns {void}
+     */
     moveRight() {
         setInterval(() => {
             this.x += this.speed;
         }, 1000 / 144);
     };
 
+
+    /**
+     * Moves the object to the left at a constant speed.
+     */
     moveLeft() {
         setInterval(() => {
             this.x -= this.speed;
         }, 1000 / 144);
     }
 
+
+    /**
+     * Moves the object upwards at a constant speed.
+     * @returns {void}
+     */
     moveUp() {
         setInterval(() => {
             this.y -= this.speed;
         }, 1000 / 144);
     }
 
+
+    /**
+     * Moves the object downwards at a constant speed.
+     * @returns {void}
+     */
     moveDown() {
         setInterval(() => {
             this.y += this.speed;
         }, 1000 / 144);
     }
 
+
+    /**
+     * Plays the animation of the moveable object.
+     * @param {number} fps - The frames per second at which the animation should be played.
+     */
     playAnimation(fps) {
         setInterval(() => {
             let i = this.currentImage % this.IMAGES_WALKING.length;
@@ -143,4 +230,6 @@ class MovableObject extends DrawableObject {
             this.currentImage++;
         }, fps);
     }
+
+
 }

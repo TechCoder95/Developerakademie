@@ -11,12 +11,14 @@ class Jelly extends MovableObject {
         './img/2.Enemy/2 Jelly fish/Regular damage/Lila 4.png',
     ];
 
+
     IMAGES_JELLY_DEAD = [
         'img/2.Enemy/2 Jelly fish/Dead/green/g1.png',
         'img/2.Enemy/2 Jelly fish/Dead/green/g2.png',
         'img/2.Enemy/2 Jelly fish/Dead/green/g3.png',
         'img/2.Enemy/2 Jelly fish/Dead/green/g4.png'
     ];
+
 
     constructor() {
         super().loadImage('./img/2.Enemy/1.Puffer fish (3 color options)/1.Swim/3.swim1.png');
@@ -28,10 +30,19 @@ class Jelly extends MovableObject {
         this.animate();
     }
 
+
+    /**
+     * Animates the jelly.
+     */
     animate() {
         this.playAnimation(120);
     }
 
+
+    /**
+     * Decreases the energy of the jellyfish by 50.
+     * If the energy becomes negative, it is set to 0.
+     */
     jellyFishIsHit() {
         this.energy -= 50;
         if (this.energy < 0) {
@@ -39,6 +50,10 @@ class Jelly extends MovableObject {
         };
     };
 
+
+    /**
+     * Raises the dead by animating the movement of the jelly.
+     */
     raiseDead() {
         this.speedY = 0.03;
         setInterval(() => {
@@ -48,10 +63,19 @@ class Jelly extends MovableObject {
         }, 25)
     };
 
+
+    /**
+     * Checks if the jellyfish is dead.
+     * @returns {boolean} Returns true if the jellyfish's energy is 0, otherwise returns false.
+     */
     jellyFishIsDead() {
         return this.energy == 0;
     };
 
+
+    /**
+     * Animates the jellyfish by continuously playing different animations.
+     */
     animate() {
         this.moveUp();
         setInterval(() => {

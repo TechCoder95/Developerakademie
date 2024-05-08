@@ -11,6 +11,11 @@ class StatusBar_coins extends DrawableObject{
 
     percentage = 0;
 
+
+    /**
+     * Represents a status bar for coins.
+     * @constructor
+     */
     constructor(){
         super().loadImage('./img/4.Marcadores/Purple/100__1.png');
         this.loadImages(this.IMAGES_LIVE)
@@ -21,11 +26,21 @@ class StatusBar_coins extends DrawableObject{
         this.setPercentage(0);
     }
 
+
+    /**
+     * Sets the percentage value for the status bar.
+     * @param {number} percentage - The percentage value to set.
+     */
     setPercentage(percentage){
         this.percentage = percentage;
         this.img = this.resolveImage();
     }
 
+    
+    /**
+     * Resolves and returns the appropriate image based on the percentage value.
+     * @returns {string} The URL of the image.
+     */
     resolveImage(){
         if(this.percentage == 100){
             return this.imageCache[this.IMAGES_LIVE[5]];

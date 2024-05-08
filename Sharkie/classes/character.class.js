@@ -108,6 +108,11 @@ class Character extends MovableObject {
         this.animate();
     };
 
+
+    /**
+     * Animates the character by continuously executing different animations based on its state.
+     * The animation is updated at a rate of 10 frames per second.
+     */
     animate() {
         setInterval(() => {
             this.move();
@@ -139,9 +144,12 @@ class Character extends MovableObject {
         }, 1000 / 10);
     };
 
- i = 0;
+    i = 0;
 
 
+    /**
+     * Moves the character based on keyboard input.
+     */
     move() {
 
         if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x - 100) {
@@ -161,21 +169,24 @@ class Character extends MovableObject {
             this.y += 5;
         }
 
-        
+
         if (this.world && this.world.character.x > 790 * 2 && this.i == 0) {
             this.i++;
             world.sounds.stopBackground();
             world.sounds.playEndboss();
         }
-        
-    
+
+
     };
 
+    /**
+     * Sets the current image of the character to the last frame after a delay of 1 second.
+     */
     stayInLastFrame() {
         setTimeout(() => {
             this.currentImage = this.IMAGES_DEAD.length - 1;
         }, 1000);
     };
 
-    
+
 };

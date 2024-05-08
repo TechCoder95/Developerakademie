@@ -2,7 +2,9 @@ let canvas;
 let world;
 let keyboard = new Keyboard();
 
-
+/**
+ * Initializes the game by setting up the start screen.
+ */
 function startgame() {
     document.getElementById('overlay').innerHTML = /*html*/`
             <div id="startscreen">
@@ -17,7 +19,9 @@ function startgame() {
     `;
 }
 
-
+/**
+ * Initializes the game by removing the blur filter, setting up the canvas, and creating the game world.
+ */
 function init() {
     let removeblurfilter = document.getElementById('canvas');
     removeblurfilter.classList.remove('blurfilter')
@@ -25,12 +29,14 @@ function init() {
     canvas = document.getElementById('canvas');
     world = new World(canvas, keyboard)
     playAudio();
-
 }
 
 
+/**
+ * Handles the keydown event and updates the keyboard state accordingly.
+ * @param {KeyboardEvent} event - The keydown event.
+ */
 window.addEventListener('keydown', (event) => {
-
     if (event.key === 'ArrowLeft') {
         keyboard.LEFT = true;
         world.idletime = 0;
@@ -59,6 +65,10 @@ window.addEventListener('keydown', (event) => {
 });
 
 
+/**
+ * Handles the keyup event and updates the keyboard state accordingly.
+ * @param {KeyboardEvent} event - The keyup event.
+ */
 window.addEventListener('keyup', (event) => {
     if (event.key === 'ArrowLeft') {
         keyboard.LEFT = false;
@@ -87,7 +97,10 @@ window.addEventListener('keyup', (event) => {
 });
 
 
-
+/**
+ * Handles the keydown event for additional actions.
+ * @param {KeyboardEvent} event - The keydown event.
+ */
 window.addEventListener('keydown', (event) => {
     if (event.key === 'm') {
         stopAudio();
@@ -101,6 +114,10 @@ window.addEventListener('keydown', (event) => {
 });
 
 
+/**
+ * Handles the keyup event for additional actions.
+ * @param {KeyboardEvent} event - The keyup event.
+ */
 window.addEventListener('keyup', (event) => {
     if (event.key === 'm') {
         stopAudio();
@@ -111,15 +128,20 @@ window.addEventListener('keyup', (event) => {
     if (event.key === 'r') {
         realod();
     }
-}
-);
+});
 
 
+/**
+ * Represents the state of shooting and running.
+ */
 let schiesen = false;
 let laufen = false;
 
 
-window.addEventListener('mousedown', () => { // Remove the 'click' parameter
+/**
+ * Handles the mousedown event and updates the keyboard state for shooting and running.
+ */
+window.addEventListener('mousedown', () => {
     if (schiesen) {
         keyboard.D = true;
         world.sounds.playBlub();
@@ -129,6 +151,10 @@ window.addEventListener('mousedown', () => { // Remove the 'click' parameter
     }
 });
 
+
+/**
+ * Handles the mouseup event and updates the keyboard state for stopping shooting and running.
+ */
 window.addEventListener('mouseup', () => {
     keyboard.RIGHT = false;
     keyboard.D = false;
@@ -137,18 +163,26 @@ window.addEventListener('mouseup', () => {
 });
 
 
+/**
+ * Sets the `laufen` variable to `true`, indicating that the mobile is moving.
+ */
 function mobileMove() {
     laufen = true;
 }
 
 
+/**
+ * Enables shooting on mobile devices.
+ */
 function mobileShoot() {
     schiesen = true;
 }
 
 
+/**
+ * Stops or starts playing audio based on the current state.
+ */
 function stopAudio() {
-    // document.getElementById('stopAudio').src = "./img/7. Mobile/SoundOf.png";
     if (world.sounds.muted) {
         world.sounds.muted = false;
         world.sounds.sounds.Snoring.muted = false;
@@ -162,7 +196,6 @@ function stopAudio() {
         world.sounds.sounds.Win.muted = false;
         world.sounds.sounds.YouWin.muted = false;
         world.sounds.sounds.YouLose.muted = false;
-
 
         playAudio();
     } else {
@@ -178,26 +211,26 @@ function stopAudio() {
         world.sounds.sounds.Win.muted = true;
         world.sounds.sounds.YouWin.muted = true;
         world.sounds.sounds.YouLose.muted = true;
-
     }
-
 }
-;
 
 
+/**
+ * Plays the audio based on the character's position in the game world.
+ */
 function playAudio() {
-
-
     if (world.character.x > 800 * 2) {
         world.sounds.stopBackground();
         world.sounds.playEndboss();
-    }
-    else
+    } else {
         world.sounds.playBackground();
-
+    }
 }
 
 
+/**
+ * Enables fullscreen mode and adjusts the size of the canvas and fixed buttons accordingly.
+ */
 function enablefullscreen() {
     if (document.fullscreenElement == "" || document.fullscreenElement == null) {
         document.getElementById('canvas').style.width = "1200px"
@@ -213,6 +246,10 @@ function enablefullscreen() {
     };
 };
 
+
+/**
+ * Handles the fullscreenchange event and adjusts the size of the canvas and fixed buttons accordingly.
+ */
 document.addEventListener('fullscreenchange', () => {
     if (document.fullscreenElement === null) {
         document.getElementById('canvas').style.width = "720px";
@@ -223,9 +260,12 @@ document.addEventListener('fullscreenchange', () => {
         document.getElementById('canvas').style.height = "800px";
         document.getElementById('fixedButtons').style.right = "310px"
     };
-
 });
 
+
+/**
+ * Reloads the current page.
+ */
 function realod() {
     location.reload();
 };

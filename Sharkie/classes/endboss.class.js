@@ -23,6 +23,7 @@ class Endboss extends MovableObject {
         'img/2.Enemy/3 Final Enemy/1.Introduce/10.png'
     ];
 
+
     IMAGES_WALKING = [
         'img/2.Enemy/3 Final Enemy/2.floating/1.png',
         'img/2.Enemy/3 Final Enemy/2.floating/2.png',
@@ -40,12 +41,14 @@ class Endboss extends MovableObject {
         'img/2.Enemy/3 Final Enemy/2.floating/13.png'
     ];
 
+
     IMAGES_HURT = [
         'img/2.Enemy/3 Final Enemy/Hurt/1.png',
         'img/2.Enemy/3 Final Enemy/Hurt/2.png',
         'img/2.Enemy/3 Final Enemy/Hurt/3.png',
         'img/2.Enemy/3 Final Enemy/Hurt/4.png'
     ];
+
 
     IMAGES_DEAD = [
         'img/2.Enemy/3 Final Enemy/Dead/Mesa de trabajo 2 copia 6.png',
@@ -54,6 +57,7 @@ class Endboss extends MovableObject {
         'img/2.Enemy/3 Final Enemy/Dead/Mesa de trabajo 2 copia 9.png',
         'img/2.Enemy/3 Final Enemy/Dead/Mesa de trabajo 2 copia 10.png'
     ];
+
 
     IMAGES_ATTACK = [
         'img/2.Enemy/3 Final Enemy/Attack/1.png',
@@ -64,12 +68,14 @@ class Endboss extends MovableObject {
         'img/2.Enemy/3 Final Enemy/Attack/6.png',
     ];
 
+
     IMAGES_WIN = [
         'img/6.Botones/Tittles/You win/Recurso 19.png',
         'img/6.Botones/Tittles/You win/Recurso 20.png',
         'img/6.Botones/Tittles/You win/Recurso 21.png',
         'img/6.Botones/Tittles/You win/Recurso 22.png'
     ];
+
 
     offset = {
         top: 240,
@@ -78,6 +84,11 @@ class Endboss extends MovableObject {
         bottom: 40
     };
 
+
+    /**
+     * Represents the EndBoss class.
+     * @constructor
+     */
     constructor() {
         super().loadImage('./img/2.Enemy/3 Final Enemy/2.floating/1.png');
         this.x = 740 * 3 + 150;
@@ -94,6 +105,10 @@ class Endboss extends MovableObject {
 
     }
 
+
+    /**
+     * Decreases the energy of the end boss by 50 and updates its state accordingly.
+     */
     endbossIsHit() {
         this.energy -= 50;
         if (this.energy > 0) {
@@ -103,10 +118,21 @@ class Endboss extends MovableObject {
         }
     };
 
+
+    /**
+     * Marks the end boss as dead.
+     * @returns {boolean} - The updated value of `isDead`.
+     */
     endbossIsDead() {
         return this.isDead = true;
     };
 
+
+    /**
+     * Causes the end boss to die by decreasing its y position and rendering the winning screen.
+     * If the winning screen is already rendered, it reloads the page after 5 seconds.
+     * @returns {void}
+     */
     letEndBossDie() {
         this.speedY = 0.03;
         setInterval(() => {
@@ -125,6 +151,14 @@ class Endboss extends MovableObject {
         }, 500)
     };
 
+
+    /**
+     * Renders the winning screen.
+     * Sets the winningScreenIsRendered flag to true.
+     * Updates the overlay element with an image indicating the player has won.
+     * Adds a blur filter to the canvas element.
+     * Stops the end boss sound and plays the win and you win sounds if the game sounds are not muted.
+     */
     renderWinningScreen() {
         this.winningScreenIsRendered = true;
         let overlay = document.getElementById('overlay');
@@ -139,6 +173,10 @@ class Endboss extends MovableObject {
 
     }
 
+
+    /**
+     * Makes the end boss attack by moving it back and forth horizontally.
+     */
     attack() {
         setInterval(() => {
             this.isAttacking = true;
@@ -149,8 +187,13 @@ class Endboss extends MovableObject {
         }, 2250)
     };
 
+
     hadFirstConcact = false;
 
+    
+    /**
+     * Animates the end boss by playing different animations based on its state.
+     */
     animate() {
         let i = 0
         setInterval(() => {

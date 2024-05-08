@@ -34,6 +34,9 @@ class World {
     }
 
 
+    /**
+     * Runs the world simulation.
+     */
     run() {
         this.draw();
         this.setWorld();
@@ -42,6 +45,10 @@ class World {
     }
 
 
+    /**
+     * Checks the idle time and updates the `idletime` property.
+     * @returns {void}
+     */
     checkIdleTime() {
         setInterval(() => {
             if (this.keyboard.RIGHT || this.keyboard.LEFT || this.keyboard.UP || this.keyboard.DOWN || this.keyboard.SPACE || this.keyboard.D)
@@ -52,6 +59,9 @@ class World {
     }
 
 
+    /**
+     * Checks for throwable objects and adds them to the list of throwable objects.
+     */
     checkThrowableObjects() {
         if (this.hasExecuted == false && this.keyboard.D) {
             this.hasExecuted = true;
@@ -66,6 +76,13 @@ class World {
     }
 
 
+    /**
+     * Checks for collisions between different game objects.
+     * This method is responsible for checking collisions between enemies, end bosses, coins, poisons,
+     * throwable objects, and bubbles.
+     * It sets up two intervals: one for checking enemy and end boss collisions every second,
+     * and another for checking coin, poison, throwable object, and bubble collisions every 1/60th of a second.
+     */
     checkCollisons() {
         setInterval(() => {
             this.checkenemyCollisions();
@@ -80,6 +97,9 @@ class World {
     }
 
 
+    /**
+     * Checks for collisions between the character and enemies.
+     */
     checkenemyCollisions() {
         this.level.enemies.forEach((enemy) => {
             if (this.character.isCollidingcharacter(enemy)) {
@@ -96,6 +116,9 @@ class World {
     }
 
 
+    /**
+     * Checks for collisions between the character and coins in the level.
+     */
     checkcoinCollisions() {
         this.level.coins.forEach((coin) => {
             if (this.character.isCollidingcharacter(coin)) {
@@ -108,6 +131,9 @@ class World {
     }
 
 
+    /**
+     * Checks for collisions between the character and poison objects.
+     */
     checkpoisonCollisions() {
         this.level.poison.forEach((poison) => {
             if (this.character.isCollidingcharacter(poison)) {
@@ -126,6 +152,9 @@ class World {
     }
 
 
+    /**
+     * Checks for collisions between enemies and throwable objects (bubbles).
+     */
     checkbubbleCollisions() {
         this.level.enemies.forEach((enemy) => {
             this.throwableObjects.forEach((bubble) => {
@@ -142,6 +171,10 @@ class World {
     }
 
 
+    /**
+     * Checks for collisions between throwable objects and the end boss,
+     * as well as collisions between the character and the end boss.
+     */
     checkendbossCollisions() {
         this.throwableObjects.forEach((bubble) => {
             if (this.endboss.isColliding(bubble)) {
@@ -160,6 +193,10 @@ class World {
     }
 
 
+    /**
+     * Draws the game world on the canvas.
+     * @returns {void}
+     */
     draw() {
         setTimeout(() => {
             requestAnimationFrame(() => {
@@ -184,6 +221,10 @@ class World {
     }
 
 
+    /**
+     * Adds objects to the map.
+     * @param {Array} objects - An array of objects to be added to the map.
+     */
     addObjectstoMap(objects) {
         objects.forEach((object) => {
             this.addtoMap(object);
@@ -191,6 +232,10 @@ class World {
     }
 
 
+    /**
+     * Adds a map object to the world.
+     * @param {MapObject} mo - The map object to be added.
+     */
     addtoMap(mo) {
         if (!mo.otherDirection) {
             mo.drawImage(this.ctx, mo.img, mo.x, mo.y, mo.width, mo.height);
@@ -201,6 +246,9 @@ class World {
     }
 
 
+    /**
+     * Displays the game over screen and performs necessary actions when the game is over.
+     */
     gameOver() {
         document.getElementById('overlay').innerHTML =
             `<img class="gameover" src="img/6.Botones/Tittles/Game Over/Recurso 10.png">
@@ -219,6 +267,9 @@ class World {
     }
 
 
+    /**
+     * Starts the game by updating the HTML content and applying a blur filter to the canvas element.
+     */
     startgame() {
         document.getElementById('overlay').innerHTML =
             `<img class="gameover" src="img/6.Botones/Tittles/Game Over/Recurso 10.png">
