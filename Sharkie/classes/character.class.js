@@ -70,25 +70,25 @@ class Character extends MovableObject {
     ];
 
     IMAGES_LONG_IDLE = [
-        './img/1.Sharkie/2.Long_IDLE/i1.png',
-        './img/1.Sharkie/2.Long_IDLE/i2.png',
-        './img/1.Sharkie/2.Long_IDLE/i3.png',
-        './img/1.Sharkie/2.Long_IDLE/i4.png',
-        './img/1.Sharkie/2.Long_IDLE/i5.png',
-        './img/1.Sharkie/2.Long_IDLE/i6.png',
-        './img/1.Sharkie/2.Long_IDLE/i7.png',
-        './img/1.Sharkie/2.Long_IDLE/i8.png',
-        './img/1.Sharkie/2.Long_IDLE/i9.png',
-        './img/1.Sharkie/2.Long_IDLE/i10.png',
-        './img/1.Sharkie/2.Long_IDLE/i11.png',
-        './img/1.Sharkie/2.Long_IDLE/i12.png',
-        './img/1.Sharkie/2.Long_IDLE/i13.png',
+        './img/1.Sharkie/2.LongIDLE/21.png',
+        './img/1.Sharkie/2.LongIDLE/22.png',
+        './img/1.Sharkie/2.LongIDLE/23.png',
+        './img/1.Sharkie/2.LongIDLE/24.png',
+        './img/1.Sharkie/2.LongIDLE/25.png',
+        './img/1.Sharkie/2.LongIDLE/26.png',
+        './img/1.Sharkie/2.LongIDLE/27.png',
+        './img/1.Sharkie/2.LongIDLE/28.png',
+        './img/1.Sharkie/2.LongIDLE/29.png',
+        './img/1.Sharkie/2.LongIDLE/210.png',
+        './img/1.Sharkie/2.LongIDLE/211.png',
+        './img/1.Sharkie/2.LongIDLE/212.png',
+        './img/1.Sharkie/2.LongIDLE/213.png',
     ];
 
     IMAGES_SLEEP = [
-        './img/1.Sharkie/2.Long_IDLE/i11.png',
-        './img/1.Sharkie/2.Long_IDLE/i12.png',
-        './img/1.Sharkie/2.Long_IDLE/i13.png',
+        './img/1.Sharkie/2.LongIDLE/211.png',
+        './img/1.Sharkie/2.LongIDLE/212.png',
+        './img/1.Sharkie/2.LongIDLE/213.png',
     ];
 
 

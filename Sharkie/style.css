@@ -4,7 +4,8 @@ body {
     align-items: center;
     flex-direction: column;
     background-image: url("img/pexels-kammeran-gonzalezkeola-9559872.jpg");
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: auto 200%;
     color: white;
     font-family: 'Luckiest Guy', cursive;
 }
@@ -437,7 +438,7 @@ h1 {
 
 
 
-@media (orientation: landscape) and (max-width: 720px) {
+@media (orientation: landscape) and (max-width: 1000px) {
 
 
     .canvas {
