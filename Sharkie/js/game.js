@@ -54,7 +54,7 @@ window.addEventListener('keydown', (event) => {
     if (event.key === 'd') {
         keyboard.D = true;
         world.idletime = 0;
-            world.sounds.playBlub();
+        world.sounds.playBlub();
     }
 });
 
@@ -87,10 +87,70 @@ window.addEventListener('keyup', (event) => {
 });
 
 
+
+window.addEventListener('keydown', (event) => {
+    if (event.key === 'm') {
+        stopAudio();
+    }
+    if (event.key === 'f') {
+        enablefullscreen();
+    }
+    if (event.key === 'r') {
+        realod();
+    }
+});
+
+
+window.addEventListener('keyup', (event) => {
+    if (event.key === 'm') {
+        stopAudio();
+    }
+    if (event.key === 'f') {
+        enablefullscreen();
+    }
+    if (event.key === 'r') {
+        realod();
+    }
+}
+);
+
+
+let schiesen = false;
+let laufen = false;
+
+
+window.addEventListener('mousedown', () => { // Remove the 'click' parameter
+    if (schiesen) {
+        keyboard.D = true;
+        world.sounds.playBlub();
+    }
+    if (laufen) {
+        keyboard.RIGHT = true;
+    }
+});
+
+window.addEventListener('mouseup', () => {
+    keyboard.RIGHT = false;
+    keyboard.D = false;
+    laufen = false;
+    schiesen = false;
+});
+
+
+function mobileMove() {
+    laufen = true;
+}
+
+
+function mobileShoot() {
+    schiesen = true;
+}
+
+
 function stopAudio() {
     // document.getElementById('stopAudio').src = "./img/7. Mobile/SoundOf.png";
     if (world.sounds.muted) {
-        world.sounds.muted = false; 
+        world.sounds.muted = false;
         world.sounds.sounds.Snoring.muted = false;
         world.sounds.sounds.Blub.muted = false;
         world.sounds.sounds.Coin.muted = false;
@@ -98,8 +158,13 @@ function stopAudio() {
         world.sounds.sounds.Endboss.muted = false;
         world.sounds.sounds.Gift.muted = false;
         world.sounds.sounds.Boom.muted = false;
+        world.sounds.sounds.Hurt.muted = false;
+        world.sounds.sounds.Win.muted = false;
+        world.sounds.sounds.YouWin.muted = false;
+        world.sounds.sounds.YouLose.muted = false;
 
-           playAudio();
+
+        playAudio();
     } else {
         world.sounds.muted = true;
         world.sounds.sounds.Snoring.muted = true;
@@ -109,7 +174,11 @@ function stopAudio() {
         world.sounds.sounds.Endboss.muted = true;
         world.sounds.sounds.Gift.muted = true;
         world.sounds.sounds.Boom.muted = true;
-        
+        world.sounds.sounds.Hurt.muted = true;
+        world.sounds.sounds.Win.muted = true;
+        world.sounds.sounds.YouWin.muted = true;
+        world.sounds.sounds.YouLose.muted = true;
+
     }
 
 }
@@ -119,13 +188,13 @@ function stopAudio() {
 function playAudio() {
 
 
-        if (world.character.x > 800 * 2) {
-            world.sounds.stopBackground();
-            world.sounds.playEndboss();
-        }
-        else
-            world.sounds.playBackground();
-    
+    if (world.character.x > 800 * 2) {
+        world.sounds.stopBackground();
+        world.sounds.playEndboss();
+    }
+    else
+        world.sounds.playBackground();
+
 }
 
 

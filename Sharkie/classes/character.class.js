@@ -109,10 +109,6 @@ class Character extends MovableObject {
     };
 
     animate() {
-
-
-
-
         setInterval(() => {
             this.move();
         }, 1000 / 60);
@@ -122,33 +118,32 @@ class Character extends MovableObject {
                 this.stayInLastFrame();
                 this.world.gameOver();
             }
-            else if (this.isHurt() && this.energy > 0) {
+            else if (this.isHurt() && this.energy > 0)
                 this.playAnimation2(this.IMAGES_HURT);
-            }
             else if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
                 this.playAnimation2(this.IMAGES_WALKING);
-                
                 this.world.sounds.stopSnoring();
             }
             else if (this.world.keyboard.D) {
                 this.playAnimation2(this.IMAGES_ATTACK);
+                this.world.sounds.stopSnoring();
             }
-            else if (this.world.idletime > 0 && this.energy > 0 && this.world.idletime < 20) {
+            else if (this.world.idletime > 0 && this.energy > 0 && this.world.idletime < 20)
                 this.playAnimation2(this.IMAGES_IDLE);
-            }
-            else if (this.world.idletime == 20) {
+            else if (this.world.idletime == 20)
                 this.playAnimation2(this.IMAGES_LONG_IDLE);
-                
-            }
             else if (this.world.idletime > 21) {
                 this.playAnimation2(this.IMAGES_SLEEP);
                 this.world.sounds.playSnoring();
             }
-
         }, 1000 / 10);
     };
 
+ i = 0;
+
+
     move() {
+
         if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x - 100) {
             this.x += 5;
             this.otherDirection = false;
@@ -165,6 +160,15 @@ class Character extends MovableObject {
         if (this.world.keyboard.DOWN && this.y < 320) {
             this.y += 5;
         }
+
+        
+        if (this.world && this.world.character.x > 790 * 2 && this.i == 0) {
+            this.i++;
+            world.sounds.stopBackground();
+            world.sounds.playEndboss();
+        }
+        
+    
     };
 
     stayInLastFrame() {

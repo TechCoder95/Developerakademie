@@ -19,8 +19,7 @@ class World {
     sounds = new Sounds();
 
 
-
-
+    
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
         this.canvas = canvas;
@@ -28,34 +27,29 @@ class World {
         this.run();
     }
 
+
     setWorld() {
         this.character.world = this;
 
     }
+
 
     run() {
         this.draw();
         this.setWorld();
         this.checkCollisons();
         this.checkIdleTime();
-
     }
 
 
     checkIdleTime() {
         setInterval(() => {
-            if (this.keyboard.RIGHT || this.keyboard.LEFT || this.keyboard.UP || this.keyboard.DOWN || this.keyboard.SPACE || this.keyboard.D) {
+            if (this.keyboard.RIGHT || this.keyboard.LEFT || this.keyboard.UP || this.keyboard.DOWN || this.keyboard.SPACE || this.keyboard.D)
                 this.idletime = 0;
-            }
-            else {
+            else
                 this.idletime++;
-            }
-        }
-            , 500);
-
-
+        }, 500);
     }
-
 
 
     checkThrowableObjects() {
@@ -71,6 +65,7 @@ class World {
         }
     }
 
+
     checkCollisons() {
         setInterval(() => {
             this.checkenemyCollisions();
@@ -84,6 +79,7 @@ class World {
         }, 1000 / 60);
     }
 
+
     checkenemyCollisions() {
         this.level.enemies.forEach((enemy) => {
             if (this.character.isCollidingcharacter(enemy)) {
@@ -92,9 +88,13 @@ class World {
                 if (this.character.energy <= 0) {
                     this.character.setDead();
                 }
+                if (this.sounds.muted == false && this.character.energy > 0)
+                    this.sounds.playHurt();
+
             }
         });
     }
+
 
     checkcoinCollisions() {
         this.level.coins.forEach((coin) => {
@@ -106,6 +106,7 @@ class World {
             }
         });
     }
+
 
     checkpoisonCollisions() {
         this.level.poison.forEach((poison) => {
@@ -124,6 +125,7 @@ class World {
         });
     }
 
+
     checkbubbleCollisions() {
         this.level.enemies.forEach((enemy) => {
             this.throwableObjects.forEach((bubble) => {
@@ -138,6 +140,7 @@ class World {
         });
 
     }
+
 
     checkendbossCollisions() {
         this.throwableObjects.forEach((bubble) => {
@@ -155,6 +158,7 @@ class World {
             }
         };
     }
+
 
     draw() {
         setTimeout(() => {
@@ -179,11 +183,13 @@ class World {
         this.ctx.translate(-this.camera_x, 0);
     }
 
+
     addObjectstoMap(objects) {
         objects.forEach((object) => {
             this.addtoMap(object);
         });
     }
+
 
     addtoMap(mo) {
         if (!mo.otherDirection) {
@@ -194,13 +200,24 @@ class World {
         }
     }
 
+
     gameOver() {
         document.getElementById('overlay').innerHTML =
             `<img class="gameover" src="img/6.Botones/Tittles/Game Over/Recurso 10.png">
             <img class="tryagainbutton" src="img/6.Botones/Try again/Recurso 16.png" onclick="realod()">`;
         let addBlurToElement = document.getElementById('canvas');
         addBlurToElement.classList.add('blurfilter');
+
+        //Gameover Sound
+        if (this.sounds.muted == false && this.character.energy <= 0) {
+            this.sounds.stopEndboss();
+            this.sounds.stopBackground();
+            this.sounds.playWin();
+            this.sounds.playYouLose();
+        }
+
     }
+
 
     startgame() {
         document.getElementById('overlay').innerHTML =
@@ -209,4 +226,6 @@ class World {
         let addBlurToElement = document.getElementById('canvas');
         addBlurToElement.classList.add('blurfilter');
     }
+
+
 }

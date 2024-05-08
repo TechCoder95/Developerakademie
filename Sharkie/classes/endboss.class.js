@@ -10,7 +10,6 @@ class Endboss extends MovableObject {
     speed = 55;
 
 
-
     IMAGES_INTRO = [
         'img/2.Enemy/3 Final Enemy/1.Introduce/1.png',
         'img/2.Enemy/3 Final Enemy/1.Introduce/2.png',
@@ -132,6 +131,12 @@ class Endboss extends MovableObject {
         overlay.innerHTML = `<img class="youwin" src="./img/6.Botones/Tittles/You win/Recurso 19.png">`;
         let addblurfilter = document.getElementById('canvas');
         addblurfilter.classList.add('blurfilter')
+        if (world.sounds.muted == false){
+            world.sounds.stopEndboss();
+            world.sounds.playWin();
+            world.sounds.playYouWin();
+        }
+
     }
 
     attack() {
@@ -148,9 +153,6 @@ class Endboss extends MovableObject {
 
     animate() {
         let i = 0
-
-
-
         setInterval(() => {
             if (i < 10) {
                 this.playAnimation2(this.IMAGES_INTRO);
@@ -177,11 +179,9 @@ class Endboss extends MovableObject {
 
             i++;
 
-            if (world && world.character.x > 800 * 2 && !this.hadFirstConcact) {
+            if (!this.hadFirstConcact) {
                 i = 0;
                 this.hadFirstConcact = true;
-                world.sounds.stopBackground();
-                world.sounds.playEndboss()
             }
         }, 200);
     }

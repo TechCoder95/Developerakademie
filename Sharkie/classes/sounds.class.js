@@ -12,6 +12,10 @@ class Sounds {
             Endboss: new Audio('./audio/Endboss.wav'),
             Gift: new Audio('./audio/Gift.wav'),
             Boom: new Audio('./audio/Boom.flac'),
+            Hurt: new Audio('./audio/Hurt.mp3'),
+            Win: new Audio('./audio/Win.mp3'),
+            YouWin: new Audio('./audio/YouWin.mp3'),
+            YouLose: new Audio('./audio/YouLose.mp3'),
         };
     }
 
@@ -40,12 +44,6 @@ class Sounds {
     }
 
 
-    stopEndboss() {
-        this.sounds.Endboss.muted = true;
-        this.sounds.Endboss.pause();
-    }
-
-
     playEndboss() {
         this.sounds.Endboss.muted = false;
         this.sounds.Endboss.play();
@@ -59,17 +57,19 @@ class Sounds {
 
     }
 
+    stopEndboss() {
+        this.sounds.Endboss.muted = true;
+        this.sounds.Endboss.pause();
+    }
 
     playCoin() {
         this.sounds.Coin.volume = 0.1;
         this.sounds.Coin.play();
     }
 
-
     playSnoring() {
         this.sounds.Snoring.play();
     }
-
 
     stopSnoring() {
         this.sounds.Snoring.muted = true;
@@ -82,20 +82,37 @@ class Sounds {
         this.sounds.Gift.play();
     }
 
-    stopGift() {
-        this.sounds.Gift.muted = true;
-        this.sounds.Gift.pause();
-    }
-
     playBoom() {
         this.sounds.Boom.muted = false;
         this.sounds.Boom.volume = 0.1;
         this.sounds.Boom.play();
     }
 
-    stopBoom() {
-        this.sounds.Boom.muted = true;
-        this.sounds.Boom.pause();
+    playHurt() {
+        this.sounds.Hurt.muted = false;
+        this.sounds.Hurt.volume = 0.1;
+        this.sounds.Hurt.play();
+    }
+
+
+    playWin() {
+        this.sounds.Win.muted = false;
+        this.sounds.Win.volume = 0.1;
+        this.sounds.Win.play();
+    }
+
+    
+    playYouWin() {
+        this.sounds.YouWin.muted = false;
+        this.sounds.YouWin.volume = 0.1;
+        this.sounds.YouWin.play();
+    }
+
+
+    playYouLose() {
+        this.sounds.YouLose.muted = false;
+        this.sounds.YouLose.volume = 0.1;
+        this.sounds.YouLose.play();
     }
 
 
