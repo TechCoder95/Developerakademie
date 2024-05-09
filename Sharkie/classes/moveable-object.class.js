@@ -65,9 +65,9 @@ class MovableObject extends DrawableObject {
         return this.x + this.width > mo.x &&
             this.y + this.height > mo.y &&
             this.x < mo.x + mo.width &&
-            this.y < mo.y + mo.height ;
+            this.y < mo.y + mo.height;
     };
-    
+
 
     /**
      * Checks if the current object is colliding with another moveable object.
@@ -78,7 +78,7 @@ class MovableObject extends DrawableObject {
         return this.x + this.width - this.xOffset > mo.x &&
             this.y + this.height - this.yOffset > mo.y &&
             this.x + this.xOffset < mo.x + mo.width &&
-            this.y + this.yOffset < mo.y + mo.height ;
+            this.y + this.yOffset < mo.y + mo.height;
     };
 
 
@@ -111,8 +111,8 @@ class MovableObject extends DrawableObject {
     addCoin() {
         this.coins += 20;
         if (world.sounds.muted == false)
-        world.sounds.playCoin();
-        else{
+            world.sounds.playCoin();
+        else {
             return;
         }
     };
@@ -191,6 +191,7 @@ class MovableObject extends DrawableObject {
      */
     moveLeft() {
         setInterval(() => {
+            if (this.x != 150)
             this.x -= this.speed;
         }, 1000 / 144);
     }
@@ -213,7 +214,10 @@ class MovableObject extends DrawableObject {
      */
     moveDown() {
         setInterval(() => {
-            this.y += this.speed;
+            if (this.y == 0)
+                this.y += this.speed;
+            else
+                this.y -= this.speed;
         }, 1000 / 144);
     }
 
@@ -232,4 +236,15 @@ class MovableObject extends DrawableObject {
     }
 
 
+    moveRandom() {
+        if (this.x > 740 * 2) 
+            this.moveLeft();
+        else if (this.x < 740 * 2) 
+            this.moveRight();
+        
+        if (this.y > 300) 
+            this.moveDown();
+        else if (this.y < 0)
+            this.moveUp();
+    }
 }

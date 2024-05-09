@@ -140,9 +140,6 @@ class Endboss extends MovableObject {
         }, 25)
         setTimeout(() => {
             this.renderWinningScreen()
-            setTimeout(() => {
-                location.reload();
-            }, 5000)
         }, 500)
     };
 
@@ -156,7 +153,8 @@ class Endboss extends MovableObject {
      */
     renderWinningScreen() {
         let overlay = document.getElementById('overlay');
-        overlay.innerHTML = `<img class="youwin" src="./img/6.Botones/Tittles/You win/Recurso 19.png">`;
+        overlay.innerHTML = `<img class="youwin" src="./img/6.Botones/Tittles/You win/Recurso 19.png">
+        <img class="tryagainbutton" src="img/6.Botones/Try again/Recurso 16.png" onclick="realod()">`;
         let addblurfilter = document.getElementById('canvas');
         addblurfilter.classList.add('blurfilter')
         if (world.sounds.muted == false) {
@@ -191,8 +189,8 @@ class Endboss extends MovableObject {
     animate() {
         setInterval(() => {
             if (this.hadFirstConcact == true)
-            this.move();
-        }, 100);
+                this.move();
+        }, 2000);
         let i = 0
         setInterval(() => {
             if (i < 10) {
@@ -230,16 +228,10 @@ class Endboss extends MovableObject {
 
 
     move() {
-        const randomY = Math.random() * 10 - 5; // Generate a random number between -5 and 5
-        if (this.x < 730 * 2 )
-            this.x += 5;
-        else
-            this.x -= 5;
-
-        if (this.y < 0)
-            this.y -= randomY;
-        else
-            this.y += randomY; // Move the boss every 1 second
-
+        if (this.x > 740 * 2) {
+            this.moveLeft();
+        } else if (this.x < 740 * 2) {
+            this.moveRight();
+        }
     }
 }

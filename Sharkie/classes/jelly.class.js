@@ -77,7 +77,7 @@ class Jelly extends MovableObject {
      * Animates the jellyfish by continuously playing different animations.
      */
     animate() {
-        this.moveUp();
+        this.moveRandom();
         setInterval(() => {
             if (this.jellyFishIsDead()) {
                 this.playAnimation2(this.IMAGES_JELLY_DEAD);

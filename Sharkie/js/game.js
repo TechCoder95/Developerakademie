@@ -170,9 +170,6 @@ function holdit(btn, action, start, speedup) {
     }, false);
 }
 
-
-
-
 function mobileMoveUP() {
     // Verwende die Funktion mit deinem eigenen Code
     var meinButton = document.getElementById("btnMoveUP");
@@ -295,7 +292,7 @@ function enablefullscreen() {
         document.getElementById('canvas').style.width = "720px"
         document.getElementById('canvas').style.height = "480px"
         document.getElementById('fixedButtons').style.right = "30%"
-        
+
     };
 };
 
@@ -308,7 +305,7 @@ document.addEventListener('fullscreenchange', () => {
         document.getElementById('canvas').style.width = "720px";
         document.getElementById('canvas').style.height = "480px";
         document.getElementById('fixedButtons').style.right = "40%"
-        
+
     } else {
         document.getElementById('canvas').style.width = "95vw"
         document.getElementById('canvas').style.height = "90vh"
@@ -323,3 +320,5 @@ document.addEventListener('fullscreenchange', () => {
 function realod() {
     location.reload();
 };
+
+
