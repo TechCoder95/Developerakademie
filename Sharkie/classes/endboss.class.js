@@ -190,6 +190,7 @@ class Endboss extends MovableObject {
      */
     animate() {
         setInterval(() => {
+            if (this.hadFirstConcact == true)
             this.move();
         }, 100);
         let i = 0
@@ -230,8 +231,8 @@ class Endboss extends MovableObject {
 
     move() {
         const randomY = Math.random() * 10 - 5; // Generate a random number between -5 and 5
-        if (this.x < 800 * 2)
-            this.x += -5;
+        if (this.x < 730 * 2 )
+            this.x += 5;
         else
             this.x -= 5;
 

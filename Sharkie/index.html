@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-        <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sharkie</title>
 
@@ -32,7 +32,7 @@
 
 <body onload="startgame()">
     <div id="container"></div>
-    <h1>Sharkie</h1>
+    <h1 id="headline">Sharkie</h1>
     <canvas id="canvas" width="720" height="480" class="blurfilter"></canvas>
 
     <div class="fixedButtons" id="fixedButtons">
@@ -43,7 +43,13 @@
     </div>
 
     <div id="hud" class="mobile">
-        <img class="gamebutton" id="btnMove" onclick="mobileMove()" src="img/6.Botones/Key/arrow keys.png">
+        <div class="arrows">
+            <img class="gamebutton groese up" id="btnMoveUP" onclick="mobileMoveUP()" src="img/6.Botones/Key/arrows/UP.png">
+            <img class="gamebutton groese down" id="btnMoveDOWN" onclick="mobileMoveDOWN()" src="img/6.Botones/Key/arrows/DOWN.png">
+            <img class="gamebutton groese " id="btnMoveLEFT" onclick="mobileMoveLEFT()" src="img/6.Botones/Key/arrows/LEFT.png">
+            <img class="gamebutton groese " id="btnMoveRIGHT" onclick="mobileMoveRIGHT()" src="img/6.Botones/Key/arrows/RIGHT.png">
+        </div>
+
         <img class="gamebutton" id="btnAttack" onclick="mobileShoot()" src="img/6.Botones/Key/D key.png">
     </div>
 

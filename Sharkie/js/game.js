@@ -138,36 +138,82 @@ let schiesen = false;
 let laufen = false;
 
 
-/**
- * Handles the mousedown event and updates the keyboard state for shooting and running.
- */
-window.addEventListener('mousedown', () => {
-    if (schiesen) {
-        keyboard.D = true;
-        world.sounds.playBlub();
-    }
-    if (laufen) {
-        keyboard.RIGHT = true;
-    }
-});
+
+// Erstelle eine Funktion, die wiederholt aufgerufen wird
+function holdit(btn, action, start, speedup) {
+    var t;
+    var repeat = function () {
+        action();
+        t = setTimeout(repeat, start);
+        start = start / speedup;
+    };
+
+    // Wenn der Button gedrückt wird, starte die Wiederholung
+    btn.addEventListener("touchstart", function () {
+        repeat();
+    }, false);
+
+    // Wenn der Button losgelassen wird, stoppe die Wiederholung
+    btn.addEventListener("touchend", function () {
+        clearTimeout(t);
+        if (laufen) {
+            keyboard.RIGHT = false;
+            keyboard.UP = false;
+            keyboard.DOWN = false;
+            keyboard.LEFT = false;
+            laufen = false;
+        }
+        if (schiesen) {
+            keyboard.D = false;
+            schiesen = false;
+        }
+    }, false);
+}
 
 
-/**
- * Handles the mouseup event and updates the keyboard state for stopping shooting and running.
- */
-window.addEventListener('mouseup', () => {
-    keyboard.RIGHT = false;
-    keyboard.D = false;
-    laufen = false;
-    schiesen = false;
-});
+
+
+function mobileMoveUP() {
+    // Verwende die Funktion mit deinem eigenen Code
+    var meinButton = document.getElementById("btnMoveUP");
+    holdit(meinButton, function () {
+        keyboard.UP = true;
+        laufen = true;
+    }, 1000, 2); // x..1000ms..x..500ms..x..250ms..x
+}
+
+
+
+function mobileMoveDOWN() {
+    // Verwende die Funktion mit deinem eigenen Code
+    var meinButton = document.getElementById("btnMoveDOWN");
+    holdit(meinButton, function () {
+        keyboard.DOWN = true;
+        laufen = true;
+    }, 1000, 2); // x..1000ms..x..500ms..x..250ms..x
+}
+
+
+function mobileMoveLEFT() {
+    // Verwende die Funktion mit deinem eigenen Code
+    var meinButton = document.getElementById("btnMoveLEFT");
+    holdit(meinButton, function () {
+        keyboard.LEFT = true;
+        laufen = true;
+    }, 1000, 2); // x..1000ms..x..500ms..x..250ms..x
+}
 
 
 /**
  * Sets the `laufen` variable to `true`, indicating that the mobile is moving.
  */
-function mobileMove() {
-    laufen = true;
+function mobileMoveRIGHT() {
+    // Verwende die Funktion mit deinem eigenen Code
+    var meinButton = document.getElementById("btnMoveRIGHT");
+    holdit(meinButton, function () {
+        keyboard.RIGHT = true;
+        laufen = true;
+    }, 1000, 2); // x..1000ms..x..500ms..x..250ms..x
 }
 
 
@@ -175,7 +221,13 @@ function mobileMove() {
  * Enables shooting on mobile devices.
  */
 function mobileShoot() {
-    schiesen = true;
+    // Verwende die Funktion mit deinem eigenen Code
+    var meinButton = document.getElementById("btnAttack");
+    holdit(meinButton, function () {
+        keyboard.D = true;
+        world.sounds.playBlub();
+        schiesen = true;
+    }, 1000, 2); // x..1000ms..x..500ms..x..250ms..x
 }
 
 
@@ -235,14 +287,15 @@ function enablefullscreen() {
     if (document.fullscreenElement == "" || document.fullscreenElement == null) {
         document.getElementById('canvas').style.width = "100vw"
         document.getElementById('canvas').style.height = "100vh"
-        document.getElementById('fixedButtons').style.right = "0"
-        document.documentElement.requestFullscreen().catch((e) => {
-        });
+        document.getElementById('fixedButtons').style.right = "20px"
+        document.getElementById('fixedButtons').style.top = "20px"
+        document.getElementById('headline').style.display = "none"
     } else {
         document.exitFullscreen();
         document.getElementById('canvas').style.width = "720px"
         document.getElementById('canvas').style.height = "480px"
-        document.getElementById('fixedButtons').style.right = "310px"
+        document.getElementById('fixedButtons').style.right = "30%"
+        
     };
 };
 
@@ -254,11 +307,12 @@ document.addEventListener('fullscreenchange', () => {
     if (document.fullscreenElement === null) {
         document.getElementById('canvas').style.width = "720px";
         document.getElementById('canvas').style.height = "480px";
-        document.getElementById('fixedButtons').style.right = "420px"
+        document.getElementById('fixedButtons').style.right = "40%"
+        
     } else {
         document.getElementById('canvas').style.width = "95vw"
         document.getElementById('canvas').style.height = "90vh"
-        document.getElementById('fixedButtons').style.right = "310px"
+        document.getElementById('fixedButtons').style.right = "40%"
     };
 });
 
