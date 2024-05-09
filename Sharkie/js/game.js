@@ -173,10 +173,14 @@ function holdit(btn, action, start, speedup) {
 function mobileMoveUP() {
     // Verwende die Funktion mit deinem eigenen Code
     var meinButton = document.getElementById("btnMoveUP");
-    holdit(meinButton, function () {
+    meinButton.addEventListener("touchstart", function () {
         keyboard.UP = true;
         laufen = true;
-    }, 1000, 2); // x..1000ms..x..500ms..x..250ms..x
+    }, false);
+    meinButton.addEventListener("touchend", function () {
+        keyboard.UP = false;
+        laufen = false;
+    }, false);
 }
 
 
