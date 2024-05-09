@@ -6,7 +6,6 @@ class Endboss extends MovableObject {
     isHit = false;
     isDead = false;
     isAttacking = false;
-    winningScreenIsRenderd = false;
     speed = 55;
 
 
@@ -140,14 +139,10 @@ class Endboss extends MovableObject {
             this.speedY -= 0.05;
         }, 25)
         setTimeout(() => {
-            if (this.winningScreenIsRenderd) {
-                setTimeout(() => {
-                    location.reload();
-                }, 5000)
-            } else {
-                this.renderWinningScreen()
-                this.winningScreenIsRenderd = true;
-            }
+            this.renderWinningScreen()
+            setTimeout(() => {
+                location.reload();
+            }, 5000)
         }, 500)
     };
 
@@ -160,12 +155,11 @@ class Endboss extends MovableObject {
      * Stops the end boss sound and plays the win and you win sounds if the game sounds are not muted.
      */
     renderWinningScreen() {
-        this.winningScreenIsRendered = true;
         let overlay = document.getElementById('overlay');
         overlay.innerHTML = `<img class="youwin" src="./img/6.Botones/Tittles/You win/Recurso 19.png">`;
         let addblurfilter = document.getElementById('canvas');
         addblurfilter.classList.add('blurfilter')
-        if (world.sounds.muted == false){
+        if (world.sounds.muted == false) {
             world.sounds.stopEndboss();
             world.sounds.playWin();
             world.sounds.playYouWin();
@@ -190,11 +184,14 @@ class Endboss extends MovableObject {
 
     hadFirstConcact = false;
 
-    
+
     /**
      * Animates the end boss by playing different animations based on its state.
      */
     animate() {
+        setInterval(() => {
+            this.move();
+        }, 100);
         let i = 0
         setInterval(() => {
             if (i < 10) {
@@ -227,5 +224,21 @@ class Endboss extends MovableObject {
                 this.hadFirstConcact = true;
             }
         }, 200);
+    }
+
+
+
+    move() {
+        const randomY = Math.random() * 10 - 5; // Generate a random number between -5 and 5
+        if (this.x < 800 * 2)
+            this.x += -5;
+        else
+            this.x -= 5;
+
+        if (this.y < 0)
+            this.y -= randomY;
+        else
+            this.y += randomY; // Move the boss every 1 second
+
     }
 }

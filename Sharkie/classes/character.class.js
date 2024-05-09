@@ -130,8 +130,11 @@ class Character extends MovableObject {
                 this.world.sounds.stopSnoring();
             }
             else if (this.world.keyboard.D) {
-                this.playAnimation2(this.IMAGES_ATTACK);
-                this.world.sounds.stopSnoring();
+                this.world.statusbar_poison.setPercentage(this.poison);
+                if (this.energy > 0 && this.poison > 0) {
+                    this.playAnimation2(this.IMAGES_ATTACK);
+                    this.world.sounds.stopSnoring();
+                }
             }
             else if (this.world.idletime > 0 && this.energy > 0 && this.world.idletime < 20)
                 this.playAnimation2(this.IMAGES_IDLE);

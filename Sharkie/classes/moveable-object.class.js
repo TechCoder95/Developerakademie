@@ -124,12 +124,12 @@ class MovableObject extends DrawableObject {
      * Otherwise, it updates the lastHit property with the current timestamp.
      */
     hitPoison() {
-        this.energy -= 20;
-        if (this.energy <= 0) {
-            this.energy = 0;
-        } else {
-            this.lastHit = new Date().getTime();
-        }
+        this.energy += 20;
+        // if (this.energy <= 0) {
+        //     this.energy = 0;
+        // } else {
+        //     this.lastHit = new Date().getTime();
+        // }
     }
 
 

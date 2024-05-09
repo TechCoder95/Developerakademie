@@ -24,7 +24,11 @@ const level1 = new Level(
         new Poison(), 
         new Poison(), 
         new Poison(), 
-        new Poison(), 
+        new Poison(),
+        new Poison(),
+        new Poison(),
+        new Poison(),
+        new Poison(),
     ],
     [
         new BackgroundObject('./img/3.Background/Layers/5.Water/D1.png', 0, 720, 500),

@@ -1,13 +1,18 @@
 body {
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     background-image: url("img/pexels-kammeran-gonzalezkeola-9559872.jpg");
     background-repeat: no-repeat;
-    background-size: auto 200%;
+    background-size: cover;
+    background-position: center;
     color: white;
     font-family: 'Luckiest Guy', cursive;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 }
 
 @font-face {
@@ -38,8 +43,8 @@ h1 {
 
 #startscreen {
     width: 800px;
-    height: 550px;
-    margin-top: 150px;
+    height: 600px;
+    margin-top: 130px;
     background-image: url("img/3.Background/Legacy/Dark/1.png");
     background-size: cover;
     border-radius: 30px;
@@ -58,6 +63,7 @@ h1 {
 #startgame {
     display: flex;
     align-self: center;
+    margin-top: 50px;
 }
 
 .gamebutton {
@@ -338,7 +344,6 @@ h1 {
 
     #hud {
         height: 10vh;
-        background-color: aqua;
         margin: 0;
         width: 100%;
     }

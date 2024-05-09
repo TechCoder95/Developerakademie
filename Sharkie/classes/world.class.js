@@ -63,8 +63,9 @@ class World {
      * Checks for throwable objects and adds them to the list of throwable objects.
      */
     checkThrowableObjects() {
-        if (this.hasExecuted == false && this.keyboard.D) {
+        if (this.hasExecuted == false && this.keyboard.D && this.character.energy > 0 && this.character.poison > 0) {
             this.hasExecuted = true;
+            this.character.poison -= 20;
             setTimeout(() => {
                 let bubble = new ThrowableObject(this.character.x + this.character.width - 30, this.character.y + this.character.height / 2);
                 this.throwableObjects.push(bubble);
@@ -141,7 +142,6 @@ class World {
                 this.character.hitPoison();
                 this.character.addPoison();
                 this.statusbar_poison.setPercentage(this.character.poison);
-                this.statusbar_live.setPercentage(this.character.energy);
                 if (this.sounds.muted == false)
                 this.sounds.playGift();
                 if (this.character.energy <= 0) {

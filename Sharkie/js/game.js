@@ -233,9 +233,9 @@ function playAudio() {
  */
 function enablefullscreen() {
     if (document.fullscreenElement == "" || document.fullscreenElement == null) {
-        document.getElementById('canvas').style.width = "1200px"
-        document.getElementById('canvas').style.height = "800px"
-        document.getElementById('fixedButtons').style.right = "420px"
+        document.getElementById('canvas').style.width = "100vw"
+        document.getElementById('canvas').style.height = "100vh"
+        document.getElementById('fixedButtons').style.right = "0"
         document.documentElement.requestFullscreen().catch((e) => {
         });
     } else {
@@ -256,8 +256,8 @@ document.addEventListener('fullscreenchange', () => {
         document.getElementById('canvas').style.height = "480px";
         document.getElementById('fixedButtons').style.right = "420px"
     } else {
-        document.getElementById('canvas').style.width = "1200px";
-        document.getElementById('canvas').style.height = "800px";
+        document.getElementById('canvas').style.width = "95vw"
+        document.getElementById('canvas').style.height = "90vh"
         document.getElementById('fixedButtons').style.right = "310px"
     };
 });
