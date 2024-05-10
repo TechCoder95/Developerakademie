@@ -8,6 +8,8 @@ class DrawableObject {
     height = 200;
     width = 200;
 
+    kasten = false;
+
 
     /**
      * Loads an image from the specified path.
@@ -44,5 +46,14 @@ class DrawableObject {
      */
     drawImage(ctx, img, x, y, width, height) {
         ctx.drawImage(img, x, y, width, height);
+
+
+        if (this.kasten){
+        ctx.beginPath();
+        ctx.lineWidth = "2";
+        ctx.strokeStyle = "red";
+        ctx.rect(x, y, width, height);
+        ctx.stroke();
+    }
     };
 }

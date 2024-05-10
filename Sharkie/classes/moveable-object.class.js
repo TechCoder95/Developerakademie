@@ -48,11 +48,13 @@ class MovableObject extends DrawableObject {
         ctx.drawImage(img, 0, y, width, height);
         ctx.restore();
 
-        // ctx.beginPath();
-        // ctx.lineWidth = "2";
-        // ctx.strokeStyle = "red";
-        // ctx.rect(x, y, width, height);
-        // ctx.stroke();
+        if (this.kasten){
+            ctx.beginPath();
+            ctx.lineWidth = "2";
+            ctx.strokeStyle = "red";
+            ctx.rect(x, y, width, height);
+            ctx.stroke();
+        }
     }
 
 

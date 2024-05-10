@@ -155,6 +155,12 @@ class Character extends MovableObject {
      */
     move() {
 
+
+        if (this.x > 740*2) {
+            this.world.endboss.hadFirstConcact = true
+        }
+
+
         if (this.world.keyboard.RIGHT && this.x < this.world.level.level_end_x - 100) {
             this.x += 5;
             this.otherDirection = false;

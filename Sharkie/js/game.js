@@ -149,13 +149,15 @@ function holdit(btn, action, start, speedup) {
     };
 
     // Wenn der Button gedrückt wird, starte die Wiederholung
-    btn.addEventListener("touchstart", function () {
+    btn.addEventListener("touchstart", function (event) {
         repeat();
+        event.preventDefault();
     }, false);
 
     // Wenn der Button losgelassen wird, stoppe die Wiederholung
-    btn.addEventListener("touchend", function () {
+    btn.addEventListener("touchend", function (event) {
         clearTimeout(t);
+        event.preventDefault();
         if (laufen) {
             keyboard.RIGHT = false;
             keyboard.UP = false;
@@ -170,17 +172,28 @@ function holdit(btn, action, start, speedup) {
     }, false);
 }
 
+
+window.addEventListener('load', () => {
+    addEvent();
+});
+
+
+function addEvent() {
+    mobileMoveUP();
+    mobileMoveDOWN();
+    mobileMoveLEFT();
+    mobileMoveRIGHT();
+    mobileShoot();
+}
+
+
 function mobileMoveUP() {
-    // Verwende die Funktion mit deinem eigenen Code
-    var meinButton = document.getElementById("btnMoveUP");
-    meinButton.addEventListener("touchstart", function () {
-        keyboard.UP = true;
-        laufen = true;
-    }, false);
-    meinButton.addEventListener("touchend", function () {
-        keyboard.UP = false;
-        laufen = false;
-    }, false);
+     // Verwende die Funktion mit deinem eigenen Code
+     var meinButton = document.getElementById("btnMoveUP");
+     holdit(meinButton, function () {
+         keyboard.UP = true;
+         laufen = true;
+     }, 1000, 2); // x..1000ms..x..500ms..x..250ms..x
 }
 
 

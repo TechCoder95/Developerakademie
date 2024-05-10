@@ -2,7 +2,7 @@ class Endboss extends MovableObject {
     height = 520;
     width = 464;
     y = -30;
-    energy = 300;
+    energy = 100;
     isHit = false;
     isDead = false;
     isAttacking = false;
@@ -76,13 +76,6 @@ class Endboss extends MovableObject {
     ];
 
 
-    offset = {
-        top: 240,
-        left: 30,
-        right: 30,
-        bottom: 40
-    };
-
 
     /**
      * Represents the EndBoss class.
@@ -90,8 +83,9 @@ class Endboss extends MovableObject {
      */
     constructor() {
         super().loadImage('./img/2.Enemy/3 Final Enemy/2.floating/1.png');
-        this.x = 740 * 3 + 150;
         this.y = -100;
+        this.xOffset = -50;
+        this.yOffset = -50;
         this.speed = 0.1 + Math.random() * 0.2;
         this.loadImages(this.IMAGES_WALKING);
         this.loadImages(this.IMAGES_HURT);
@@ -101,7 +95,6 @@ class Endboss extends MovableObject {
         this.x = 10000;
         this.animate();
         this.attack();
-
     }
 
 
@@ -109,7 +102,7 @@ class Endboss extends MovableObject {
      * Decreases the energy of the end boss by 50 and updates its state accordingly.
      */
     endbossIsHit() {
-        this.energy -= 50;
+        this.energy -= 20;
         if (this.energy > 0) {
             this.isHit = true;
         } else if (this.energy == 0) {
@@ -157,6 +150,7 @@ class Endboss extends MovableObject {
         <img class="tryagainbutton" src="img/6.Botones/Try again/Recurso 16.png" onclick="realod()">`;
         let addblurfilter = document.getElementById('canvas');
         addblurfilter.classList.add('blurfilter')
+        this.stayInLastFrame();
         if (world.sounds.muted == false) {
             world.sounds.stopEndboss();
             world.sounds.playWin();
@@ -220,7 +214,6 @@ class Endboss extends MovableObject {
 
             if (!this.hadFirstConcact) {
                 i = 0;
-                this.hadFirstConcact = true;
             }
         }, 200);
     }
@@ -228,9 +221,9 @@ class Endboss extends MovableObject {
 
 
     move() {
-        if (this.x > 740 * 2) {
+        if (this.x > 740*3) {
             this.moveLeft();
-        } else if (this.x < 740 * 2) {
+        } else if (this.x < 740*3) {
             this.moveRight();
         }
     }
