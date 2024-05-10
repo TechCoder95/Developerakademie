@@ -12,6 +12,7 @@ class World {
     statusbar_live = new StatusBar_live();
     statusbar_coins = new StatusBar_coins();
     statusbar_poison = new StatusBar_poison();
+    statusbar_endbosslive = new StatusBar_EndbossLive();
     throwableObjects = [];
     hasExecuted = false;
     enemy = new Jelly();
@@ -180,6 +181,7 @@ class World {
             if (this.endboss.isColliding(bubble)) {
                 this.throwableObjects = this.throwableObjects.filter((b) => b != bubble);
                 this.endboss.endbossIsHit();
+                this.statusbar_endbosslive.setbosspercentage(this.endboss.energy);
             }
         });
 
@@ -210,6 +212,9 @@ class World {
         this.addObjectstoMap(this.throwableObjects);
         this.ctx.translate(-this.camera_x, 0);
         this.addtoMap(this.statusbar_live);
+        if (this.character.x > 800 * 2) {
+            this.addtoMap(this.statusbar_endbosslive);
+        }
         this.addtoMap(this.statusbar_coins);
         this.addtoMap(this.statusbar_poison);
         this.ctx.translate(this.camera_x, 0);
