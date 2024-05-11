@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .landing {
@@ -12,6 +13,13 @@
     width: 100%;
     color: white;
     text-align: center;
+    background-color: #f5f5f5;
+    background-image: url('../../../assets/img/bgr1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh;
+    width: 100%;
 }
 
 .landing-inner {
