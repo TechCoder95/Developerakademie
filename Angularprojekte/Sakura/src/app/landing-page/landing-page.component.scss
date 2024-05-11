@@ -1,0 +1,32 @@
+* {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+.landing-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 80px;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 45px;
+    margin-bottom: 1rem;
+}
