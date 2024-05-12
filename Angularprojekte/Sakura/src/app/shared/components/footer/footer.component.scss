@@ -1,0 +1,13 @@
+.footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 150px;
+}
+
+.footer-child{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 30%;
+}
